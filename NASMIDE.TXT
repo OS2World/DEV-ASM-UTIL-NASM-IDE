@@ -1,0 +1,4570 @@
+.topic hcNoContext=0, hcHelpContents=1610
+
+ Ü NASM-IDE online help
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+Welcome to the NASM-IDE 1.7 online help. This section contains details on
+using NASM-IDE to write and test your assembler code. The NASM documentation
+is for version 0.98.08 - it is recommended that you consult the documentation
+supplied with NASM for more up to date information.
+
+The latest version of NASM can be downloaded from http://nasm.octium.net/ or
+http://nasm.2y.net/
+
+ Ü Contents
+ ßßßßßßßßßßß
+
+ ş {How to use help:hcHelpUsing}
+
+ ş {Menus and hot keys:hcHelpMenus}
+
+ ş {Edit windows:hcEditWindow}
+
+ ş {Using ASM Assistants:hcHelpAsmAssist}
+
+ ş {Programming in NASM:hcHelpNasmDoc}
+
+ ş {Credits:hcCredits}
+
+.topic hcHelpUsing=1630
+
+ Ü Using NASM-IDE online help
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+You can learn about NASM-IDE and assembly language programming using NASM
+through this online Help system.
+
+ ş what you're reading right now is a help screen
+
+ ş most help screens have some highlighted items called help keywords on them
+   that lead to another help screen
+
+ ş you can use the tab key to move the cursor from one Help keyword to
+   another, then press enter to choose that item
+
+ ş with the mouse, you can click a help keyword to choose that item
+
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcHelpMenus=10000
+
+ Ü Menus and hot keys
+ ßßßßßßßßßßßßßßßßßßßßß
+
+You can choose from any of these commands on the menu bar:
+
+ ş {File:hcFileMenu}
+ ş {Edit:hcEditMenu}
+ ş {Search:hcSearchMenu}
+ ş {Assemble:hcAssembleMenu}
+ ş {Options:hcOptionsMenu}
+ ş {Window:hcWindowMenu}
+ ş {Help:hcHelpMenu}
+
+For further instructions on using the menu bar, see {'How to use the menu bar':hcHelpUsingMenus}
+
+For information about menu hot keys, go to the {Hot keys:hcHelpHotKeys} section.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcHelpUsingMenus=10006
+
+ Ü How to use the menu bar
+ ßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+When you're in a window, there are three ways to select a menu command:
+
+ ÚÄÄÄÄÄ¿  Press F10, then use the arrow keys
+ ³ F10 ³  to go to the menu you want and use
+ ÀÄÄÄÄÄÙ  them again to select a command.
+          Press enter to choose the selected
+          command.
+
+ ÚÄÄÄÄÄ¿  Press Alt and the highlighted letter
+ ³ Alt ³  of the menu you want (such as Alt+F
+ ÀÄÄÄÄÄÙ  for the File menu), use the arrow
+          keys to select a command, then press
+          enter to choose that command.
+
+You can also press the highlighted letter of a menu name or command instead of
+using the arrow keys.
+
+ ÚÄÄ[ğ]ÄÄ¿  Click the title of the menu you want
+ ³ Mouse ³  to pull down, then click the menu
+ ÀÄÄÄÄÄÄÄÙ  command you want to choose.
+
+The highlighted menu title is the currently selected menu.
+
+Menu commands are followed by either an ellipsis mark (...), an arrow, or a
+hot key.
+
+  Mark ³ Name     ³ What the menu command does
+ ÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  ...  ³ Ellipsis ³ Brings up a dialog box
+       ³          ³
+    >  ³ Arrow    ³ Displays another menu
+       ³          ³
+   F4  ³ Hot key  ³ Initiates some action when
+ (etc.)³          ³ you choose that command or
+       ³          ³ press the specified hot key
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcHelpHotKeys=10007
+
+ Ü Hot Keys
+ ßßßßßßßßßßß
+
+NASM-IDE's hot keys, or shortcuts, are two or three-key combinations
+you can press to enact a menu command directly, without pulling down any
+menus.
+
+NASM-IDE provides hot keys for these types of commands:
+
+  {Menu bar commands:hcHotKeyMenu}      {Editing:hcHotKeyEdit}
+  {Window management:hcHotKeyWindow}      {Online help:hcHotKeyHelp}
+  {Program management:hcHotKeyProgram}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcHotKeyMenu=10008
+
+ Ü Menu bar hot keys
+ ßßßßßßßßßßßßßßßßßßßß
+
+  Hot Key      ³ Goes to This Menu
+ ÍÍÍÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  Alt+A        ³ Assemble
+  Alt+E        ³ Edit
+  Alt+F        ³ File
+  Alt+H        ³ Help
+  Alt+O        ³ Options
+  Alt+S        ³ Search
+  Alt+W        ³ Window
+ ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+  Alt+X        ³ Exits NASM-IDE to DOS
+  F10          ³ Goes to the menu bar
+
+
+ { Back to Hot keys:hcHelpHotKeys}
+
+
+.topic hcHotKeyEdit=10009
+
+ Ü Editing hot keys
+ ßßßßßßßßßßßßßßßßßßß
+
+ (E³= Edit³, S³= Search³, F³= File³)
+
+  Hot Key   ³ What It Does                          ³ Menu Command
+ ÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  Ctrl+Del  ³ Removes selected text from the window ³ E³Clear
+            ³ but doesn't put it in the clipboard   ³
+            ³                                       ³
+  Ctrl+L    ³ Repeats last Find or Replace command  ³ S³Search again
+            ³                                       ³
+  Alt+S R   ³ Opens Find and Replace dialog box     ³ S³Replace
+            ³                                       ³
+  Alt+S F   ³ Opens a Find dialog box               ³ S³Find
+            ³                                       ³
+  F2        ³ Saves file in active edit window      ³ F³Save
+            ³                                       ³
+  F3        ³ Brings up Open a File dialog box so   ³ F³Open
+            ³ you can open a file                   ³
+            ³                                       ³
+  Shift-Del ³ Places selected text in the clipboard ³ E³Cut
+            ³                                       ³
+  Shift-Ins ³ Pastes text into the active window    ³ E³Paste
+            ³ from the clipboard                    ³
+
+
+ { Back to Hot keys:hcHelpHotKeys}
+
+
+.topic hcHotKeyWindow=10010
+
+ Ü Window management hot keys
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ (W³= Window³)
+
+  Hot Key ³ What It Does                     ³ Menu Command
+ ÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  Alt+F3  ³ Closes the active window         ³ W³Close
+          ³                                  ³
+  F5      ³ Zooms/unzooms the active window  ³ W³Zoom
+          ³                                  ³
+  F6      ³ Switches the active window       ³ W³Next
+          ³                                  ³
+  Alt+F6  ³ Returns to the previously active ³ W³Previous
+          ³ window                           ³
+          ³                                  ³
+  Ctrl+F5 ³ Changes size or position of      ³ W³Size/Move
+          ³ active window                    ³
+
+
+ { Back to Hot keys:hcHelpHotKeys}
+
+
+.topic hcHotKeyHelp=10011
+
+ Ü Online help hot keys
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+ (H³= Help³)
+
+  Hot Key  ³ What It Does                     ³ Menu Command
+ ÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  F1       ³ Opens an online help screen      ³
+           ³                                  ³
+  Shift+F1 ³ Brings up help contents          ³ H³Contents
+           ³                                  ³
+
+
+{ Back to Hot keys:hcHelpHotKeys}
+
+
+.topic hcHotKeyProgram=10012
+
+ Ü Program management hot keys
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ (A³=Assemble³)
+
+  Hot Key ³ What It Does                     ³ Menu Command
+ ÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍØÍÍÍÍÍÍÍÍÍÍÍÍÍÍ
+  Alt+F9  ³ Assembles program                ³ A³Assemble
+          ³                                  ³
+  Ctrl+F9 ³ Runs program                     ³ A³Run
+          ³                                  ³
+  F9      ³ Builds program                   ³ A³Build
+
+
+{ Back to Hot keys:hcHelpHotKeys}
+
+
+.topic hcCancel=3000
+
+ Ü Cancel button
+ ßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ Cancel ] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+If you choose Cancel, nothing changes and no action occurs, but the dialog
+box is closed.
+
+Esc is always a keyboard shortcut for Cancel even if a Cancel button does
+not appear in the dialog box.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcNo=3010
+
+ Ü No button
+ ßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄ¿
+ ³ [ No ] ³
+ ÀÄÄÄÄÄÄÄÄÙ
+
+Press N for No, or click the No button, to cancel the initiated action.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcOk=3020
+
+ Ü OK button
+ ßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄ¿
+ ³ [ OK ] ³
+ ÀÄÄÄÄÄÄÄÄÙ
+
+If you choose this button, the settings you've made in the dialog box
+are recorded in NASM-IDE.
+
+If this is the default button, you only need to press enter to choose it.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcYes=3030
+
+ Ü Yes button
+ ßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄ¿
+ ³ [ Yes ] ³
+ ÀÄÄÄÄÄÄÄÄÄÙ
+
+Press Y for Yes, or click the Yes button, to continue the initiated action.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcNext=3040
+
+ Ü Next button
+ ßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ Next ] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+Pressing the Next button in an ASM Assistant will allow you to progress to
+the next stage of the assistant, saving any of the selections you have made
+so far.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcFinish=3050
+
+ Ü Finish button
+ ßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [Finish] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+The finish button appears on the final screen of an ASM Assistant. Pressing
+finish will cause the assistant to carry out tasks based on input from you
+earlier in the assistant.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcHelp=3060
+
+ Ü Help button
+ ßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ Help ] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+Pressing the help button will bring up a help screen containing information
+on the currently selected part of the dialog.
+
+Help can also be activated by pressing the F1 key.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcOpenBtn=3070
+
+ Ü Open button
+ ßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ Open ] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+The open button opens a new edit window and places the selected file
+in that window.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcHistoryList=10005
+
+ Ü History list
+ ßßßßßßßßßßßßßßß
+
+The history list attached to an input box lists whatever text you typed the
+last few times you used the dialog box.
+
+You can get to the history list whenever you see a down-arrow icon to the
+right of an input box.
+
+You can use the history list to re-enter text that you've already entered.
+You can also edit an entry in the history list directly.
+
+Press esc to exit from the history list without making a selection.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcFileMenu=1000
+
+ Ü File  (Alt+F)
+ ßßßßßßßßßßßßßßßß
+
+The File menu offers choices for opening and loading existing files,
+creating new files, saving files, printing files, shelling to DOS and exiting
+NASM-IDE.
+
+The following choices are available.
+
+ {New:hcFileNew}                {Open:hcFileOpen}               {Reopen:hcFileReopen}
+ {Save:hcFileSave}               {Save As:hcFileSaveAs}            {Save All:hcFileSaveAll}
+ {Change Dir:hcFileChangeDir}         {Print:hcFilePrint}              {DOS shell:hcFileDosShell}
+ {Exit:hcFileExit}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcFileNew=1005,hcFileNewBlank=1010,hcFileNewAssist=1015
+
+ Ü File³New
+ ßßßßßßßßßßß
+
+Selecting New presents you with a submenu containing two options, described
+below.
+
+ Ü Blank file
+ ßßßßßßßßßßßßß
+
+Opens a new edit window with the default name Untitled and automatically
+makes the new edit window active.
+
+Untitled files are used as temporary edit buffers and NASM-IDE prompts
+you to name an untitled file when you save it.
+
+ Ü ASM Assistant...
+ ßßßßßßßßßßßßßßßßßßß
+
+Selecting ASM Assistant will start the new file assistant. For more information
+see {Using ASM Assistants:hcHelpAsmAssist}.
+
+ { Back to File menu:hcFileMenu}
+
+.topic hcHelpAsmAssist=10001
+
+ Ü ASM Assistants
+ ßßßßßßßßßßßßßßßßß
+
+The current version of NASM-IDE only features one ASM Assistant, the {create new file assistant:hcFileNewAssistant1}.
+
+ { Back to contents:hcHelpContents}
+
+.topic hcFileNewAssistant1=3200
+
+ Ü Create new file assistant (1/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The create new file assistant helps you to create a simple assembly language
+source file. It does this by asking questions about how you would like
+your source code file creating, and then automatically inserts the required
+text into a new edit window.
+
+The create new file assistant consists of four screens.
+
+ ş welcome screen
+ ş {code generation options:hcFileNewAssistant2}
+ ş {segement options:hcFileNewAssistant3}
+ ş {confirmation screen:hcFileNewAssistant4}
+
+ { Back to contents:hcHelpContents}
+
+
+.topic hcFileNewAssistant2=3210
+
+ Ü Create new file assistant (2/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The code generation screen is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍ ASM Assistant 2/4 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                   º
+ º A     Select the options which you wish to      A º
+ º  S      include in your assembler project      S  º
+ º   M                                           M   º
+ º                                                   º
+ º      Ú {Code Generation:hcFileNewAssistCode} ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿     º
+ º      ³ () 16 bit                           ³     º
+ º      ³ ( ) 32 bit                           ³     º
+ º      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ     º
+ º      Ú {Start Address:hcFileNewAssistStart} ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿     º
+ º      ³ 0000h (DOS .SYS file)                ³     º
+ º      ³ 0100h (DOS .COM file)                ³     º
+ º      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ     º
+ º                                                   º
+ º       {Cancel:hcCancel} Ü        {Help:hcHelp}  Ü       {Next >>:hcNext}Ü      º
+ º       ßßßßßßßß       ßßßßßßßß       ßßßßßßßß      º
+ º                                                   º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to create new file assistant (1/4):hcFileNewAssistant1}
+
+
+.topic hcFileNewAssistCode=10002
+
+ Ü Create new file assistant (2/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ú Code Generation ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ () 16 bit                           ³
+ ³ ( ) 32 bit                           ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Allows you to select whether the assembler should use 16 or 32 bit code
+generation. Please note that even if you select 16 bit code, you can still
+make use of 32 bit registers and opcodes.
+
+This option corresponds to a BITS assembler directive.
+
+ { Back to create new file assistant (2/4):hcFileNewAssistant2}
+
+
+.topic hcFileNewAssistStart=10003
+
+ Ü Create new file assistant (2/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ú Start Address ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ 0000h (DOS .SYS file)                ³
+ ³ 0100h (DOS .COM file)                ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Allows the code start address to be set. This only applys to binary output
+code (.COM and .SYS), and corresponds to an ORG assembler directive.
+
+ { Back to create new file assistant (2/4):hcFileNewAssistant2}
+
+
+.topic hcFileNewAssistant3=3220
+
+ Ü Create new file assistant (3/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The segment options screen is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍ ASM Assistant 3/4 ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                   º
+ º A     Select which segments you would like      A º
+ º  S    ASM Assistant to automatically insert    S  º
+ º   M        into your assembler project        M   º
+ º                                                   º
+ º      Ú {Segments:hcFileNewAssistSegment} ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿     º
+ º      ³ [ ] .text (main code segment)        ³     º
+ º      ³ [ ] .data (initialised data)         ³     º
+ º      ³ [ ] .bss  (uninitialised data)       ³     º
+ º      ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ     º
+ º                                                   º
+ º       {Cancel:hcCancel} Ü        {Help:hcHelp}  Ü       {Next >>:hcNext}Ü      º
+ º       ßßßßßßßß       ßßßßßßßß       ßßßßßßßß      º
+ º                                                   º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to create new file assistant (2/4):hcFileNewAssistant2}
+
+
+.topic hcFileNewAssistSegment=10004
+
+ Ü Create new file assistant (3/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ú Segments ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] .text (main code segment)        ³
+ ³ [ ] .data (initialised data)         ³
+ ³ [ ] .bss  (uninitialised data)       ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Allows you to select what segments to insert into the new file. This option
+corresponds to a SEGMENT assembler directive.
+
+ ş .text - this is the segemnt where program code is entered
+ ş .data - this is where initialised data is entered (using the DB/DW/DD opcodes)
+ ş .bss  - this is where uninitialised data is entered (using the RESB/RESW/RESD opcodes}
+
+Not all segment names apply to all output type, refer to the {programming in NASM:hcHelpNasmDoc}
+section for more information.
+
+ { Back to create new file assistant (3/4):hcFileNewAssistant3}
+
+.topic hcFileNewAssistant4=3230
+
+ Ü Create new file assistant (4/4)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The confirmation screen is shown below, press Finish to create the new source
+code file, press Cancel to exit from the assistant.
+
+ ÉÍ[ş]ÍÍÍÍÍ ASM Assistant 4/4 ÍÍÍÍÍÍÍÍÍÍ»
+ º                                      º
+ º A      ASM Assistant will now      A º
+ º  S     create your assembler      S  º
+ º   M           project            M   º
+ º                                      º
+ º       {Cancel:hcCancel} Ü         {Finish:hcFinish} Ü      º
+ º       ßßßßßßßß         ßßßßßßßß      º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to create new file assistant (3/4):hcFileNewAssistant3}
+
+.topic hcFileOpen=1020
+
+ Ü File³Open (F3)
+ ßßßßßßßßßßßßßßßßß
+
+The open command displays the Open file dialog box. In this dialog box,
+you select the source code file you want to open in an Edit window.
+
+The Open file dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Open file ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                               º
+ º  {Name:hcFileName}                                         º
+ º   *.ASM                      Şİ    {Open:hcOpenBtn}   Ü  º
+ º                                    ßßßßßßßßß  º
+ º  {Files:hcFileList}                                        º
+ º   BINTEST.ASM   ³                  {Cancel:hcCancel}  Ü  º
+ º   DIFF.ASM      ³                  ßßßßßßßßß  º
+ º   LEAP.ASM      ³                             º
+ º   DOCS\         ³                   {Help:hcHelp}   Ü  º
+ º   TEMP\         ³                  ßßßßßßßßß  º
+ º   TERMINAL\     ³                             º
+ º   ..\           ³                             º
+ º                 ³                             º
+ º  ş±±±±±±±±±±±±±±±±±±±±±±±±±±±±              º
+ º                                               º
+ º C:\NASMIDE\EXAMPLES\*.ASM                     º
+ º BINTEST.ASM  1343      Nov 15, 1997   2:39pm  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+The dialog is made up of the following elements.
+
+ ş an input box with a {history list:hcHistoryList}
+ ş a list box to traverse
+ ş the standard Cancel and Help action buttons
+ ş an open button
+ ş an information panel that describes the selected file
+
+ { Back to File menu:hcFileMenu}
+
+.topic hcFileName=3130
+
+ Ü File name input box
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄ Name ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                 ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The Name input box is where you enter the filename you want to open, or save
+the file under, or the file-name mask for the {files:hcFileList} list box.
+
+This input box has a {history list:hcHistoryList} attached to it.
+
+ { Back to contents:hcHelpContents}
+
+
+.topic hcFileList=3140
+
+ Ü Files list box
+ ßßßßßßßßßßßßßßßßß
+
+ Ú Files ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                 ³
+ ³  FILENM01.ASM  ³  FILENM09.ASM  ³
+ ³  FILENM02.ASM  ³  FILENM10.ASM  ³
+ ³  FILENM03.ASM  ³  FILENM11.ASM  ³
+ ³  FILENM04.ASM  ³  FILENM12.ASM  ³
+ ³  FILENM05.ASM  ³  ..\           ³
+ ³  FILENM06.ASM  ³  \MOREXAMP     ³
+ ³  FILENM07.ASM  ³  \TOURS        ³
+ ³  FILENM08.ASM  ³  \ANSWERS.DIR  ³
+ ³ ±±±ş±±±±±±±±±±±±±±±±±±±±±±±±±±±³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The files list box lists the names of files in the current directory that
+match the file-name mask in the {file name input box:hcFileName}, plus the
+parent directory and all subdirectories.
+
+ { Back to contents:hcHelpContents}
+
+
+.topic hcFileReopen=1060
+
+ Ü File³Reopen
+ ßßßßßßßßßßßßßß
+
+Choose File|Reopen to reopen a recently closed file. When you close a file,
+it is added to the Reopen list.
+
+When you select Reopen, a list of the five most recently closed files is
+displayed. Select the file you wish to reopen using the mouse, cursor keys,
+or by pressing the number shown in red to the left of the filename.
+
+The selected file will be opened in a new edit window.
+
+
+ { Back to contents:hcHelpContents}
+
+
+.topic hcFileSave=1025
+
+ Ü File³Save (F2)
+ ßßßßßßßßßßßßßßßßß
+
+The save command saves the file that is in the active Edit window to disk.
+If the file is untitled then NASM-IDE opens the {Save File As:hcFileSaveAs} dialog box so
+you can rename the file and save it in a different directory or on a different
+drive.
+
+ { Back to File menu:hcFileMenu}
+
+
+.topic hcFileSaveAs=1030
+
+ Ü File³Save As...
+ ßßßßßßßßßßßßßßßßßß
+
+Save As opens the Save file as dialog box, where you can save the file in
+the active Edit window under a different name, in a different directory, or
+on a different drive.
+
+You can enter the new file name, including the drive and directory, and
+click or choose OK to save the file.
+
+The Save file as dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍ Save file as ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                               º
+ º  {Name:hcFileName}                                         º
+ º   *.ASM                      Şİ     {OK:hcOk}    Ü  º
+ º                                    ßßßßßßßßß  º
+ º  {Files:hcFileList}                                        º
+ º   BINTEST.ASM   ³                  {Cancel:hcCancel}  Ü  º
+ º   DIFF.ASM      ³                  ßßßßßßßßß  º
+ º   LEAP.ASM      ³                             º
+ º   DOCS\         ³                   {Help:hcHelp}   Ü  º
+ º   TEMP\         ³                  ßßßßßßßßß  º
+ º   TERMINAL\     ³                             º
+ º   ..\           ³                             º
+ º                 ³                             º
+ º  ş±±±±±±±±±±±±±±±±±±±±±±±±±±±±              º
+ º                                               º
+ º C:\NASMIDE\EXAMPLES\*.ASM                     º
+ º BINTEST.ASM  1343      Nov 15, 1997   2:39pm  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+The dialog is made up of the following elements.
+
+ ş an input box with a {history list:hcHistoryList}
+ ş a list box to traverse
+ ş the standard Cancel and Help action buttons
+ ş an OK (save) button
+ ş an information panel that describes the selected file
+
+ { Back to File menu:hcFileMenu}
+
+
+.topic hcFileSaveAll=1035
+
+ Ü File³Save all
+ ßßßßßßßßßßßßßßßß
+
+Save all saves all modified files in open edit windows.
+
+ { Back to File menu:hcFileMenu}
+
+
+.topic hcFileChangeDir=1040
+
+ Ü File³Change dir...
+ ßßßßßßßßßßßßßßßßßßßßß
+
+Change dir brings up the {Change Directory dialog box:hcFileChangeDirDialog},
+where you can specify a directory to make current.
+
+The current directory is the one NASM-IDE uses to save files and to look
+for files.
+
+ { Back to File menu:hcFileMenu}
+
+.topic hcFileChangeDirDialog=3120
+
+ Ü The Change Directory dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Change Directory dialog box consists of an input box, a list box, the
+standard OK and Help buttons, and two other buttons: Chdir and Revert.
+
+ Ú {Directory name:hcFileDirName} ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                     ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The Directory Name input box is where you type in the path of the new
+directory.
+
+ Ú {Directory tree:hcFileDirTree} ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³   Drives                            ³
+ ³   ÀÄÂC:\                            ³
+ ³     ÀÄÂNASMIDE                      ³
+ ³       ÀÄÄEXAMPLES                   ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The Directory Tree list box is where you point to (or move the cursor to) a
+directory name and choose the directory you want.
+
+If you're using the keyboard, press enter to make the selected directory be
+the current directory, then choose OK or press esc to exit the dialog box.
+
+ ÚÄÄÄÄÄÄÄÄÄ¿
+ ³ [{Chdir:hcFileChDir}] ³
+ ÀÄÄÄÄÄÄÄÄÄÙ
+
+The Chdir button initiates the directory change once you've selected or
+typed in a directory name.
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [{Revert:hcFileRevert}] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+The Revert button goes back to the previous directory, as long as you
+haven't yet exited the dialog box.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcFileDirName=3150
+
+ Ü The Change Directory dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ú Directory name ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                     ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The Directory Name input box is where you type in the path of the new
+directory you want to change to.
+
+This input box has a {history list:hcHistoryList} attached to it.
+
+ { Back to Change Directory dialog box screen:hcFileChangeDirDialog}
+
+
+.topic hcFileDirTree=3160
+
+ Ü The Change Directory dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ú Directory tree ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³   Drives                            ³
+ ³   ÀÄÂC:\                            ³
+ ³     ÀÄÂNASMIDE                      ³
+ ³       ÀÄÄEXAMPLES                   ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The Directory Tree list box is where you select the directory you want to
+move to.
+
+From the keyboard, press enter to make the selected directory be the current
+directory, then choose OK.
+
+As soon as you change directories, the new current directory tree appears in
+the Directory Tree list box.
+
+ { Back to Change Directory dialog box screen:hcFileChangeDirDialog}
+
+
+.topic hcFileChDir=3170
+
+ Ü The Change Directory dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄ¿
+ ³ [Chdir] ³
+ ÀÄÄÄÄÄÄÄÄÄÙ
+
+Once you've typed a directory name in the input box, or selected one in the
+Directory Tree list box, choose the Chdir button.
+
+Choose Cancel if you change your mind.
+
+You can also just press enter once the file is selected, or you can
+double-click the file name.
+
+ { Back to Change Directory dialog box screen:hcFileChangeDirDialog}
+
+
+.topic hcFileRevert=3180
+
+ Ü The Change Directory dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [Revert] ³
+ ÀÄÄÄÄÄÄÄÄÄÄÙ
+
+If you change your mind about the directory you've picked and you want to go
+back to the previous one (and you haven't yet exited the dialog box), choose
+the revert button.
+
+ { Back to Change Directory dialog box screen:hcFileChangeDirDialog}
+
+
+.topic hcFilePrint=1045
+
+ Ü File³Print
+ ßßßßßßßßßßßßß
+
+The print command prints the contents of the active edit window to a printer
+attached to LPT1.
+
+The print command is disabled if the active window can't be printed.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcFileDosShell=1050
+
+ Ü File³DOS Shell
+ ßßßßßßßßßßßßßßßßß
+
+With the DOS shell command, you can leave NASM-IDE temporarily to perform a
+DOS command or enter another program.
+
+To return to NASM-IDE, type EXIT at the DOS prompt, then press enter.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcFileExit=1055
+
+ Ü File³Exit (Alt+X)
+ ßßßßßßßßßßßßßßßßßßßß
+
+The exit command exits NASM-IDE, removes it from memory, and returns you to
+DOS.
+
+If you've modified a source file without saving it, NASM-IDE prompts you to
+do so before exiting.
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcEditMenu=1100
+
+ Ü Edit (Alt+E)
+ ßßßßßßßßßßßßßßß
+
+The edit menu provides commands to cut, copy, and paste text in edit windows.
+
+You can also open a Clipboard window to view or edit its contents.
+
+You can choose from these edit menu commands.
+
+ {Undo:hcEditUndo}         {Cut:hcEditCut}             {Copy:hcEditCopy}
+ {Paste:hcEditPaste}        {Clear:hcEditClear}           {Show clipboard:hcEditShowClipboard}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcEditUndo=1105
+
+ Ü Edit³Undo (Alt+BkSp)
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+The undo command takes back the last editing command you performed on a line.
+Undo works on the last modified or deleted line.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcEditCut=1110
+
+ Ü Edit³Cut (Shift+Del)
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+The cut command removes the selected text from your document and places the
+text in the clipboard.
+
+You can then choose Edit³{Paste:hcEditPaste} to paste the cut text into any
+other document (or somewhere else in the same document).
+
+The text remains selected in the clipboard so you can paste it as many times
+as you want.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcEditCopy=1115
+
+ Ü Edit³Copy (Ctrl+Ins)
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+The copy command leaves the selected text intact but places an exact copy of
+it in the clipboard.
+
+To paste the copied text into any other document, choose Edit³{Paste:hcEditPaste}.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcEditPaste=1120
+
+ Ü Edit³Paste (Shif+Ins)
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+The paste command inserts the selected text from the clipboard into the
+current window at the cursor position.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcEditClear=1125
+
+ Ü Edit³Clear (Ctrl+Del)
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+The clear command removes the selected text but does not put it into the
+clipboard.
+
+This means you can't paste the text as you could if you had chosen {Cut:hcEditCut}
+or {Copy:hcEditCopy}.
+
+The cleared text is not retrievable.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcEditShowClipboard=1130
+
+ Ü Edit³Show clipboard
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The show clipboard command opens the clipboard window, which stores the text
+you cut and copy from other windows. Any text you cut or copy is appended to
+the end of the clipboard.
+
+The currently selected (highlighted) clipboard text is the text NASM-IDE uses
+when you choose {Paste:hcEditPaste}.
+
+ { Back to Edit menu:hcEditMenu}
+
+
+.topic hcSearchMenu=1200
+
+ Ü Search (Alt+S)
+ ßßßßßßßßßßßßßßßßß
+
+The search menu provides commands to search for text in your source code files.
+
+These are the available options:
+
+ {Find:hcSearchFind}     {Replace:hcSearchFind}      {Search Again:hcSearchRepeat}      {Go to Line Number:hcSearchJump}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcSearchFind=1210
+
+ Ü Search³Find...
+ ßßßßßßßßßßßßßßßßß
+
+The find command displays the {Find dialog box:hcSearchFindDialog}, where you type in the text you
+want to search for.
+
+You can set several options in this dialog box that affect the search.
+(Ctrl+Q F is a shortcut to the dialog box.)
+
+ { Back to Search menu:hcSearchMenu}
+
+.topic hcSearchFindDialog=3300
+
+ Ü The Find dialog box
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The Find dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍ Find ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                    º
+ º  {Text to find:hcSearchFindText}                      º
+ º                               Şİ  º
+ º                                    º
+ º   {[ ] Case sensitive:hcCaseSensitive}               º
+ º   {[ ] Whole words only:hcWholeWords}             º
+ º                                    º
+ º                                    º
+ º                 {OK:hcOK}   Ü    {Cancel:hcCancel} Ü º
+ º               ßßßßßßßß    ßßßßßßßß º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Search menu:hcSearchMenu}
+
+
+.topic hcSearchFindText=3330
+
+ Ü The Find/Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Text to find:
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                 Şİ ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The text to find input box is where you enter the search string.
+
+To begin the search, choose OK, choose Cancel to forget it.
+
+If you want to enter a string that you've searched for previously, press
+the down arrow key to show the {history list:hcHistoryList}, then choose from
+that list.
+
+ { Back to Find dialog box screen:hcSearchFindDialog}
+
+
+.topic hcCaseSensitive=3350
+
+ Ü The Find/Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Case sensitive ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+[ ] When Case Sensitive is checked (on), NASM-IDE differentiates uppercase
+from lowercase when performing a search.
+
+Case sensitive off is the default.
+
+ { Back to Find dialog box screen:hcSearchFindDialog}
+
+
+.topic hcWholeWords=3351
+
+ Ü The Find/Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Whole words only ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When the whole words only option is checked (on), NASM-IDE searches for
+words only - the search string must have punctuation or space characters on
+both sides.
+
+ { Back to Find dialog box screen:hcSearchFindDialog}
+
+
+.topic hcSearchReplace=1220
+
+ Ü Search³Replace...
+ ßßßßßßßßßßßßßßßßßßßß
+
+The replace command displays the {replace:hcSearchReplaceDialog} dialog box,
+where you type in the text you want to search for and text you want to
+replace it with.
+
+ { Back to Search menu:hcSearchMenu}
+
+
+.topic hcSearchReplaceDialog=3310
+
+ Ü The Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The replace dialog box is shown below. Most components of the replace dialog
+box are identical to those in the find dialog box.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍ Replace ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                      º
+ º  {Text to find:hcSearchFindText}                        º
+ º                                 Şİ  º
+ º                                      º
+ º  {New text:hcSearchReplaceText}                            º
+ º                                 Şİ  º
+ º                                      º
+ º   {[ ] Case sensitive:hcCaseSensitive}                 º
+ º   {[ ] Whole words only:hcWholeWords}               º
+ º   {[X] Prompt on replace:hcPromptReplace}              º
+ º   {[ ] Replace all:hcReplaceAll}                    º
+ º                                      º
+ º           {OK:hcOk}   Ü      {Cancel:hcCancel} Ü       º
+ º         ßßßßßßßß      ßßßßßßßß       º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Search menu:hcSearchMenu}
+
+
+.topic hcSearchReplaceText=3340
+
+ Ü The Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ New text:
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                 Şİ ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Use this box to enter your replacement string. You can also use the {history list:hcHistoryList}
+to the right of the box to select a string you've used previously.
+
+If all your options and buttons are set correctly, just press enter to
+begin the search and replace.
+
+ { Back to Replace dialog box screen:hcSearchReplaceDialog}
+
+.topic hcPromptReplace=3352
+
+ Ü The Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Prompt on replace   ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Check this box when you want NASM-IDE to prompt you before replacing each
+time it finds the search string in your file.
+
+ { Back to Replace dialog box screen:hcSearchReplaceDialog}
+
+.topic hcReplaceAll=3353
+
+ Ü The Replace dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Replace all ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Check this box when you want NASM-IDE to replace all occurrences of the
+search string found.
+
+ { Back to Replace dialog box screen:hcSearchReplaceDialog}
+
+
+.topic hcSearchRepeat=1230
+
+ Ü Search³Search again
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The search again command repeats the last find or replace command.
+
+All settings you made in the find dialog box remain in effect when you choose
+search again.
+
+ { Back to Search menu:hcSearchMenu}
+
+
+.topic hcSearchJump=1240, hcSearchJumpDialog=3320
+
+ Ü Search³Go to line number...
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The go to line number command displays the dialog box shown below, which
+prompts for the line number you want to find.
+
+NASM-IDE displays the current line number and column number in the lower left
+corner of every edit window.
+
+ ÉÍ[ş]ÍÍÍÍÍ Go to line number ÍÍÍÍÍÍÍÍÍ»
+ º                                     º
+ º   {Enter new line number:hcJumpLineNumber}       Şİ   º
+ º                                     º
+ º     {OK:hcOk}   Ü    {Cancel:hcCancel} Ü     {Help:hcHelp}  Ü  º
+ º   ßßßßßßßß    ßßßßßßßß    ßßßßßßßß  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Search menu:hcSearchMenu}
+
+
+.topic hcJumpLineNumber=3360
+
+ Ü Search³Go to line number...
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÒÄÄÄÄÄÄÄÄÄÄÂÄÄÄ¿
+ ³ Enter new line number º          ³   ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄĞÄÄÄÄÄÄÄÄÄÄÁÄÄÄÙ
+
+The enter new line number input box is where you type in which line of source
+code you want to go to. If you enter a number which is larger than the number
+of lines in the edit window, NASM-IDE will go to the last line in the window.
+
+You can enter and search for a specific line number in your file, or you can
+use the history list to select a previously used number.
+
+Current line and column numbers for your file are displayed in the lower left
+corner of the edit window.
+
+ { Back to Search menu:hcSearchMenu}
+
+.topic hcAssembleMenu=1300
+
+ Ü Assemble (Alt+A)
+ ßßßßßßßßßßßßßßßßßßß
+
+You use the commands on the assemble menu to assemble, build, and run your
+program.
+
+You can choose from these commands:
+
+ {Assemble:hcAssembleAssemble}                   {Build:hcAssembleBuild}
+ {Run:hcAssembleRun}                        {Primary file:hcAssemblePrimary}
+ {Clear primary file:hcAssembleClear}         {Parameters:hcAssembleParam}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcAssembleAssemble=1310
+
+ Ü Assemble³Assemble (Alt+F9)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Assemble³Assemble command assembles the file in the active edit window.
+
+NASM-IDE runs NASM in a DOS shell, and unless any errors occur, a blank
+screen will be visible while assembly is in progress.
+
+When assembly is complete, the NASM-IDE desktop is redisplayed, and the
+{error information window:hcWindowErrorInfo} is displayed.
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssembleBuild=1320
+
+ Ü Assemble³Build (F9)
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The Assemble³Build command works in two ways depending on your NASM-IDE configuration.
+
+ ş if no {primary file:hcAssemblePrimary} has been selected then Assemble³Build
+   works in the same way as {Assemble³Assemble:hcAssembleAssemble}
+
+ ş if a {primary file:hcAssemblePrimary} has been selected then Assemble³Build
+   will assemble the primary file, regardless of the active edit window
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssembleRun=1330
+
+ Ü Assemble³Run (Ctrl+F9)
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Assemble³Run command works in two ways depending on your NASM-IDE configuration.
+
+ ş if no {primary file:hcAssemblePrimary} has been selected then Assemble³Run
+   will assemble and run the program in the active edit window
+
+ ş if a {primary file:hcAssemblePrimary} has been selected then Assemble³Run
+   will assemble and run the primary file, regardless of the active edit
+   window
+
+When your program is run, NASM-IDE passes any parameters you have entered
+using the {Run³Parameters:hcAssembleParam} command.
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssemblePrimary=1340
+
+ Ü Assemble³Primary File...
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Assemble³Primary File command leads to the {Primary File dialog box:hcAssemblePrimaryDialog},
+where you specify which .ASM file will be assembled when you choose {Assemble³Build:hcAssembleBuild}.
+
+Use Primary File when you're working on a program that uses several source code
+files or include files.
+
+No matter which file you've been editing, Build and Run always operate on
+your primary file.
+
+If you specify another file as a primary file, but want to assemble only the
+file in the active edit window, choose {Assemble:hcAssembleAssemble} (Alt+F9).
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssemblePrimaryDialog=3400
+
+ Ü The Primary File dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Primary File dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍ Primary file ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                               º
+ º  {Name:hcFileName}                                         º
+ º   *.ASM                      Şİ     {OK:hcOk}    Ü  º
+ º                                    ßßßßßßßßß  º
+ º  {Files:hcFileList}                                        º
+ º   BINTEST.ASM   ³                  {Cancel:hcCancel}  Ü  º
+ º   DIFF.ASM      ³                  ßßßßßßßßß  º
+ º   LEAP.ASM      ³                             º
+ º   DOCS\         ³                   {Help:hcHelp}   Ü  º
+ º   TEMP\         ³                  ßßßßßßßßß  º
+ º   TERMINAL\     ³                             º
+ º   ..\           ³                             º
+ º                 ³                             º
+ º  ş±±±±±±±±±±±±±±±±±±±±±±±±±±±±              º
+ º                                               º
+ º C:\NASMIDE\EXAMPLES\*.ASM                     º
+ º BINTEST.ASM  1343      Nov 15, 1997   2:39pm  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+The dialog is made up of the following elements.
+
+ ş an input box with a {history list:hcHistoryList}
+ ş a list box to traverse
+ ş the standard Cancel and Help action buttons
+ ş an OK (save) button
+ ş an information panel that describes the selected file
+
+
+ { Back to Assemble³Primary File... screen:hcAssemblePrimary}
+
+
+.topic hcAssembleClear=1350
+
+ Ü Clear Primary file
+ ßßßßßßßßßßßßßßßßßßßßß
+
+The clear primary file command deselects the {primary file:hcAssemblePrimary}.
+
+Once you clear the primary file, the {Build:hcAssembleBuild} and {Run:hcAssembleRun}
+options will use the file in the active editor window.
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+.topic hcAssembleParam=1360
+
+ Ü Run³Parameters...
+ ßßßßßßßßßßßßßßßßßßßß
+
+The Run³Parameters command brings up the {program parameters dialog box:hcAssembleParamDialog},
+where you type in command-line arguments for your running programs exactly
+as if you had typed them on the DOS command line.
+
+You can't use DOS redirection commands (< and >) in the program parameters
+dialog box.
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssembleParamDialog=3410
+
+ Ü The Program Parameters dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Program Parameters dialog box (shown below) consists of an input box and
+the standard OK, Cancel, and Help buttons.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍ Program parameters ÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                º
+ º  {Parameters:hcAssembleParamList}                               Şİ  º
+ º                                                º
+ º                {OK:hcOK}   Ü    {Cancel:hcCancel} Ü     {Help:hcHelp}  Ü  º
+ º              ßßßßßßßß    ßßßßßßßß    ßßßßßßßß  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Assemble menu:hcAssembleMenu}
+
+
+.topic hcAssembleParamList=3420
+
+ Ü The Program Parameters dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄ Parameters ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                      ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The parameters input box is where you enter the parameters that you want
+NASM-IDE to pass to your running program.
+
+You don't need to enter the program name in this input box.
+
+Parameters take effect only when your program is started.
+
+ { Back to Parameters dialog box screen:hcAssembleParamDialog}
+
+
+.topic hcOptionsMenu=1400
+
+ Ü Options (Alt+O)
+ ßßßßßßßßßßßßßßßßßß
+
+The options menu contains commands that let you view and change various
+default settings in NASM-IDE.
+
+ {Assembler...:hcOptionsAssembler}        {Directories...:hcOptionsDirectories}        {Environment...:hcOptionsEnvironment}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcOptionsAssembler=1410
+
+ Ü Options³Assembler...
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+The Options³Assembler command displays the {Assembler Options:hcOptionsAssemblerDialog}
+dialog box, where you choose how you want the assembler to generate code and
+which types of warnings you want the assembler to give.
+
+ { Back to Options menu screen:hcOptionsMenu}
+
+
+.topic hcOptionsAssemblerDialog=3500
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Assembler Options dialog box is shown below. From this dialog box you can
+select an output format (target), add and edit supported targets and delete
+unwanted targets. You can also select warning options, enter additional NASM
+command line parameters and specify the NASM executable to use.
+
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ Assembler Options ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                                    º
+ º  {Target:hcAssemblerTarget}                                                            º
+ º   COM executable binary file                          {New:hcAssemblerNewTarget}   Ü     º
+ º   SYS device driver                              ş    ßßßßßßßß     º
+ º   DOS 16 bit OMF object file                     ±     {Edit:hcAssemblerEditTarget}  Ü     º
+ º   Microsoft Win32 (i386) object file             ±    ßßßßßßßß     º
+ º   COFF (i386) object file                            {Delete:hcAssemblerDelTarget} Ü     º
+ º                                                       ßßßßßßßß     º
+ º  Warnings                            {Custom NASM Parameters:hcAssemblerCustomParams}        º
+ º   {[X] Too few macro parameters:hcAssemblerWarningsMacro}                                     º
+ º   {[X] Missing colon for label:hcAssemblerWarningsColon}                                      º
+ º   {[X] Numeric overflow:hcAssemblerWarningsOverflow}               {NASM Location:hcAssemblerNASMLocation}                 º
+ º   {[X] Cyclic macro self-references:hcAssemblerWarningsCyclic}                                 º
+ º                                                                    º
+ º                 {OK:hcOK}   Ü      {Cancel:hcCancel} Ü       {Help:hcHelp}  Ü                 º
+ º               ßßßßßßßß      ßßßßßßßß      ßßßßßßßß                 º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+
+ { Back to Assemble menu screen:hcAssembleMenu}
+
+.topic hcAssemblerTarget=3510
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The target list displays the descriptions of targets which NASM-IDE can use.
+The highlighted target will determine the file extension and output format
+used when source code is assembled using NASM. New targets can be added,
+existing targets edited, and deleted using the New, Edit and Delete buttons.
+
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerNewTarget=3511
+
+ Ü Target Assistant - Add new target
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Add new target dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍ Target Assistant - Add new target ÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                            º
+ º  A       Complete the input boxes below toenable        A  º
+ º   S       support for a new NASM output format.        S   º
+ º    M                                                  M    º
+ º                                                            º
+ º        Description                                         º
+ º                                                            º
+ º        Output file extension                               º
+ º                                                            º
+ º        Command line parameter                              º
+ º                                                            º
+ º                                                            º
+ º           {OK:hcOK}   Ü          {Cancel:hcCancel} Ü           {Help:hcHelp}  Ü       º
+ º         ßßßßßßßß          ßßßßßßßß          ßßßßßßßß       º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+To add a new target you must supply the following information:
+
+ ş Description - a character string used to identify the target
+                 (maximum 44 characters)
+
+ ş Output file extension - the file extension (maximum 3 characters)
+                           given to the output file (e.g. COM, OBJ, O)
+
+ ş Command line parameter - the NASM '-f' command line parameter
+                            (e.g. an entry of 'bin' means that NASM will
+                             be passed a parameter of '-f bin')
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerEditTarget=3512
+
+ Ü Target Assistant - Edit target properties
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The Edit target properties dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍ Target Assistant - Edit target properties ÍÍÍÍÍÍÍÍÍ»
+ º                                                            º
+ º  A     Make any necessary changes to the properties     A  º
+ º   S               of an existing target.               S   º
+ º    M                                                  M    º
+ º                                                            º
+ º        Description                                         º
+ º                                                            º
+ º        Output file extension                               º
+ º                                                            º
+ º        Command line parameter                              º
+ º                                                            º
+ º                                                            º
+ º           {OK:hcOK}   Ü          {Cancel:hcCancel} Ü           {Help:hcHelp}  Ü       º
+ º         ßßßßßßßß          ßßßßßßßß          ßßßßßßßß       º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+This dialog can be used to update properties of an existing target. The
+current properties will be entered in the appropriate fields by NASM-IDE
+when the dialog is displayed.
+
+ ş Description - a character string used to identify the target
+                 (maximum 44 characters)
+
+ ş Output file extension - the file extension (maximum 3 characters)
+                           given to the output file (e.g. COM, OBJ, O)
+
+ ş Command line parameter - the NASM '-f' command line parameter
+                            (e.g. an entry of 'bin' means that NASM will
+                             be passed a parameter of '-f bin')
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerDelTarget=3513
+
+ Ü Target Assistant - Delete Target
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+When you select Delete from the {Assembler Options dialog box:hcOptionsAssemblerDialog} the
+Delete Target dialog box is displayed.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍ Target Assistant - Delete target ÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                            º
+ º  A       Take care when using this option, once a       A  º
+ º   S   target has been deleted it cannot be restored.   S   º
+ º    M                                                  M    º
+ º                                                            º
+ º         Please confirm deletion of 'COM executable         º
+ º                    binary file' target.                    º
+ º                                                            º
+ º                                                            º
+ º         {Delete:hcOK} Ü          {Cancel:hcCancel} Ü           {Help:hcHelp}  Ü       º
+ º         ßßßßßßßß          ßßßßßßßß          ßßßßßßßß       º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+The name of the selected target is shown in the dialog box, selecting delete
+will permanently remove the target information from NASM-IDE.
+
+ { Back to Assemble menu screen:hcAssembleMenu}
+
+.topic hcAssemblerWarningsMacro=3520
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Too few macro parameters ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When this option is enabled NASM-IDE will generate a warning if a macro call
+involves a number of parameters which the macro in question is not ready to
+support.
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+
+.topic hcAssemblerWarningsColon=3521
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Missing colon for label ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When this option is enabled NASM-IDE will generate a warning if a line in the
+source code is encountered which appears to be a label but does not have a
+trailing colon.
+
+The purpose of this warning is that it is possible that the text is a mistyped
+opcode, rather than a label.
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerWarningsOverflow=3522
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Numeric overflow ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When this option is enabled NASM-IDE will generate a warning if a numeric
+constant greater than 0xFFFFFFFF is used.
+
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerWarningsCyclic=3523
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [ ] Cyclic macro self-references ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When this option is enabled NASM-IDE will generate a warning if a cyclic
+self-reference to a macro is encountered.
+
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerCustomParams=3525
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄ Custom NASM Parameters ÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                      ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+This text box allows you to enter additional NASM command line parameters
+that will be used when you assemble your code.
+
+For example: to optimise branch offsets and enable debug information you
+would enter '-g -O2' in this box.
+
+NASM-IDE does not validate the parameters entered - invalid information may
+cause errors when you attempt to assemble your code.
+
+You can also use special tags in the custom parameters. The tags will be
+replaced automatically with values when you assemble your code. The tags
+and the values they will be replaced with are summarised below:
+
+ %SRCNAME%   - replaced with the name of the source file (e.g. 'BINTEST')
+ %SRCEXT%    - replaced with the extension of the source file (e.g. '.ASM')
+ %SRCDIR%    - replaced with the directory of the source file (e.g. 'C:\NASMIDE\EXAMPLES\')
+ %OUTNAME%   - replaced with the name of the output file (e.g. 'BINTEST')
+ %OUTEXT%    - replaced with the extension of the output file (e.g. '.COM')
+ %OUTDIR%    - replaced with the directory of the output file (e.g. 'C:\NASMIDE\ASSEMBLED\')
+
+For example: to generate a list file with the same name as the source file, in the output
+directory, enter the following in the custom parameters:
+
+ -l%OUTDIR%%SRCNAME%.lst
+
+If the source file is 'BINTEST.ASM' and the output directory is 'C:\NASMIDE\' the above
+custom parameter will change to:
+
+ -lC:\NASMIDE\BINTEST.lst
+
+when you assemble your code.
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcAssemblerNASMLocation=3526
+
+ Ü The Assembler Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄ NASM Location ÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                             ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Before you can assemble code, you must enter the full path and file name
+of the NASM executable file.
+
+For example: 'C:\NASMIDE\NASM16.EXE'
+
+Depending on your system, NASM-IDE may not work with the Win32 version of NASM.
+If this is the case, you must use the DOS version of NASM.
+
+Click the browse button '..' to locate the NASM executable file.
+
+ { Back to Assembler Options screen:hcOptionsAssemblerDialog}
+
+.topic hcOptionsDirectories=1420
+
+ Ü Options³Directories...
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+This command opens the {Directories dialog box:hcOptionsDirectoriesDialog},
+which contains several input boxes.
+
+The directories dialog box is where you specify the directories NASM-IDE
+will use when running and when storing your programs.
+
+ { Back to Options menu screen:hcOptionsMenu}
+
+
+.topic hcOptionsDirectoriesDialog=3530
+
+ Ü The Directories dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The directories dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍÍÍÍÍÍÍÍÍÍ Directories ÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ º                                                º
+ º  {Include directory:hcDirectoriesInclude}                        Şİ  º
+ º                                                º
+ º  {Output directory:hcDirectoriesOutput}                         Şİ  º
+ º                                                º
+ º                {OK:hcOK}   Ü    {Cancel:hcCancel} Ü     {Help:hcHelp}  Ü  º
+ º              ßßßßßßßß    ßßßßßßßß    ßßßßßßßß  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Options menu screen:hcOptionsMenu}
+
+
+.topic hcDirectoriesInclude=3540
+
+ Ü The Directories dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+
+ ÚÄ Include directory ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                    ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+This input box specifies the directory, or directories that contains your
+standard include files.
+
+Include files are those specified with the %include assembler directive.
+
+Multiple directories are separated be a semi-colon, for example:
+
+ C:\NASMIDE;C:\NASMIDE\INCLUDE;....;
+
+ { Back to Directories dialog box screen:hcOptionsDirectoriesDialog}
+
+
+.topic hcDirectoriesOutput=3550
+
+ Ü The Directories dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄ Output directory ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³                                 ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+This input box specifies the directory that stores your output files generated
+by the assembler.
+
+If this entry is blank, your output files are stored in the directory
+where your source code is.
+
+You cannot specify multiple output directories.
+
+ { Back to Directories dialog box screen:hcOptionsDirectoriesDialog}
+
+
+.topic hcOptionsEnvironment=1430,hcOptionsEnvironmentDialog=3560
+
+ Ü Options³Environment
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The environment command allows you to customise NASM-IDE with environment-wide
+settings.
+
+The Environment Options dialog box is shown below.
+
+ ÉÍ[ş]ÍÍÍÍ Environment Options ÍÍÍÍÍÍÍÍ»
+ º                                     º
+ º  Screen size                        º
+ º   {() 25 lines:hcScreenSize80x25}                      º
+ º   {( ) 43/50 lines:hcScreenSize80x50}                   º
+ º                                     º
+ º  Editor                             º
+ º   {[ ] Create backup files:hcEditorBackup}           º
+ º   {[X] Autosave on assemble:hcEditorAutoSave}          º
+ º   {[X] Syntax highlighting:hcEditorSyntaxHighlight}           º
+ º                                     º
+ º  Desktop                            º
+ º   {[X] Autosave on exit:hcDesktopAutoSave}              º
+ º                                     º
+ º  Startup                            º
+ º   {[ ] Display logo screen:hcStartupLogo}           º
+ º                                     º
+ º                                     º
+ º     {OK:hcOK}   Ü    {Cancel:hcCancel} Ü     {Help:hcHelp}  Ü  º
+ º   ßßßßßßßß    ßßßßßßßß    ßßßßßßßß  º
+ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ { Back to Options menu screen:hcOptionsMenu}
+
+
+.topic hcScreenSize80x25=3570
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ ( ) 25 lines    ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When Screen Size is set to 25 Lines (the default), NASM-IDE uses 25 lines and
+80 columns.
+
+This is the only screen size available on systems with a monochrome display or
+Color Graphics Adapter (CGA).
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+
+.topic hcScreenSize80x50=3571
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ ( ) 43/50 lines ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+If your PC has an EGA or a VGA, you can set the Screen Size option to 43/50
+lines.
+
+With this setting on, NASM-IDE uses 43 lines by 80 columns for an EGA, or 50
+lines by 80 columns for a VGA.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+
+.topic hcEditorBackup=3580
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Create backup files ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When you check Create backup files (the default) and you choose {File³Save:hcFileSave},
+NASM-IDE automatically creates a backup of the source file that's in the edit
+window and gives that backup file the extension .BAK.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+
+.topic hcEditorAutoSave=3581
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Autosave on assemble ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When you check Autosave on assemble NASM-IDE automatically saves the file in
+the active edit window before running the assembler. If this option is not
+enables then NASM-IDE will prompt you to save modified files before assembling.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+.topic hcEditorSyntaxHighlight=3582
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Syntax highlighting ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When checked, NASM-IDE edit windows will display source code using syntax
+highlighting, displaying different types of text in different colours (e.g.
+registers in green, instructions in white, etc.).
+
+On slower computers, disabling syntax highlighting will improve performance.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+.topic hcDesktopAutoSave=3585
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Autosave on exit ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When checked, NASM-IDE saves the position of any open edit windows on exit.
+When you next start NASM-IDE, the edit windows will be reopened automatically.
+Autosave also saves the contents of history lists used in the system.
+
+Please note: autosave does not save the position of the clipboard, help window
+or error viewer window.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+
+.topic hcStartupLogo=3590
+
+ Ü The Environment Options dialog box
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ [X] Display logo screen ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+When checked, NASM-IDE displays a graphical logo screen on startup (only on
+VGA systems). On some computers this may prevent NASM-IDE from starting
+correctly. When this option is disabled, a simple text message is displayed
+instead.
+
+ { Back to environment options screen:hcOptionsEnvironment}
+
+
+.topic hcWindowMenu=1500
+
+ Ü Window (Alt+W)
+ ßßßßßßßßßßßßßßßßß
+
+The window menu contains commands for manipulating and opening windows.
+
+Most of the windows you open from this menu have all the standard window
+elements, like scroll bars, a close box, and zoom icons.
+
+For more about windows and their elements, see the {Window basics:hcHelpWindows}
+help screen.
+
+
+ Ü Window management commands
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ {Tile:hcWindowTile}              {Cascade:hcWindowCascade}
+ {Close All:hcWindowCloseAll}         {Size/Move:hcWindowResize}
+ {Zoom:hcWindowZoom}              {Next:hcWindowNext}
+ {Previous:hcWindowPrevious}          {Close:hcWindowClose}
+ {Error information:hcWindowErrorInfo}
+
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcHelpWindows=10013
+
+ Ü Window basics
+ ßßßßßßßßßßßßßßßß
+
+Most of what you see and do in NASM-IDE happens in a window.
+
+A window is a bordered screen area that you can move, resize, zoom, rearrange,
+close, and open.
+
+NASM-IDE makes it easy to spot the active window; it always has a double-lined
+border around it, and it always has these elements:
+
+
+   {Close box:hcCloseBox}              {Zoom box:hcZoomBox}
+                             
+    {ÉÍ[ş]ÍÍÍÍÍ Title Bar ÍÍÍÍ[ ]Í»:hcTitleBar}
+    º                            ±
+    º                            ±
+    º                            ±
+    º                            ş   {Scroll bar:hcScrollBar}
+    º                            ±
+    º                            ±
+    º                            ±
+    ÈÍ±±ş±±±±±±±±±±±±±±±±±±±±±±ÍÍ¼
+
+                     
+                {Scroll bar:hcScrollBar}
+
+
+You can have any number of windows open in NASM-IDE (memory allowing), but
+only one window can be active at any time. The active window is the one that
+you're currently working in.
+
+Generally, any command you choose or text you type applies only to the active
+window. (But if you have the same file open in several windows, the action
+applies to the file in each of those windows.)
+
+If your windows overlap, the active window is always the topmost one (the one
+on top of all the others).
+
+Edit windows also show the cursor's position (the current line and column
+number) as YY:XX in the bottom of the edit window frame, where YY is the line
+number and XX is the column number.
+
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcZoomBox=10014
+
+ Ü Zoom box
+ ßßßßßßßßßßß
+
+The zoom box appears in the window's upper right corner.
+
+If the icon in the zoom box is an up arrow, you can click the arrow to
+enlarge the window to the largest size possible.
+
+If the icon is a double-headed arrow, the window is already at its maximum
+size; click the arrow to return the window to its previous size.
+
+To zoom a window from the keyboard, choose {Window|Zoom:hcWindowZoom} or press
+F5.
+
+ { Back to Window basics screen:hcHelpWindows}
+
+
+.topic hcCloseBox=10015
+
+ Ü Close box
+ ßßßßßßßßßßßß
+
+You can click the close box to quickly close the window. Alternatively, you
+can choose {Window|Close:hcWindowClose} or press Alt-F3.
+
+ { Back to Window basics screen:hcHelpWindows}
+
+
+.topic hcTitleBar=10016
+
+ Ü Title bar
+ ßßßßßßßßßßßß
+
+You can double-click the title bar to zoom the window. You can also drag
+the title bar to move the window around.
+
+ { Back to Window basics screen:hcHelpWindows}
+
+
+.topic hcScrollBar=10017
+
+ Ü Scroll bars
+ ßßßßßßßßßßßßßß
+
+Scroll bars are horizontal or vertical bars that show both mouse and keyboard
+users how far into the file they've gone. You use these bars with a mouse to
+scroll the contents of the window.
+
+ ş Click the arrow at either end to scroll one line at a time. (Keep the
+   mouse button pressed to scroll continuously.)
+
+ ş You can click the shaded area at either end of the scroll box to scroll
+   the window one page (windowful) at a time.
+
+ ş You can drag the scroll box to any spot on the scroll bar to quickly
+   move to a spot in the window relative to the position of the scroll box.
+
+ { Back to Window basics screen:hcHelpWindows}
+
+
+.topic hcWindowTile=1505
+
+ Ü Window³Tile
+ ßßßßßßßßßßßßßß
+
+Choose Window³Tile to tile all your open edit windows.
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿ ³
+ ³ º               º³               ³ ³
+ ³ º               º³               ³ ³
+ ³ º               º³               ³ ³
+ ³ º               º³               ³ ³
+ ³ ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ³
+ ³ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿ ³
+ ³ ³               ³³               ³ ³
+ ³ ³               ³³               ³ ³
+ ³ ³               ³³               ³ ³
+ ³ ³               ³³               ³ ³
+ ³ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ ³
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+             Tiled windows
+
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowCascade=1510
+
+ Ü Window³Cascade
+ ßßßßßßßßßßßßßßßßß
+
+Choose Window³Cascade to stack all open edit windows.
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³³ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³³³ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+ ³³³º                         º
+ ³³³º                         º
+ ³³³º                         º
+ ³³³º                         º
+ ³³³º                         º
+ ÀÀÀÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+      Cascaded edit windows
+
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowCloseAll=1540
+
+ Ü Window³Close all
+ ßßßßßßßßßßßßßßßßßßß
+
+Choose close all to close all windows. Choose close to close the active
+window.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowResize=1515
+
+
+ Ü Window³Size/Move (Ctrl+F5)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Choose this command to change the size or position of the active window.
+
+ Ü Size
+ ßßßßßßß
+
+If you press shift while you use the arrow keys, you can change the size of
+the window. When it's at the size you want, press enter.
+
+If a window has a resize corner, you can drag that corner to resize the
+window.
+
+ Ü Move
+ ßßßßßßß
+
+When you choose Window³Size/Move, the active window moves in response to the
+arrow keys. Once you've moved the window to where you want it, press enter.
+
+You can also move a window by dragging its title bar.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowZoom=1520
+
+ Ü Window³Zoom (F5)
+ ßßßßßßßßßßßßßßßßßßß
+
+Choose zoom to resize the active window to the maximum size.
+
+If the window is already zoomed, you can choose this command to restore it
+to its previous size.
+
+You can also double-click anywhere on the window's title bar (except where an
+icon appears), or on the {zoom box:hcZoomBox} in the window's upper right corner,
+to zoom or unzoom the window.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowClose=1535
+
+ Ü Window³Close (Alt+F3)
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+Choose close to close the active window.
+
+You can also click the {close box:hcCloseBox} in the upper left corner to
+close a window.
+
+Choose {Close all:hcWindowCloseAll} to close all windows.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowNext=1525
+
+ Ü Window³Next (F6)
+ ßßßßßßßßßßßßßßßßßßß
+
+Choose next to make the next window active, which makes it the topmost
+open window.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowPrevious=1530
+
+ Ü Window³Previous (Shift+F6)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Choose previous to make the most-recently active window active again.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcWindowErrorInfo=1545
+
+ Ü Window³Error information
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The error information window displays the contents of the NASM.LOG file which
+is created by the assembler each time you assemble, build or run your code.
+
+If no error message were returned by the assembler, the error information
+window displays the message 'No errors occurred.'.
+
+If an error message occurs you can do the following:
+
+ ş Use the cursor keys or the mouse and the scroll bar to move the highlight
+   bar over the error message you are interested in.
+
+ ş Press enter or double-click on an error message to go to the source code
+   which generated the error. If the source code file is open, NASM-IDE makes
+   the window containing the file active, and places the cursor at the start
+   of the line containing the error. If the code file is not open, NASM-IDE
+   will open a new window and will place the cursor at the start of the line
+   containing the error.
+
+
+The error information window is displayed automatically by NASM-IDE after
+the assembler has been used.
+
+ { Back to Window menu screen:hcWindowMenu}
+
+
+.topic hcHelpMenu=1600
+
+ Ü Help (Alt+H)
+ ßßßßßßßßßßßßßßß
+
+The help menu provides access to on-line help, which comes up in a special
+help window. The text in the help window is a help screen.
+
+Help is also available in the form of one-line menu and dialog-box hints
+which appear on the status line whenever you select a menu command or dialog
+box item.
+
+These are the available help system commands:
+
+ {Help contents:hcHelpContentsMenuItem}
+ {Using help:hcHelpUsingMenuItem}
+ {Integer opcodes:hcHelp80x86Opcodes}
+ {Floating point opcodes:hcHelp80x87Opcodes}
+ {About...:hcHelpAbout}
+
+ { Back to Menus and hot keys:hcHelpMenus}
+
+
+.topic hcHelpContentsMenuItem=10018
+
+ Ü Help³Help contents (F1)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The {help contents:hcHelpContents} screen provides a summary of several help
+topics you can choose from.
+
+ { Back to help menu screen:hcHelpMenu}
+
+
+.topic hcHelpUsingMenuItem=10019
+
+ Ü Help³Using help
+ ßßßßßßßßßßßßßßßßßß
+
+The {using help:hcHelpUsing} screen provides a summary of how to use the
+NASM-IDE on-line help system.
+
+ { Back to help menu screen:hcHelpMenu}
+
+
+.topic hcHelp80x86Opcodes=1640
+
+ Ü Help³Integer opcodes
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+The integer opcodes help provides an on-line reference for all 80x86 family
+opcodes.
+
+To view the integer opcodes help, choose Help³Integer opcodes.
+
+ { Back to help menu screen:hcHelpMenu}
+
+
+.topic hcHelp80x87Opcodes=1650
+
+ Ü Help³Floating point opcodes
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The floating point opcodes help provides an on-line reference for all 80x87
+family opcodes.
+
+To view the floating point opcodes help, choose Help³Floating point opcodes.
+
+ { Back to help menu screen:hcHelpMenu}
+
+
+.topic hcHelpAbout=1660
+
+ Ü Help³About...
+ ßßßßßßßßßßßßßßßß
+
+When you choose the about command from the help menu, a dialog box appears,
+showing copyright and version information.
+
+The about box also show the URLs for the NASM-IDE homepage and the NASM
+homepages.
+
+Press Esc or click OK to close the box.
+
+ { Back to help menu screen:hcHelpMenu}
+
+
+.topic hcEditWindow=3700
+
+ Ü Edit windows
+ ßßßßßßßßßßßßßßß
+
+Edit windows are where you type in and edit your NASM-IDE code. You can also
+do the following in an edit window:
+
+ ş {assemble:hcAssembleAssemble} your programs
+ ş {run:hcAssembleRun} your programs
+ ş read them from disk files
+ ş save them to disk files
+
+You can open as many edit windows as you want, within the limits of available
+memory.
+
+
+ Ü Closing and opening edit windows
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+To close an active edit window, click the window's {close box:hcCloseBox} or
+choose {Window³Close:hcWindowClose}.
+
+To open an edit window, choose {File³Open:hcFileOpen}. You can open the same
+file in more than one window.
+
+ Ü Editor commands
+ ßßßßßßßßßßßßßßßßßß
+
+ {Block commands:hcEditWindowBlock}
+ {Cursor movement commands:hcEditWindowCursor}
+ {Insert & delete commands:hcEditWindowIns}
+ {Miscellaneous commands:hcEditWindowMisc}
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcEditWindowBlock=10020
+
+ Ü Block commands
+ ßßßßßßßßßßßßßßßßß
+
+  Mark block begin         ³ Ctrl+K B
+  Mark block end           ³ Ctrl+K K
+  Mark single word         ³ Ctrl+K T
+  Copy block               ³ Ctrl+K C
+  Move block               ³ Ctrl+K V
+  Delete block             ³ Ctrl+K Y
+  Mark line                ³ Ctrl+K L
+  Copy to clipboard        ³ Ctrl+Ins
+  Cut to clipboard         ³ Shift+Del
+  Delete block             ³ Ctrl+Del
+  Paste to clipboard       ³ Shift+Ins
+
+
+ { Back to edit windows screen:hcEditWindow}
+
+
+.topic hcEditWindowCursor=10021
+
+ Ü Cursor movement commands
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Character left  ³ Ctrl+S or Left arrow
+ Character right ³ Ctrl+D or Right arrow
+ Word left       ³ Ctrl+A or Ctrl+Left arrow
+ Word right      ³ Ctrl+F or Ctrl+Right arrow
+ Line up         ³ Ctrl+E or Up arrow
+ Line down       ³ Ctrl+X or Down arrow
+ Scroll up       ³ Ctrl+W
+ Scroll down     ³ Ctrl+Z
+ Page up         ³ Ctrl+R or PgUp
+ Page down       ³ Ctrl+C or PgDn
+
+ { Back to edit windows screen:hcEditWindow}
+
+
+.topic hcEditWindowIns=10022
+
+ Ü Insert & delete commands
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Insert mode on/off    ³ Ctrl+V or Ins
+ Insert line           ³ Ctrl+N
+ Delete line           ³ Ctrl+Y
+ Delete to end of line ³ Ctrl+Q Y
+ Delete character left ³ Ctrl+H or Backspace
+ Delete character      ³ Ctrl+G or Del
+ Delete word right     ³ Ctrl+T
+
+ { Back to edit windows screen:hcEditWindow}
+
+
+.topic hcEditWindowMisc=10023
+
+ Ü Miscellaneous editor commands
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Menu bar             ³ F10
+ Save and edit        ³ Ctrl+K S or F2
+ Open file            ³ F3
+ Close active window  ³ Alt+F3
+                      ³
+ Find                 ³ Ctrl+Q F
+ Find & replace       ³ Ctrl+Q A
+ Repeat last find     ³ Ctrl+L
+ Abort operation      ³ Esc
+
+ { Back to edit windows screen:hcEditWindow}
+
+
+.topic hcHelpNasmDoc=10100
+
+ Ü Programming in NASM
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+NASM is the assembler which NASM-IDE uses to generate code from your source
+code files.
+
+This information is based on the NASM.DOC file that is distributed
+as part of the full NASM archive available from the NASM website
+(see Help³About).
+
+Choose from one of the following sections.
+
+ ş {Introduction:hcNasmIntroduction}
+ ş {Quick start for MASM users:hcNasmQuickStart}
+ ş {Writing programs with NASM:hcNasmPrograms}
+ ş {Floating point instructions:hcNasmFloatingPoint}
+ ş {Pseudo-opcodes:hcNasmPseudoOpcodes}
+ ş {Effective addresses:hcNasmEA}
+ ş {Unusual instruction sizes:hcNasmUnusualInstructionSizes}
+ ş {Constants:hcNasmConstants}
+ ş {Expressions:hcNasmExpressions}
+ ş {Critical expressions:hcNasmCriticalExpressions}
+ ş {Local labels:hcNasmLocalLabels}
+ ş {Assembler directives:hcNasmDirectives}
+ ş {The preprocessor:hcNasmPreprocessor}
+ ş {Output formats:hcNasmOutput}
+ ş {Common problems:hcNasmProblems}
+
+
+ { Back to contents screen:hcHelpContents}
+
+
+.topic hcNasmIntroduction=10101
+
+ Ü Introduction
+ ßßßßßßßßßßßßßßß
+
+The Netwide Assembler (NASM) is a fully 80x86 compatible assembler which is
+available for DOS and Unix based systems. NASM-IDE is a front-end for the
+DOS version of the assembler.
+
+This section of the NASM-IDE on-line help will provide information on
+programming in NASM.
+
+Please note that this help is in now way meant to be a tutorial in assembly
+language programming, it is simply an overview intended to get you started
+with NASM as quickly as possible.
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmQuickStart=10102
+
+ Ü Quick start for MASM users
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+If you're used to writing programs with Microsoft's Macro Assembler (MASM),
+or with Borland's Turbo Assembler (TASM) in MASM compatible (non ideal) mode,
+or with A86, this section attempts to outline the major differences between
+MASM's syntax and NASM's.
+
+If you're not already used to MASM, this section will probably only be of
+help if you are trying to convert code from MASM to NASM.
+
+ ş {Case sensitivity:hcNasmCaseSensitive}
+ ş {Instructions and register names:hcNasmInsnName}
+ ş {Variable typing:hcNasmVarType}
+ ş {Offset and square brackets:hcNasmOffset}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmCaseSensitive=10103
+
+ Ü Case sensitivity
+ ßßßßßßßßßßßßßßßßßßß
+
+NASM is case sensitive: it makes a difference whether you call your label
+'foo', 'Foo' or 'FOO'.
+
+If you're assembling to the DOS 16 bit object format then you can use the
+'UPPERCASE' assembler directive.
+
+ { Back to Quick start for MASM users:hcNasmQuickStart}
+
+
+.topic hcNasmInsnName=10104
+
+ Ü Instructions and register names
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+NASM calls the floatingpoint stack registers 'st0', 'st1' and so on, whereas
+MASM uses 'ST(0)'.
+
+NASM doesn't support LODS, MOVS, STOS, SCAS, CMPS, INS, or OUTS, it only
+supports the size-specified versions LODSB, MOVSW, SCASD and so on.
+
+ { Back to Quick start for MASM users:hcNasmQuickStart}
+
+
+.topic hcNasmVarType=10105
+
+ Ü Variable typing
+ ßßßßßßßßßßßßßßßßßß
+
+When you declare a variable as 'var dw 0', MASM will remember that 'var' is a
+variable of type word. This means that instructions such as 'mov var, 2'
+can be unambiguously given the word size rather than byte or dword.
+
+NASM doesn't and won't do this. The statement 'var dw 0' merely defines 'var'
+to be a label marking a point in memory. NASM does not remember that there are
+two bytes of data following that point in memory before the next line of code.
+
+If you want to store the number 2 in such a variable, you must always specify
+the size of the operation, for example 'mov word [var], 2'.
+
+ { Back to Quick start for MASM users:hcNasmQuickStart}
+
+
+.topic hcNasmOffset=10106
+
+ Ü Offset and square brackets
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+In MASM, declaring 'var dw 0' entitles you to code 'mov ax, var' to get at
+the contents of the variable. In order to get the address of the variable you
+must write 'mov ax, offset var'.
+
+In NASM, 'mov ax, var' gives you the address of the variable, not the contents.
+To get the contents you must code 'mov ax, [var]'.
+
+This brings consistency to the syntax: 'mov ax, [var]' and 'mov ax, [bx]'
+both refer to the contents of memory and both have square brackets, whereas
+neither 'mov ax, bx' nor 'mov ax, var' refers to memory contents and so
+neither one has square brackets.
+
+The hybrid-style syntaxes supported by MASM and its clones, such as
+'mov ax, table[bx]', where a memory reference is denoted by one
+portion outside square brackets and another portion inside, are also
+not supported by NASM. The correct syntax for the above is 'mov ax, [table + bx]'.
+
+Likewise, 'mov ax, es:[di]' is incorrect in NASM, you should use 'mov ax, [es:di]'
+instead.
+
+ { Back to Quick start for MASM users:hcNasmQuickStart}
+
+
+.topic hcNasmPrograms=10107
+
+ Ü Writing programs with NASM
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Each line of a NASM source file should contain some combination of
+the four fields:
+
+ {LABEL:hcNasmLabel}:    {INSTRUCTION:hcNasmInstruction}    {OPERANDS:hcNasmOperands}    {;COMMENT:hcNasmComment}
+
+All of these fields are optional. For example, the presence or absence of the
+OPERANDS field is dependent on the INSTRUCTION field.
+
+Lines may also contain nothing but an assembler directive - see {Assembler directives:hcNasmDirectives}
+for more information.
+
+NASM-IDE has a limit of 255 charcters per line, an error message will be
+displayed if you attempt to enter a line longer than this.
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmLabel=10108
+
+ Ü Labels
+ ßßßßßßßßß
+
+A label acts as a pointer to the position in the source code where it is
+written.
+
+Labels may have white space before and after them, and can optionally end
+in a colon.
+
+For example, the label 'START' can be defined as follows:
+
+    START
+or  START:
+
+both are equally valid. However, it is possible to configure NASM so that a
+warning is generated if a label is the only text on a line, and it has no
+trailing colon (see {Assembler options:hcOptionsAssembler}). This is to help
+prevent mistyped opcodes being mistaken for labels.
+
+Labels must comply with the following rules:
+
+ ş The first character must be either a letter, a question mark (?), or an
+   underscore (_), unless the label is to be a {local label:hcNasmLocalLabels}
+   in which case it will begin with a full stop (.).
+
+ ş The characters that follow the first one can be letters, digits,
+   underscores (_), '$', '#', '@', '~', '?' and '.', no spaces are allowed.
+
+
+A label may also be prefixed with a $ sign to indicate that it is intended to
+be read as an identifier and not a reserved word. For example, if a module you
+are linking with defines a symbol 'eax', you can refer to it as '$eax' in NASM
+code to distinguish it from the register name 'eax'.
+
+ { Back to Writing programs in NASM screen:hcNasmPrograms}
+
+
+.topic hcNasmInstruction=10109
+
+ Ü Instructions
+ ßßßßßßßßßßßßßßß
+
+Instructions can be any machine opcode, see Help³Integer opcodes and
+Help³Floating point opcodes for information on the 80x86 instruction set.
+
+An instruction can be prefixed by LOCK, REP, REPE/REPZ or REPNE/REPNZ, for
+example: 'rep movsw'.
+
+Explicit address-size and operand-size prefixes A16, A32, O16 and O32 are
+provided (see {'Unusual instruction sizes':hcNasmUnusualInstructionSizes}
+for more information).
+
+You can also use a segment register as a prefix to an instruction. For example,
+coding 'es mov [bx], ax' is equivalent to coding 'mov [es:bx], ax'. The latter
+syntax is recommended, since it is consistent with other syntactic features
+of the language, but for instructions such as 'lodsb', there is no other way
+to add a segment override than as a prefix.
+
+An instructions can also be a NASM pseudo-opcode - see {pseudo-opcodes:hcNasmPseudoOpcodes}
+for more information.
+
+ { Back to Writing programs in NASM screen:hcNasmPrograms}
+
+
+.topic hcNasmOperands=10110
+
+ Ü Operands
+ ßßßßßßßßßßß
+
+The operands field can be nonexistent, or huge, depending on the instruction.
+When operands are registers, they are given simply as register names, e.g.
+'eax', 'ss', 'di' for example.
+
+Operands may also be {effective addresses:hcNasmEA}, {constants:hcNasmConstants}
+or {expressions:hcNasmExpressions}.
+
+ { Back to Writing programs in NASM screen:hcNasmPrograms}
+
+
+.topic hcNasmComment=10111
+
+ Ü Comments
+ ßßßßßßßßßßß
+
+A comment is anything that comes after the first semicolon on a line,
+excluding semicolons inside quoted strings.
+
+ { Back to Writing programs in NASM screen:hcNasmPrograms}
+
+
+.topic hcNasmFloatingPoint=10112
+
+ Ü Floating point instructions
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+NASM has built-in support for assembling FPU opcodes. However, its syntax is
+not necessarily the same as that used by other assemblers.
+
+NASM uses the notation 'st0', 'st1', etc. to denote the FPU stack registers.
+NASM also accepts a wide range of single-operand and two-operand forms of the
+instructions.
+
+If you wish to use the single-operand form exclusively, you can use the TO
+keyword which makes available the opcodes which cannot be easily accessed by
+one operand. For example:
+
+ fadd st1       ; this sets st0:= st0 + st1
+ fadd st0,st1   ; so does this
+ fadd st1,st0   ; this sets st1:= st1 + st0
+ fadd to st1    ; so does this
+
+
+FPU instructions that reference memory must use the prefixes DWORD, QWORD or
+TWORD to indicate what size of memory operand they refer to.
+
+NASM will never automatically insert WAIT instructions into your code stream.
+You must code WAIT yourself before any instruction that needs it, although on
+286 processors or above, WAIT instructions are not needed.
+
+NASM supports specification of floating point constants by means of 'dd'
+(single precision), 'dq' (double precision) and 'dt' (extended precision).
+Floating-point arithmetic is not done, due to portability constraints (not all
+platforms on which NASM can be run support the same floating point types), but
+simple constants can be specified. For example:
+
+ gamma dq 0.5772156649  ; Euler's constant
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmPseudoOpcodes=10113
+
+ Ü Pseudo-opcodes
+ ßßßßßßßßßßßßßßßßß
+
+Pseudo-opcodes are not real 80x86 machine opcodes, but are still entered in
+instruction field as it is the most convenient place to put them.
+
+The current pseudo-opcodes are:
+
+ ş {DB, DW, DD, DQ and DT:hcNasmDB}
+ ş {RESB, RESW, RESD, RESQ and REST:hcNasmRESB}
+ ş {INCBIN:hcNasmINCBIN}
+ ş {EQU:hcNasmEQU}
+ ş {TIMES:hcNasmTIMES}
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmDB=10114
+
+ Ü Pseudo-opcodes - DB, DW, DD, DQ and DT
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+DB, DW, DD, DQ and DT work as you would expect: they can each take
+an arbitrary number of operands, and when assembled, they generate
+nothing but those operands.
+
+All three of them can take string constants as operands. See the {Constants:hcNasmConstants}
+section for details about string constants.
+
+ { Back to Pseudo-opcodes screen:hcNasmPseudoOpcodes}
+
+
+.topic hcNasmRESB=10115
+
+ Ü Pseudo-opcodes - RESB, RESW, RESD, RESQ and REST
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+RESB, RESW, RESD, RESQ and REST are designed to be used in the BSS
+section of a module: they declare uninitialised storage space.
+
+Each takes a single operand, which is the number of bytes, words or
+doublewords to reserve.
+
+NASM does not support the MASM/TASM syntax of reserving uninitialised space
+by writing 'DW ?' or similar, you must use the RES pseudo-opcodes.
+
+ { Back to Pseudo-opcodes screen:hcNasmPseudoOpcodes}
+
+.topic hcNasmINCBIN=10116
+
+ Ü Pseudo-opcodes - INCBIN
+ ßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+INCBIN is used to include a binary file verbatim into the output file. This
+can be handy for (for example) including graphics and sound data directly into
+a game executable file.
+
+It can be called in one of these three ways:
+
+    INCBIN "file.dat"               ; include the whole file
+    INCBIN "file.dat", 1024         ; skip the first 1024 bytes
+    INCBIN "file.dat", 1024, 512    ; skip the first 1024, and
+                                    ; actually include at most 512
+
+ { Back to Pseudo-opcodes screen:hcNasmPseudoOpcodes}
+
+.topic hcNasmEQU=10117
+
+ Ü Pseudo-opcodes - EQU
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+EQU defines a symbol to a specified value. When EQU is used, the LABEL field
+must be present. The action of EQU is to define the given label name to the
+value of its (only) operand. This definition is absolute, and cannot change
+later.
+
+For example:
+
+ message db 'hello, world'
+ msglen  equ $-message
+
+This defines 'msglen' to be the constant 12. 'msglen' may not then be
+redefined later.
+
+The value of 'msglen' is evaluated once, using the value of '$' (see the
+section {'Expressions':hcNasmExpressions} for details of '$') at the point of
+definition, rather than being evaluated wherever it is referenced and using
+the value of '$' at the point of reference.
+
+ { Back to Pseudo-opcodes screen:hcNasmPseudoOpcodes}
+
+
+.topic hcNasmTIMES=10118
+
+ Ü Pseudo-opcodes - TIMES
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The TIMES prefix causes the instruction to be assembled multiple times. This
+is partly NASM's equivalent of the DUP syntax supported by MASM-compatible
+assemblers, in that it is possible to do the following:
+
+ zerobuf: times 64 db 0
+
+TIMES does not only take a numeric constant, but a numeric expression, so it is
+also possible to do the following:
+
+ buffer: db 'hello, world'
+ times 64-$+buffer db ' '
+
+Which will store exactly enough spaces to make the total length of 'buffer' up
+to 64.
+
+TIMES can also be applied to ordinary opcodes, so you can code trivial
+unrolled loops in it:
+
+ times 100 movsb
+
+
+Note that there is no effective difference between 'times 100 resb 1' and
+'resb 100', except that the latter will be assembled about 100 times faster
+due to the internal structure of the assembler.
+
+Note also that TIMES can't be applied to macros. The reason for this
+is that TIMES is processed after the macro phase, which allows the
+argument to TIMES to contain expressions such as '64-$+buffer' as shown
+above.
+
+ { Back to Pseudo-opcodes screen:hcNasmPseudoOpcodes}
+
+
+.topic hcNasmEA=10119
+
+ Ü Effective addresses
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+The addressing scheme used by NASM is very simple, although it can involve
+more typing than other assemblers.
+
+To refer to the contents of a memory location, square brackets are required.
+This applies to simple variables, computed offsets, segment overrides,
+effective addresses - everything.
+
+For example:
+
+ wordvar dw 123
+ mov ax, [wordvar]
+ mov ax, [wordvar+1]
+ mov ax, [es:wordvar+bx]
+
+NASM does not support the various strange syntaxes used by MASM and others,
+such as:
+
+ mov ax, wordvar        ; this is legal, but means something else
+ mov ax, es:wordvar[bx] ; not even slightly legal
+ es mov ax, wordvar[1]  ; the prefix is OK, but not the rest
+
+
+If no square brackets are used, NASM interprets label references to mean the
+address of the label. Hence there is no need for MASM's OFFSET keyword.
+
+For example:
+
+ mov ax, wordvar
+
+Loads AX with the address of the variable 'wordvar'.
+
+More complicated effective addresses are handled by enclosing them within
+square brackets as before:
+
+ mov eax, [ebp+2*edi+offset]
+ mov ax, [bx+di+8]
+
+
+Provided your effective address expression evaluates algebraically to
+something that the instruction set supports, NASM will be able to assemble it.
+
+For example:
+
+ mov eax, [ebx*5]       ; actually assembles to [ebx+ebx*4]
+ mov ax, [bx-si+2*si]   ; actually assembles to [bx+si]
+
+
+There is an ambiguity in the instruction set, which allows two forms
+of 32-bit effective address with equivalent meaning:
+
+ mov eax, [2*eax+0]
+ mov eax, [eax+eax]
+
+These two expressions clearly refer to the same address. The difference is
+that the first one, if assembled 'as is', requires a four-byte offset to be
+stored as part of the instruction, so it takes up more space.
+
+NASM will generate the second (smaller) form for both of the above instructions,
+in an effort to save space.
+
+There is currently no way of forcing NASM to generate the larger form of the
+instruction.
+
+An alternative syntax is supported, in which prefixing an operand with '&' is
+synonymous with enclosing it in square brackets. The square bracket syntax is
+the recommended one.
+
+For example:
+
+ mov eax, &ebx+ecx
+
+is equivalent to
+
+ mov eax, [ebx+ecx]
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmUnusualInstructionSizes=10120
+
+ Ü Unusual instruction sizes
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+A number of assemblers seem to have trouble assembling instructions
+that use a different operand or address size from the one they are
+expecting. While simple code such as 'mov eax, 2' can be easily dealt with,
+some instructions are more complicated.
+
+ ş {Jumps:hcNasmUnusualJumps}
+ ş {Loops:hcNasmUnusualLoops}
+ ş {Strings:hcNasmUnusualStrings}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmUnusualJumps=10121
+
+ Ü Unusual instruction sizes - Jumps
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Suppose you are in a 16-bit segment, in protected mode, and you want to
+execute a far jump to a point in a 32-bit segment. You need to code a 32-bit
+far jump in a 16-bit segment, something that not all assemblers will easily
+support. NASM can, by means of the 'word' and 'dword' specifiers.
+
+So you can code:
+
+ jmp 1234h:5678h            ; this uses the default segment size
+ jmp word 1234h:5678h       ; this is guaranteed to be 16-bit
+ jmp dword 1234h:56789ABCh  ; and this is guaranteed 32-bit
+
+
+Similarly, if you are coding in a 16-bit code segment, but trying to
+access memory in a 32-bit data segment, your effective addresses
+will want to be 32-bit.
+
+As soon as you specify an effective address containing a 32-bit register,
+like '[eax]', the addressing is forced to be 32-bit anyway. But if you try to
+specify a simple offset, such as '[label]' or '[0x10000]', you will get the
+default address size, which in this case will be wrong.
+
+However, NASM allows you to code '[dword 0x10000]' to force a 32-bit address
+size, or conversely '[word wlabel]' to force 16 bits.
+
+Be careful not to confuse 'word' and 'dword' inside the square brackets with
+outside.
+
+For example:
+
+ mov word [dword 0x123456], 0x7890
+
+Which moves 16 bits of data to an address specified by a 32-bit offset. There
+is no contradiction between the 'word' and 'dword' in this instruction, since
+they modify different aspects of the functionality.
+
+An even more confusing situation is shown below:
+
+ call dword far [fs:word 0x4321]
+
+Which takes an address specified by a 16-bit offset, and extracts a
+48-bit dword far pointer from it to call.
+
+Using this effective-address syntax, the 'dword' or 'word' override
+may come before or after the segment override if any.
+
+For example:
+
+ mov ax, [fs:dword 0x123456]
+ mov ax, [dword fs:0x123456]
+
+Are equivalent forms, and generate the same code.
+
+ { Back to Unusual instruction sizes screen:hcNasmUnusualInstructionSizes}
+
+
+.topic hcNasmUnusualLoops=10122
+
+ Ü Unusual instruction sizes - Loops
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+In a 16-bit segment, the LOOP instruction uses CX as its count register by
+default, and in a 32-bit segment it uses ECX. But it is possible to do either
+one in the other segment, and NASM allows this by letting you specify the
+count register as a second operand, for example:
+
+ loop label       ; uses CX or ECX depending on mode
+ loop label, cx   ; always uses CX
+ loop label, ecx  ; always uses ECX
+
+ { Back to Unusual instruction sizes screen:hcNasmUnusualInstructionSizes}
+
+
+.topic hcNasmUnusualStrings=10123
+
+ Ü Unusual instruction sizes - Strings
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The string instructions LODSB, STOSB, MOVSB, CMPSB, SCASB, INSB, and OUTSB
+can all have strange address sizes. Typically, in a 16-bit segment they read
+from [DS:SI] and write to [ES:DI], and in a 32-bit segment they read from
+[DS:ESI] and write to [ES:EDI].
+
+However, this can be changed by the use of the explicit address-size prefixes
+'a16' and 'a32'. These prefixes generate null code if used in the same size
+segment as they specify, but generate an 0x67 prefix otherwise.
+
+Hence 'a16' generates no code in a 16-bit segment, but 0x67 in a 32-bit one,
+and vice versa. So 'a16 lodsb' will always generate code to read a byte from
+[DS:SI], no matter what the size of the segment.
+
+There are also explicit operand-size override prefixes, 'o16' and 'o32', which
+will optionally generate 0x66 bytes, but these are provided for completeness and
+should never have to be used.
+
+(Note that NASM does not support the LODS, STOS, MOVS etc. forms of the string
+instructions.)
+
+ { Back to Unusual instruction sizes screen:hcNasmUnusualInstructionSizes}
+
+
+.topic hcNasmConstants=10124
+
+ Ü Constants
+ ßßßßßßßßßßßß
+
+NASM can accept three kinds of constant:
+
+ ş {Numeric:hcNasmConstantNumeric}
+ ş {Character:hcNasmConstantChar}
+ ş {String:hcNasmConstantString}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmConstantNumeric=10125
+
+ Ü Constants - Numeric
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+Numeric constants are simply numbers. NASM supports a variety of
+syntaxes for expressing numbers in strange bases. For example you can do any
+of the following:
+
+ 100   ; this is decimal
+ 0x100 ; hexadecimal
+ 100h  ; hex as well
+ $100  ; hex again
+ 100q  ; octal
+ 100b  ; binary
+
+
+Leading zeros make no difference to NASM, with the exception of hexadecimal
+constants that begin with a letter and use the trailing 'h' syntax, in which
+case a leading zero is required so that it will not be mistaken for a label.
+
+The 'x' in '0x100', and the trailing 'h', 'q' and 'b', may all be upper case
+if you want.
+
+ { Back to Constants screen:hcNasmConstants}
+
+
+.topic hcNasmConstantChar=10126
+
+ Ü Constants - Character
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+Character constants consist of up to four characters enclosed in single or
+double quotes. No escape character is defined for including the quote
+character itself: if you want to declare a character constant containing a
+double quote, enclose it in single quotes, and vice versa.
+
+Character constants' values are worked out in terms of a little-endian
+computer, for example:
+
+ mov eax, 'abcd'
+
+Then if you were to examine the binary output from NASM, it would contain the
+visible string 'abcd', which of course means that the actual value loaded into
+EAX would be 0x64636261 ('dcba'), not 0x61626364 ('abcd').
+
+ { Back to Constants screen:hcNasmConstants}
+
+
+.topic hcNasmConstantString=10127
+
+ Ü Constants - String
+ ßßßßßßßßßßßßßßßßßßßßß
+
+String constants are like character constants. If a character constant
+appearing as operand to a DB, DW or DD is longer than the word size involved
+(1, 2 or 4 respectively), it will be treated as a string constant instead,
+which is to say the concatenation of separate character constants.
+
+For example:
+
+ db 'hello, world'
+
+Declares a twelve-character string constant. Similarly:
+
+ dd 'dontpanic'   ; a string constant
+
+Is equivalent to writing:
+
+ dd 'dont', 'pani', 'c'   ; three character constants
+
+So that what actually gets assembled is equivalent to:
+
+ db 'dontpanic', 0, 0, 0
+
+
+ { Back to Constants screen:hcNasmConstants}
+
+
+.topic hcNasmExpressions=10128
+
+ Ü Expressions
+ ßßßßßßßßßßßßßß
+
+Expressions in NASM can be formed of the following operators:
+
+  Operator    ³ Description
+  ÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+      |       ³ Bitwise OR
+      ^       ³ Bitwise XOR
+      &       ³ Bitwise AND
+      ~       ³ Bitwise NOT
+      <<      ³ Logical bitwise left shift
+      >>      ³ Logical bitwise right shift
+      +       ³ Addition
+      -       ³ Subtraction
+      *       ³ Multiplication
+      /       ³ Division (unsigned)
+      %       ³ Modulo (unsigned)
+      //      ³ Division (signed)
+      %%      ³ Modulo (signed)
+      {SEG:hcNasmSEGWRT}     ³ Segment base value
+      {WRT:hcNasmSEGWRT}     ³ With Reference To
+
+
+The order of precedence is given below:
+
+ Operators          ³ Precedence
+ ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄ
+     |              ³ Lowest
+     ^              ³
+     &              ³
+   << >>            ³
+ (binary) + -       ³
+ * / % // %%        ³
+ (unary) + - ~ SEG  ³ Highest
+
+
+Operators within a precedence level associate to the left (i.e. '2-3-4'
+evaluates the same way as '(2-3)-4').
+
+Note that since the '%' character is used by the preprocessor, it's
+worth making sure that the '%' and `%%' operators are followed by a
+space, to prevent the preprocessor trying to interpret them as
+macro-related code.
+
+A form of algebra is done by NASM when evaluating expressions. Algebra can
+be done also be used with labels, for example 'label2*2-label1' is an
+acceptable way to define an address as far beyond 'label2' as 'label1' is
+before it.
+
+In less algebraically capable assemblers, one might have to write
+that as 'label2 + (label2-label1)', where the value of every
+sub-expression is either a valid address or a constant. NASM can of
+course cope with that version as well.
+
+Expressions may also contain the special token '$', known as a 'Here'
+token, which always evaluates to the address of the current assembly
+point. That is, the address of the assembly point before the
+current instruction gets assembled.
+
+The special token `$$' evaluates to the address of the beginning of
+the current section. This can be used for alignment, as shown below:
+
+ times ($$-$) & 3 nop ; pad with NOPs to 4-byte boundary
+
+Note that this technique aligns to a four-byte boundary with respect
+to the beginning of the segment - if you can't guarantee that the
+segment itself begins on a four-byte boundary, this alignment is
+useless or worse. Be sure you know what kind of alignment you can
+guarantee to get out of your linker before you start trying to use
+TIMES to align to page boundaries.
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmSEGWRT=10129
+
+ Ü Expressions - SEG and WRT
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+NASM contains the capability for its object file formats to permit
+programs to directly refer to the segment-base values of their
+segments.
+
+This is achieved either by the object format defining the segment names as
+symbols, or by the use of the SEG operator.
+
+SEG is a unary prefix operator which, when applied to a symbol defined in a
+segment, will yield the segment base value of that segment.
+
+In 16 bit DOS Object file and OS/2 object file format, symbols defined in
+segments which are grouped are considered to be primarily a member of the
+group, not the segment, and the return value of SEG reflects this.
+
+SEG may be used for far pointers and it is guaranteed that for any
+symbol 'sym', using the offset 'sym' from the segment base 'SEG sym'
+yields a correct pointer to the symbol. Hence you can code a far
+call by means of:
+
+ CALL SEG routine:routine
+
+Or store a far pointer in a data segment by:
+
+ DW routine, SEG routine
+
+For convenience, NASM supports the forms:
+
+ CALL FAR routine
+ JMP FAR routine
+
+As direct synonyms for the canonical syntax:
+
+ CALL SEG routine:routine
+ JMP SEG routine:routine
+
+No alternative syntax is supported for:
+
+ DW routine, SEG routine
+
+
+Simply referring to 'sym', for some symbol, will return the offset
+of 'sym' from its preferred segment base (as returned from 'SEG sym').
+Sometimes, you may want to obtain the offset of 'sym' from some other
+segment base.
+
+For example the offset of 'sym' from the base of the segment it's in, where
+normally you'd get the offset from a group base.
+
+This is accomplished using the WRT (With Reference To) keyword. If 'sym' is
+defined in segment 'seg' but you want its offset relative to the beginning
+of segment 'seg2', you can do the following:
+
+ mov ax, sym WRT seg2
+
+The right-hand operand to WRT must be a segment-base value. You can
+also do 'sym WRT SEG sym2' if you need to.
+
+
+ { Back to expressions screen:hcNasmExpressions}
+
+
+.topic hcNasmCriticalExpressions=10130
+
+ Ü Critical expressions
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+NASM is a two-pass assembler - it goes over the input once to
+determine the location of all the symbols, then once more to
+actually generate the output code. Most expressions are
+non-critical, in that if they contain a forward reference and hence
+their correct value is unknown during the first pass, it doesn't
+matter.
+
+However, arguments to RESB, RESW and RESD, and the argument
+to the TIMES prefix, can actually affect the size of the generated
+code, and so it is critical that the expression can be evaluated
+correctly on the first pass.
+
+In these situations, expressions may not contain forward references.
+This prevents NASM from having to sort out a mess such as:
+
+ times (label-$) db 0
+ label: db 'where am I?'
+
+In which the TIMES argument could equally legally evaluate to
+anything, or perhaps even worse:
+
+ times (label-$+1) db 0
+ label: db 'NOW where am I?'
+
+In which any value for the TIMES argument is by definition invalid.
+
+Since NASM is a two-pass assembler, this criticality condition also
+applies to the argument to EQU. Suppose, if this were not the case,
+we were to have the setup:
+
+ mov ax, a
+ a equ b
+
+ b:
+
+On pass one, 'a' cannot be defined properly, since 'b' is not known
+yet. On pass two, 'b' is known, so line two can define 'a' properly.
+
+Unfortunately, line 1 needed 'a' to be defined properly, so this
+code will not assemble using only two passes.
+
+In an effective address such as '[eax+offset]', the value of 'offset' can
+be stored as either 1 or 4 bytes. NASM will use the one-byte form if it knows
+it can, to save space, but will therefore be fooled by the following:
+
+ mov eax,[ebx+offset]
+ offset equ 10
+
+In this case, although 'offset' is a small value and could easily
+fit into the one-byte form of the instruction, when NASM sees the
+instruction in the first pass it doesn't know what 'offset' is, and
+for all it knows 'offset' could be a symbol requiring relocation. So
+it will allocate the full four bytes for the value of 'offset'. This
+can be solved by defining 'offset' before it's used.
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmLocalLabels=10131
+
+ Ü Local labels
+ ßßßßßßßßßßßßßßß
+
+A local label is one that begins with a period, for example:
+
+ hello:     ; hello is not a local label
+
+ .hello2:   ; hello2 is a local label
+
+
+The 'localness' comes from the fact that local labels are associated
+with the previous non-local label, so that you may declare the same
+local label twice if a non-local one intervenes. Hence:
+
+ label1     ; some code
+
+ .loop      ; some more code
+ jne .loop
+ ret
+
+ label2     ; some code
+ .loop      ; some more code
+ jne .loop
+ ret
+
+In the above code, each 'jne' instruction jumps to the line of code
+before it, since the '.loop' labels are distinct from each other.
+
+NASM also provides addition functionality in that local labels are
+actually defined in terms of their associated non-local label. This makes
+it possible to write:
+
+ label3            ; some more code
+                   ; and some more
+ jmp label1.loop
+
+So although local labels are usually local, it is possible to
+reference them from anywhere in your program, if you really have to.
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmDirectives=10132
+
+ Ü Assembler directives
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+Assembler directives appear on a line by themselves (apart from a
+comment). They come in two forms: user-level directives and
+primitive directives.
+
+Primitive directives are enclosed in square brackets (no white space may
+appear before the opening square bracket, although white space and a
+comment may come after the closing bracket) and were used mainly by previous
+versions of NASM.
+
+User-level directives look the same, only without the square brackets, and
+are the more modern form. They are implemented as macros expanding to
+primitive directives.
+
+Some directives are universal in that they may be used in any situation,
+and do not change their syntax. Other directives are only available to
+certain output formats.
+
+The following assembler directives are available:
+
+ ş {ABSOLUTE:hcNasmABSOLUTE}
+ ş {BITS:hcNasmBITS}
+ ş {COMMON:hcNasmCOMMON}
+ ş {ENDSTRUC:hcNasmSTRUC}
+ ş {EXTERN:hcNasmEXTERN}
+ ş {GLOBAL:hcNasmGLOBAL}
+ ş {IEND:hcNasmISTRUC}
+ ş {ISTRUC:hcNasmISTRUC}
+ ş {ORG:hcNasmORG}
+ ş {SECTION:hcNasmSEGMENT}
+ ş {SEGMENT:hcNasmSEGMENT}
+ ş {STRUC:hcNasmSTRUC}
+ ş {UPPERCASE:hcNasmUPPERCASE}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmBITS=10133
+
+ Ü Assembler directives - BITS
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'BITS 16' or 'BITS 32' switches NASM into 16-bit or 32-bit mode.
+
+This is equivalent to USE16 and USE32 segments, in TASM or MASM.
+
+In 32-bit mode, instructions are prefixed with 0x66 or 0x67 prefixes
+when they use 16-bit data or addresses, in 16-bit mode, the reverse
+happens.
+
+NASM's default depends on the object format.
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+.topic hcNasmSEGMENT=10134
+
+ Ü Assembler directives - SECTION and SEGMENT
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'SECTION name' or 'SEGMENT name' changes which section the code you
+write will be assembled into.
+
+Acceptable section names vary between output formats. Currently all formats
+support the names '.text', '.data' and '.bss'. Note that '.bss' is an
+uninitialised data section, and so you will receive a warning from NASM if
+you try to assemble any code or data in it. The only thing you can do in '.bss'
+without triggering a warning is to use {RESB:hcNasmRESB}, {RESW:hcNasmRESB} and
+{RESD:hcNasmRESB}.
+
+In object files segments can be declared with attributes:
+
+ SEGMENT CODE PRIVATE ALIGN=16 CLASS=CODE OVERLAY=OVL2 USE16
+
+You can specify segments to be PRIVATE, PUBLIC, COMMON or STACK;
+their alignment may be any power of two from 1 to 256 (although only
+1, 2, 4, 16 and 256 are really supported, so anything else gets
+rounded up to the next highest one of those); their class and
+overlay names may be specified.
+
+You may also specify segments to be USE16 or USE32. The defaults are PUBLIC
+ALIGN=1, no class, no alignment, USE16.
+
+You can also specify that a segment is absolute at a certain segment address:
+
+ SEGMENT SCREEN ABSOLUTE=0xB800
+
+The ABSOLUTE and ALIGN keywords are mutually exclusive.
+
+The format-specific directive GROUP allows segment grouping: 'GROUP
+DGROUP DATA BSS' defines the group DGROUP to contain segments DATA
+and BSS.
+
+Segments are defined as part of their group by default: if variable
+'var' is declared in segment 'data', which is part of group
+'dgroup', then the expression '{SEG:hcNasmSEGWRT} var' is equivalent to the
+expression 'dgroup', and the expression 'var' evaluates to the
+offset of the variable 'var' relative to the beginning of the group
+'dgroup'.
+
+You must use the expression 'var {WRT:hcNasmSEGWRT} data' to get the
+offset of the variable 'var' relative to the beginning of its
+segment.
+
+NASM allows a segment to be part of more than one group but will generate a
+warning. References to the symbols in that segment will be resolved relative
+to the first group it is defined in.
+
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmABSOLUTE=10135
+
+ Ü Assembler directives - ABSOLUTE
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'ABSOLUTE address' can be considered a different form of '{SECTION:hcNasmSEGMENT}',
+in that it must be overridden using a SECTION directive once you
+have finished using it.
+
+It is used to assemble notional code at an absolute offset address; of course,
+you can't actually assemble code there, since no object file format is capable of putting the
+code in place, but you can use {RESB:hcNasmRESB}, {RESW:hcNasmRESB} and
+{RESD:hcNasmRESB}, and you can define labels.
+
+Hence you could, for example, define a C-like data structure by means of:
+
+ absolute 0
+          stLong  resd 1
+          stWord  resw 1
+          stByte1 resb 1
+          stByte2 resb 1
+          st_size:
+                  segment .text
+
+and then carry on coding. This defines 'stLong' to be zero, 'stWord'
+to be 4, 'stByte1' to be 6, 'stByte2' to be 7 and 'st_size' to be 8.
+
+So this has defined a data structure, however the {STRUC:hcNasmSTRUC}
+directive provides a nicer way to do this.
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmEXTERN=10136
+
+ Ü Assembler directives - EXTERN
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'EXTERN symbol' defines a symbol as being external, in the C
+sense. 'EXTERN' states that the symbol is not declared in this
+module, but is declared elsewhere, and that you wish to reference
+it in this module.
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmGLOBAL=10137
+
+ Ü Assembler directives - GLOBAL
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'GLOBAL symbol' defines a symbol as being global, in the sense that
+it is exported from this module and other modules may reference it.
+
+All symbols are local, unless declared as global. Note that the
+'GLOBAL' directive must appear before the definition of the symbol
+it refers to.
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmCOMMON=10138
+
+ Ü Assembler directives - COMMON
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'COMMON symbol size' defines a symbol as being common: it is
+declared to have the given size, and it is merged at link time with
+any declarations of the same symbol in other modules.
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmSTRUC=10139
+
+ Ü Assembler directives - STRUC and ENDSTRUC
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'STRUC structure' begins the definition of a data structure, and
+'ENDSTRUC' ends it. A structure may be defined using STRUC as follows:
+
+           struc st
+   stLong  resd 1
+   stWord  resw 1
+   stByte  resb 1
+   stStr   resb 32
+           endstruc
+
+Notice that this code still defines the symbol 'st_size' to be the
+size of the structure. The 'size' suffix is automatically appended
+to the structure name. Notice also that the assembler takes care of
+remembering which section you were assembling in (whereas in the
+version using {ABSOLUTE:hcNasmABSOLUTE} it was up to the programmer to
+sort that out).
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmISTRUC=10140
+
+ Ü Assembler directives - ISTRUC and IEND
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+'ISTRUC structure' begins the declaration of an initialised instance
+of a data structure. You can then use the 'AT' macro to assign
+values to the structure members, and 'IEND' to finish.
+
+For example:
+
+       istruc st
+    at stLong, dd 0x1234
+    at stWord, dw 23
+    at stByte, db 'q'
+    at stStr, db 'hello, world', 13, 10, 0
+       iend
+
+Note that there's nothing stopping the instruction after 'at' from
+overflowing on to the next line if you want. So the above example
+could just as well have contained:
+
+    at stStr, db 'hello, world'
+              db 13, 10, 0
+
+Or even (if you prefer this style):
+
+   at stStr
+   db 'hello, world'
+   db 13, 10, 0
+
+Note also that the 'ISTRUC' mechanism is implemented as a set of
+macros, and uses TIMES internally to achieve its effect; so the
+structure fields must be initialised in the same order as they were
+defined in.
+
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmORG=10141
+
+ Ü Assembler directives - ORG
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The binary output format supports a format-specific directive, which
+is ORG.
+
+'ORG addr' declares that your code should be assembled as if it were
+to be loaded into memory at the address 'addr'.
+
+So a DOS .COM file should state 'ORG 0x100', and a DOS .SYS file should
+state 'ORG 0'.
+
+There should be one ORG directive, at most, in an assembly file:
+NASM does not support the use of ORG to jump around inside an object
+file, like MASM does.
+
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmUPPERCASE=10142
+
+ Ü Assembler directives - UPPERCASE
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The directive 'UPPERCASE' causes all symbol, segment and group names
+output to the object file to be uppercased. The actual assembly is
+still case sensitive.
+
+
+ { Back to Assembler directives screen:hcNasmDirectives}
+
+
+.topic hcNasmPreProcessor=10143
+
+ Ü The preprocessor
+ ßßßßßßßßßßßßßßßßßßß
+
+NASM contains a full-featured macro preprocessor, which supports
+conditional assembly, multi-level file inclusion, two forms of macro
+(single-line and multi-line), and a 'context stack' mechanism for
+extra macro power. Preprocessor directives all begin with a '%'
+sign.
+
+The following sections are available:
+
+ ş {Single-line macros:hcNasmSingleMacro}
+ ş {Multiple-line macros:hcNasmMultiMacro}
+ ş {Standard macros:hcNasmStandardMacro}
+ ş {Conditional assembly:hcNasmConditionalAsm}
+ ş {File inclusion:hcNasmFileInclusion}
+ ş {The context stack:hcNasmContextStack}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmSingleMacro=10144
+
+ Ü The preprocessor - single-line macros
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Single-line macros are defined in a similar way to C, using the
+'%define' command. Hence you can do:
+
+ %define ctrl 0x1F &
+ %define param(a,b) ((a)+(a)*(b))
+         mov byte [param(2,ebx)], ctrl 'D'
+
+Which will expand to:
+
+ mov byte [(2)+(2)*(ebx)], 0x1F & 'D'
+
+
+When the expansion of a single-line macro contains tokens which
+invoke another macro, the expansion is performed at invocation time,
+not at definition time. Thus the code:
+
+ %define a(x) 1+b(x)
+ %define b(x) 2*x
+ mov ax,a(8)
+
+Will evaluate in the expected way to 'mov ax,1+2*8', even though the
+macro 'b' wasn't defined at the time of definition of 'a'.
+
+Macros defined with '%define' are case sensitive: after '%define foo bar',
+only 'foo' will expand to bar: 'Foo' or 'FOO' will not.
+
+By using '%idefine' instead of '%define' (the `i' stands for
+'insensitive') you can define all the case variants of a macro at
+once, so that '%idefine foo bar' would cause 'foo', 'Foo' and 'FOO'
+all to expand to 'bar'.
+
+There is a mechanism which detects when a macro call has occurred as
+a result of a previous expansion of the same macro, to guard against
+circular references and infinite loops. If this happens, the
+preprocessor will only expand the first occurrence of the macro.
+
+Hence:
+
+ %define a(x) 1+a(x)
+ mov ax,a(3)          ; becomes 1+a(3) and expands no further
+
+This can be useful for doing things like this:
+
+ %macro extrn 1    ; see {'Multiple-line macros':hcNasmMultiMacro}
+ extern _%1        ; for information on %macro
+ %define %1 _%1
+ %endmacro
+
+Which would avoid having to put leading underscores on external
+variables, because you could just code:
+
+ extrn foo
+ mov ax,foo
+
+And it would expand as:
+
+ extern foo
+ %define foo _foo
+ mov ax,foo         ; becomes mov ax, _foo as required
+
+
+Single-line macros with parameters can be overloaded: it is possible
+to define two or more single-line macros with the same name, each
+taking a different number of parameters, and the macro processor
+will be able to distinguish between them.
+
+However, a parameterless single-line macro excludes the possibility
+of any macro of the same name with parameters, and vice versa (though
+single-line macros may be redefined, keeping the same number of parameters,
+without error).
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmMultiMacro=10145
+
+ Ü The preprocessor - multiple-line macros
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+These are defined using '%macro' and '%endmacro', so that simple things
+like this can be done:
+
+ %macro prologue 0
+        push ebp
+        mov ebp,esp
+ %endmacro
+
+This defines 'prologue' to be a multi-line macro, taking no parameters,
+which expands to the two lines of code given.
+
+Similarly to single-line macros, multi-line macros are case-sensitive,
+unless you define them using '%imacro' instead of '%macro'.
+
+The '0' on the '%macro' line indicates that the macro 'prologue'
+expects no parameters. Macros can be overloaded: if two macros are
+defined with the same name but different numbers of parameters, they
+will be treated as separate. Multi-line macros may not be redefined.
+
+The assembler will usually generate a warning if you code a line
+which looks like a macro call but involves a number of parameters
+which the macro in question isn't ready to support. (For example, if
+you code a macro '%macro foo 1' and also '%macro foo 3', then you
+write 'foo a,b', a warning will be generated.)
+
+This feature can be disabled (see {'Assemble options':hcOptionsAssembler}),
+since sometimes it's intentional (for example, you might define
+'%macro push 2' to allow you to push two registers at once; but
+'push ax' shouldn't then generate a warning).
+
+Macros taking parameters can be written using '%1', '%2' and so on
+to reference the parameters. So this code:
+
+ %macro movs 2
+        push %2
+        pop %1
+ %endmacro
+ movs ds, cs
+
+Will define a macro 'movs' to perform an effective MOV operation
+from segment to segment register. The macro call given would of
+course expand to 'push cs' followed by 'pop ds'.
+
+You can define a label inside a macro in such a way as to make it
+unique to that macro call (so that repeated calls to the same macro
+won't produce multiple labels with the same name), by prefixing it
+with '%%'. So, for example:
+
+ %macro retz
+        jnz %%skip
+        ret
+ %%skip:
+ %endmacro
+
+This defines a different label in place of '%%skip' every time it's
+called. (Of course the above code could have easily been coded using
+'jnz $+3', but not in more complex cases...).
+
+The actual label defined would be '..@2345.skip', where 2345 is replaced
+by some number that changes with each macro call. Users are warned to avoid
+defining labels of this shape themselves.
+
+Sometimes you want a macro to be able to accept arbitrarily many
+parameters and lump them into one. This can be done using the '+'
+modifier on the '%macro' line:
+
+ %macro fputs 2+
+        [section .data] ; this is done as a primitive to avoid
+                        ; disturbing the __SECT__ define
+        %%str db %2
+        %%end:
+        __SECT__        ; this expands to a whole [section xxx] primitive
+        mov dx, %%str
+        mov cx, %%end-%%str
+        mov bx, %1
+        call writefile
+ %endmacro
+ fputs [filehandle], "hi there", 13, 10
+
+This declares 'fputs' to be a macro that accepts at least two
+parameters, and all parameters after the first one are lumped
+together as part of the last specified one (in this case %2). So in
+the macro call, '%1' expands to '[filehandle]' while '%2' expands to
+the whole remainder of the line: '"hi there", 13, 10'.
+
+Note also the switching of sections in the middle of this macro expansion,
+to ensure separation of data and code.
+
+There is an alternative mechanism for putting commas in macro
+parameters: instead of specifying the large-parameter-ness at macro
+definition time, you can specify it at macro call time, by the use
+of braces to surround a parameter which you want to contain commas.
+
+So, for example:
+
+ %macro table_entry 2
+        %%start:
+        db %1
+        times 32-($-%%start) db 0
+        db %2
+        times 64-($-%%start) db 0
+ %endmacro
+
+ table_entry 'foo', 'bar'
+ table_entry 'megafoo', {{ 27,'[1mBAR!',27,'[m' }
+
+Will expand to, effectively (actually, there will be labels present,
+but these have been omitted for clarity), the following:
+
+ db 'foo'
+ times 32-3 db 0
+ db 'bar'
+ times 64-35 db 0
+ db 'megafoo'
+ times 32-7 db 0
+ db 27,'[1mBAR!',27,'[m'
+ times 64-46 db 0
+
+Macro parameter expansions can be concatenated on to other tokens,
+so that you can do this:
+
+ %macro keytab_entry 2
+        keypos%1 equ $-keytab
+        db %2
+ %endmacro
+
+ keytab:
+ keytab_entry F1,128+1
+ keytab_entry F2,128+2
+ keytab_entry Return,13
+
+Which will define labels called 'keyposF1', 'keyposF2' and
+'keyposReturn'. You can similarly do concatenations on the other
+end, such as '%1foo'. If you need to concatenate a digit on to the
+end of a macro parameter expansion, you can do this by enclosing the
+parameter number in braces: '%{{1}' is always a valid synonym for
+`%1', and has the advantage that it can be legitimately prepended to
+a digit, as in '%{{1}2', and cause no confusion with '%{{12}'.
+
+Macro-specific labels and defines can be concatenated similarly:
+'%{{%foo}bar' will succeed where '%%foobar' would cause confusion.
+
+(As it happens, '%%foobar' would work anyway, due to the format of
+macro-specific labels, but for clarity, '%{{%foo}bar' is recommended
+if you really want to do anything this perverse...)
+
+The parameter handling has a special case: it can treat a macro
+parameter specially if it's thought to contain a condition code. The
+reference '%+1' is identical to '%1' except that it will perform an
+initial sanity check to see if the parameter in question is a
+condition code; more usefully, the reference '%-1' will produce the
+opposite condition code to the one specified in the parameter.
+
+This allows for things such as a conditional-MOV macro to be
+defined:
+
+ %macro movc 3
+        j%-1 %%skip
+        mov %2,%3
+        %%skip:
+ %endmacro
+
+ movc ae, ax, bx
+
+Which will expand to something like:
+
+ jnae ..@1234.skip
+ mov ax,bx
+ ..@1234.skip:
+
+Note that '%+1' will allow CXZ or ECXZ to be passed as condition
+codes, but '%-1' will of course be unable to invert them.
+
+Parameters can also be defaulted: you can define a macro which, for
+example, said:
+
+ %macro strange 1-3 bx,3
+        < some expansion text >
+ %endmacro
+
+This macro takes between 1 and 3 parameters (inclusive); if
+parameter 2 is not specified it defaults to BX, and if parameter 3
+is not specified it defaults to 3. So the calls:
+
+ strange dx, si, di
+ strange dx, si
+ strange dx
+
+Would be equivalent to:
+
+ strange dx, si, di
+ strange dx, si, 3
+ strange dx, bx, 3
+
+Defaults may be omitted, in which case they are taken to be blank.
+
+'%endm' is a valid synonym for '%endmacro'.
+
+The specification for the number of macro parameters can be suffixed
+with '.nolist' if you don't want the macro to be explicitly expanded
+in listing files:
+
+ %macro ping 1-2+.nolist
+        ; some stuff
+ %endmacro
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmStandardMacro=10146
+
+ Ü The preprocessor - standard macros
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+NASM defines a set of standard macros, before the input file gets
+processed; these are primarily there in order to provide standard
+language features (such as structure support).
+
+However, it's conceivable that a user might want to write code that doesn't
+have the standard macros defined; you can achieve this by using the
+preprocessor directive '%clear' at the top of your program, which
+will undefine everything that's defined by the preprocessor.
+
+In particular, NASM defines the symbols '__NASM_MAJOR__' and
+'__NASM_MINOR__' to be the major and minor version numbers of NASM.
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmConditionalAsm=10147
+
+ Ü The preprocessor - conditional assembly
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Similarly to the C preprocessor, the commands '%ifdef' and '%endif'
+may be used to bracket a section of code, which will then only be
+assembled if at least one of the identifiers following '%ifdef' is
+defined as a single-line macro.
+
+The command '%ifndef' has opposite sense to '%ifdef', and '%else' can be
+placed between the '%if' and the '%endif' to work as expected.
+
+Since there is no analogue to C's '#if', there is no precise 'elif' directive,
+but '%elifdef' and '%elifndef' work as expected.
+
+There is another family of '%if' constructs: '%ifctx', '%ifnctx',
+'%elifctx' and '%elifnctx', which operate on the {context stack:hcNasmContextStack}.
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmFileInclusion=10148
+
+ Ü The preprocessor - file inclusion
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+You can include a file using the '%include' directive. Included
+files are searched for in the current directory, and then in all
+directories specified in the {Directories:hcOptionsDirectories} dialog box.
+
+This, again, works like C: '%include' is used to include a file. Of
+course it's quite likely you'd want to do the normal sort of thing
+inside the file:
+
+ %ifndef MY_MACROS_FILE
+ %define MY_MACROS_FILE
+         < go and define some macros >
+ %endif
+
+and then elsewhere:
+
+ %include "my-macros-file"
+ < some code making use of the macros >
+
+So that it doesn't matter if the file accidentally gets included
+more than once.
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmContextStack=10149
+
+ Ü The preprocessor - the context stack
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+This is a feature which adds a whole extra level of power to NASM's
+macro capability. The context stack is an internal object within the
+preprocessor, which holds a stack of 'contexts'.
+
+Each context has a name - just an identifier-type token - and can also
+have labels and '%define' macros associated with it.
+
+Other macros can manipulate the context stack: this is where the power
+comes in.
+
+To start with: the preprocessor command '%push' will create a new
+context with the given name, and push it on to the top of the stack.
+
+'%pop', taking no arguments, pops the top context off the stack and
+destroys it.
+
+'%repl' renames the top context without destroying any
+associated labels or macros, so it's distinct from doing '%pop'
+followed by '%push'.
+
+Finally, '%ifctx' and '%ifnctx' invoke conditional assembly based on the
+name of the top context. The alternative forms '%elifctx' and '%elifnctx'
+are also available.
+
+As well as the '%%foo' syntax to define labels specific to a macro
+call, there is also the syntax '%$foo' to define a label specific to
+the context currently on top of the stack.
+
+'%$$foo' can be used to refer to the context below that, or '%$$$foo'
+below that, and so on.
+
+This lot allows the definition of macro combinations that enclose
+other code, such as the following big example:
+
+ %macro if 1
+        %push if
+        j%-1 %$ifnot
+ %endmacro
+
+ %macro else 0
+        %ifctx if
+              %repl else
+              jmp %$ifend
+        %$ifnot:
+        %else
+             %error "expected `if' before `else'"
+        %endif
+ %endmacro
+
+ %macro endif 0
+        %ifctx if
+        %$ifnot:
+        %pop
+        %elifctx else
+        %$ifend:
+        %pop
+        %else
+        %error "expected 'if' or 'else' before 'endif'"
+        %endif
+ %endmacro
+
+This will cope with a large 'if/endif' construct or an
+'if/else/endif', without flinching. So you can code:
+
+ cmp ax,bx
+ if ae
+    cmp bx,cx
+    if ae
+        mov ax,cx
+    else
+        mov ax,bx
+    endif
+ else
+    cmp ax,cx
+    if ae
+       mov ax,cx
+    endif
+ endif
+
+
+Which will place the smallest out of AX, BX and CX into AX. Note the
+use of '%repl' to change the current context from 'if' to 'else'
+without disturbing the associated labels '%$ifend' and '%$ifnot';
+also note that the stack mechanism allows handling of nested IF
+statements without a hitch, and that conditional assembly is used in
+the 'endif' macro in order to cope with the two possible forms with
+and without an 'else'. Note also the directive '%error', which
+allows the user to report errors on improper invocation of a macro
+and so can catch unmatched 'endif's at preprocess time.
+
+
+ { Back to The preprocessor screen:hcNasmPreprocessor}
+
+
+.topic hcNasmOutput=10150
+
+ Ü Output formats
+ ßßßßßßßßßßßßßßßßß
+
+The current output formats supported by NASM-IDE are flat-form binary (COM
+executable file and SYS device driver), 16 bit Object Module Format (DOS 16
+bit object file and OS/2 object file), and Common Object File Format (Win32
+32 bit object file). For information on how to change the output format
+see {Assembler options:hcOptionsAssembler}.
+
+This sections provides an overview of the supported output formats.
+
+ ş {Flat-form binary:hcNasmBIN}
+ ş {16 bit Object Module Format:hcNasmOBJ}
+ ş {Common Object File Format:hcNasmCOFF}
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcNasmBIN=10151
+
+ Ü Output formats - flat-form binary
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+This is the only output format that generates instantly runnable code, all of
+the others produce object files that need linking before they become
+executable.
+
+Binary output files contain no red tape at all: they simply contain the
+binary representation of the exact code you write.
+
+The binary format supports a format-specific directive, which is {ORG:hcNasmORG}.
+
+The binary format defines the section names '.text', '.data' and '.bss'.
+The layout is that '.text' comes first in the output file, followed by
+'.data', and notionally followed by '.bss'.
+
+So if you declare a BSS section in a flat binary file, references to the BSS
+section will refer to space past the end of the actual file.
+
+The '.data' and '.bss' sections are considered to be aligned on four-byte
+boundaries: this is achieved by inserting padding zero bytes between the end
+of the text section and the start of the data, if there is data present.
+
+Of course if no SECTION directives are present, everything will go into
+'.text', and you will get nothing in the output except the code you
+wrote.
+
+Binary output silently ignores GLOBAL directives, and will also not complain
+at EXTERN ones. You only get an error if you actually reference an
+external symbol.
+
+Binary output defaults to 16-bit assembly mode.
+
+ { Back to Output formats screen:hcNasmOutput}
+
+
+.topic hcNasmCOFF=10152
+
+ Ü Output formats - common object file format
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The COFF format generates standard Unix COFF object files, which
+can be fed to (for example) the DJGPP linker.
+
+The Win32 format generates Microsoft Win32 (Windows 95 or
+Intel-platform Windows NT) object files, which nominally use the
+COFF standard, but in fact are not compatible.
+
+Win32 defines extensions to basic COFF, such as a mechanism for importing
+symbols from dynamic-link libraries at load time. NASM may eventually
+support this extension in the form of a format-specific directive.
+However, as yet, it does not.
+
+The COFF output formats do not have any specific directives.
+
+The Microsoft linker also has a small blind spot: it cannot
+correctly relocate a relative CALL or JMP to an absolute address.
+Hence all PC-relative CALLs or JMPs, when using the Win32 format,
+must have targets which are relative to sections, or to external
+symbols.
+
+For example, you can't do:
+
+ call 0x123456
+
+Even if you happen to know that there is executable code at that
+address. The linker simply won't get the reference right; so in the
+interests of not generating incorrect code, NASM will not allow this
+form of reference to be written to a Win32 object file.
+
+Note also that Borland Win32 compilers reportedly do not use this
+object file format: while Borland linkers will output Win32-COFF
+type executables, their object format is the same as the old DOS OBJ
+format. So if you are using a Borland compiler, don't use the
+Win32 object format, just use the 16 bit object format and declare all
+your segments as 'USE32'.
+
+COFF supports, in addition to the three standard section names '.text',
+'.data' and '.bss', the ability to define your own sections. Currently (this
+may change in the future) you can provide the options 'text' (or 'code'),
+'data' or 'bss' to determine the type of section.
+
+Win32 also allows 'info', which is an informational section type used by
+Microsoft C compilers to store linker directives. So you can do:
+
+ section .mysect code      ; defines an extra code section
+
+Or to pass directives to the MS linker:
+
+ section .drectve info     ; defines an MS-compatible directive section
+ db '-defaultlib:LIBC -defaultlib:OLDNAMES '
+
+COFF defaults to 32-bit assembly mode.
+
+
+ { Back to Output formats screen:hcNasmOutput}
+
+
+.topic hcNasmOBJ=10153
+
+ Ü Output formats - 16 bit object module format
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+The 'obj' format generates 16-bit Microsoft object files, suitable
+for feeding to 16-bit versions of Microsoft C, and probably
+TLINK as well (although that hasn't been tested).
+
+The Use32 extensions are supported.
+
+The object module format defines no special segment names: you can call
+segments what you like. Unlike the other formats, too, segment names
+are actually defined as symbols, so you can write:
+
+ segment CODE
+ mov ax, CODE
+
+And get the segment address of the segment, suitable for loading
+into a segment register.
+
+Segments can be declared with attributes, see the {Assembler directives:hcNasmDirectives}
+for more information.
+
+To avoid getting tangled up in NASM's local label mechanism, segment
+and group names have leading periods stripped when they are defined.
+Thus, the directive 'SEGMENT .text' will define a segment called
+'text', which will clash with any other symbol called 'text', and
+you will not be able to reference the segment base as '.text', but
+only as 'text'.
+
+Common variables in OBJ files can be 'near' or 'far': currently,
+NASM has a horribly grotty way to support that, which is that if you
+specify the common variable's size as negative, it will be near, and
+otherwise it will be far. The support isn't perfect: if you declare
+a far common variable both in a NASM assembly module and in a C
+program, you may well find the linker reports "mismatch in
+array-size" or some such. The reason for this is that far common
+variables are defined by means of two size constants, which are
+multiplied to give the real size. Apparently the Microsoft linker
+(at least) likes both constants, not merely their product, to match
+up. This may be fixed in a future release.
+
+If the module you're writing is intended to contain the program
+entry point, you can declare this by defining the special label
+'..start' at the start point, either as a label or by {EQU:hcNasmEQU}
+(although of course the normal caveats about EQU dependency still apply).
+
+16 bit object format has an unusual handling of assembly modes: instead of
+having a global default for the whole file, there is a separate default for
+each segment. Thus, each SEGMENT directive carries an implicit BITS
+directive with it, which switches to 16-bit or 32-bit mode depending
+on whether the segment is a Use16 or Use32 segment.
+
+If you want to place 32-bit code in a Use16 segment, you can use an explicit
+'BITS 32' override, but if you switch temporarily away from that segment,
+you will have to repeat the override after coming back to it.
+
+If you're trying to build a .COM application by linking several .OBJ
+files together, you need to put 'resb 0x100' at the front of the
+code segment in the first object file, since otherwise the linker
+will get the linking wrong.
+
+OS/2 uses an almost exactly similar file format to DOS, with a
+couple of differences, principally that OS/2 defines a pseudo-group
+called FLAT, containing no segments, and every relocation is made
+relative to that (so it would be equivalent to writing 'label WRT
+FLAT' in place of 'label' throughout your code).
+
+Since this would be inconvenient to write code for, NASM implements
+the OS/2 variant on 16 bit object format, which provides this FLAT group
+itself and automatically makes the default relocation format relative to
+FLAT.
+
+
+ { Back to Output formats screen:hcNasmOutput}
+
+
+.topic hcNasmProblems=10154
+
+ Ü Common problems
+ ßßßßßßßßßßßßßßßßßß
+
+This information is taken directly from the NASM documentation written by
+Simon Tatham.
+
+NASM's design philosophy of generating exactly the code the
+programmer asks for, without second-guessing or re-interpreting, has
+been known to cause confusion in a couple of areas.
+
+Firstly, several people have complained that instructions such as
+'add esp, 4' are assembled in a form that allocates a full four-byte
+offset field to store the '4' in, even though the instruction has a
+shorter form with a single-byte offset field which would work in
+this case.
+
+The answer is that NASM by design doesn't try to guess which one of
+these forms you want: if you want one, you code one, and if you want
+the other, you code the other. The other form is 'add esp, byte 4'.
+
+
+Secondly, and similarly, I've had repeated questions about
+conditional jumps. The simple 'jne label', in NASM, translates
+directly to the old 8086 form of the conditional jump, in which the
+offset can be up to 128 bytes (or thereabouts) in either direction.
+NASM won't automatically generate 'je $+3 / jmp label' for labels
+that are further away, and neither will it generate the 386 long-
+offset form of the instruction.
+
+If you want the 386-specific conditional jump that's capable of reaching
+anywhere in the same segment as the jump instruction, you want 'jne near
+label'. If you want an 8086-compatible 'je' over another 'jmp', code one
+explicitly, or define a macro to do so. NASM doesn't do either of
+these things for you, again by design.
+
+
+ { Back to Programming in NASM screen:hcHelpNasmDoc}
+
+
+.topic hcCredits=10025
+
+ Ü Credits
+ ßßßßßßßßßß
+
+The following credit list covers all those whose code has been used in some
+shape or form in the NASM-IDE package.
+
+ Ralph Brown (SPAWNO unit)    - the DOS shell routines that
+                                provide memory to allow NASM
+                                to be run from within NASM-IDE
+
+ Blake Watson                 - the 'Programming with Turbo Vision'
+                                book is an excellent source of
+                                information
+
+ Jeff Duntemann               - for including NASM-IDE in his book
+                                'Assembly Language Step-by-Step'
+                                (second edition) - buy it today!
+
+ Ü Version information
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ ş This is version 1.7 of NASM-IDE.
+ ş NASM-IDE is free of charge.
+ ş NASM-IDE is copyright (c) 1997 - 2002 Robert Anderton.
+ ş NASM-IDE is 5 years old and still being used!
+ ş Try NasmEdit, the GUI editor for NASM at http://uk.geocities.com/rob_anderton/
+
+
+ { Back to contents screen:hcHelpContents}
+

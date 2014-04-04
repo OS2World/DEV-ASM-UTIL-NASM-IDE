@@ -1,0 +1,74 @@
+NASM-IDE Source Code License Agreement
+
+BEFORE PROCEEDING WITH THE INSTALLATION AND/OR USE OF THIS SOFTWARE,
+CAREFULLY READ THE FOLLOWING TERMS AND CONDITIONS OF THIS LICENSE
+
+NASM-IDE Source Code refers to all files included in the NASM-IDE Source
+Code archive (e.g help files, Pascal code, etc). This archive must not be
+distributed with anything other than the files listed below.
+
+IHELP.PAS
+LICENSE.TXT
+NASMIDE.SAM
+GENRES.PAS
+IABOUT.PAS
+IASM.PAS
+IASSIST.PAS
+ICONST.PAS
+ICONTROL.PAS
+ICRT.PAS
+IEDIT.PAS
+IEXIT.PAS
+ILOG.PAS
+IMAIN.PAS
+IOPS.PAS
+IOPT.PAS
+IPROG.PAS
+IRES.PAS
+ISPAWN.PAS
+ISTD.PAS
+IUTILS.PAS
+NASMIDE.PAS
+SINI.PAS
+TVHC.PAS
+MAKEHELP.BAT
+ISPAWN.OBJ
+8086HELP.TXT
+8087help.txt
+NASMIDE.TXT
+README.TXT
+
+BY INSTALLING OR USING THIS SOFTWARE YOU INDICATE YOUR ACCEPTANCE OF THIS
+AGREEMENT. IF YOU DO NOT ACCEPT OR AGREE WITH THESE TERMS, YOU MAY NOT
+INSTALL OR USE THIS SOFTWARE!
+
+This software is provided "as is" and without warranties as to or any other
+warranties whether expressed or implied.
+
+Because of the various hardware and software environments in which this
+program may be used, no warranty of fitness for a particular purpose is
+offered. Use it entirely at your own risk.
+
+NASM-IDE Source Code is protected by UK and international copyright laws.
+
+In no event shall the author be liable for any loss of profit or any other
+commercial damage, including but not limited to special, incidental,
+consequential or other damages.
+
+This software may be freely copied, however no charge can be made for it
+(except to cover the cost of postage or disks). NASM-IDE Source Code may not
+be included as part of any compilation without permission from the author
+(see README.TXT for details on how to contact me).
+
+Without the expressed, written consent from me, you may NOT:
+
+- Distribute modified versions of the NASM-IDE Source Code, in whole or
+  in part.
+- Use NASM-IDE Source Code in your own applications.
+
+
+NASM-IDE Source Code Version 1.7
+LICENSE.TXT
+Robert Anderton
+rob@inglenook.co.uk
+http://uk.geocities.com/rob_anderton/

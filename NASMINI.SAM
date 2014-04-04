@@ -1,0 +1,216 @@
+;****************************************************************************
+;
+; Information
+; ßßßßßßßßßßß
+;
+;  Title         : NASM-IDE 1.7 Initialisation file
+;  Description   : Configuration information for all NASM and NASM-IDE
+;                  settings. This file is maintained by NASM-IDE so
+;                  manual editing should not be necessary. For more
+;                  information, see the NASM-IDE documentation.
+;
+;****************************************************************************
+;
+;****************************************************************************
+; Section     : ASSEMBLER
+; Description : Contains NASM settings for output format and warning options
+;****************************************************************************
+;
+[ASSEMBLER]
+;
+;****************************************************************************
+; Entry name  : OUTPUT_FORMAT
+; Description : Integer value representing output format for NASM. This
+;               setting also determines the output file extension used.
+; Values      : Valid values are defined in the OUTPUT_FORMATS section of 
+;		the INI file
+; Default     : 0
+;****************************************************************************
+;
+OUTPUT_FORMAT=0
+;
+;****************************************************************************
+; Entry name  : NASM_WARNINGS
+; Description : Integer sized bitmap representing extended warning messages
+;               to be returned by NASM.
+; Values      : The following bit value are valid:                        
+;                             1 = Warn about too few parameters in macro call
+;                             2 = Warn about missing colon in a label
+;                             4 = Warn about numeric overflow
+;			      8 = Warn about cyclic macro self references	
+;		The bitmap can have a value of 0 (no warnings) to 15 (all 
+;		warnings.
+; Default     : 15 (all warnings)
+;****************************************************************************
+;
+NASM_WARNING=15
+;
+;****************************************************************************
+; Entry name  : PRIMARY_FILE
+; Description : The full filename of the primary file.
+; Values      : Any string.
+; Default     : No value.
+;****************************************************************************
+;
+PRIMARY_FILE=
+;
+;****************************************************************************
+; Entry name  : RUN_PARAMS
+; Description : Contains run parameters specified in the Assemble|Parameters
+;               dialog box.
+; Values      : Any string.
+; Default     : No value.
+;****************************************************************************
+;
+RUN_PARAMS=
+;
+;****************************************************************************
+; Entry name  : NASM_LOCATION
+; Description : Contains the full path and file name of the NASM executable
+;		to use when assembling 
+; Values      : Any string (NASM-IDE checks the file exists).
+; Default     : No value.
+;****************************************************************************
+;
+NASM_LOCATION=
+;
+;****************************************************************************
+; Entry name  : CUSTOM_PARAMS
+; Description : Contains additional command line parameters to be passed to
+;		NASM when assembling.
+; Values      : Any string (the parameters are not validated by NASM-IDE).
+; Default     : No value.
+;****************************************************************************
+;
+CUSTOM_PARAMS=
+;
+;****************************************************************************
+; Section     : DIRECTORIES
+; Description : Contains path strings for include and output files
+;****************************************************************************
+;
+
+[DIRECTORIES]
+;
+;****************************************************************************
+; Entry name  : INCLUDE_DIR, INCLUDE_DIR_X (X = 1 to 5)
+; Description : Path strings for the current include directory strings and
+;               a history list of the last 5 include paths.
+; Values      : A semi-colon separated list of paths.
+; Default     : No value.
+;****************************************************************************
+;
+INCLUDE_DIR=
+INCLUDE_DIR_1=
+INCLUDE_DIR_2=
+INCLUDE_DIR_3=
+INCLUDE_DIR_4=
+INCLUDE_DIR_5=
+;
+;****************************************************************************
+; Entry name  : OUTPUT_DIR, OUTPUT_DIR_X (X = 1 to 5)
+; Description : Path strings for the current output directory strings and
+;               a history list of the last 5 output paths
+; Values      : any strings
+; Default     : No value
+;****************************************************************************
+;
+OUTPUT_DIR=
+OUTPUT_DIR_1=
+OUTPUT_DIR_2=
+OUTPUT_DIR_3=
+OUTPUT_DIR_4=
+OUTPUT_DIR_5=
+;
+;****************************************************************************
+; Section     : ENVIRONMENT
+; Description : Contains environment setting (e.g screen mode)
+;****************************************************************************
+;
+
+[ENVIRONMENT]
+;
+;****************************************************************************
+; Entry name  : SCREEN_MODE
+; Description : Contains an integer representing the screen mode. NOTE: on
+;               systems which are only capable of displaying 80x25 mode text,
+;               this setting will have no effect.
+; Values      : The following values are valid:
+;                             0 : 80x25 mode
+;                             1 : 80x43 mode (EGA) or 80x50 mode (VGA)
+; Default     : 0
+;****************************************************************************
+;
+SCREEN_MODE=0
+;
+;****************************************************************************
+; Entry name  : EDITOR_OPTIONS
+; Description : Integer sized bitmap containing text editor options
+; Values      : The following bitmask values are valid:
+;			      1 : Create backup files	
+;                             2 : Autosave on assemble
+;			      4 : Syntax highlighting enable
+;		Values in the range 0 (all options off) to 7 (all on) are 
+;		valid.
+; Default     : 7
+;****************************************************************************
+;
+EDITOR_OPTIONS=7
+;
+;****************************************************************************
+; Entry name  : DESKTOP_AUTOSAVE
+; Description : Integer value used to determine whether the NASM-IDE desktop
+;               is saved when NASM-IDE is closed. 
+; Values      : The following values are valid:
+;                             0 : no automatic save is performed
+;                             1 : the file is automatically saved
+; Default     : 1
+;****************************************************************************
+;
+DESKTOP_AUTOSAVE=1
+;
+;****************************************************************************
+; Section     : FILE_HISTORY
+; Description : Contains a list of the last 5 files to be edited.
+;****************************************************************************
+;
+
+[FILE_HISTORY]
+;
+;****************************************************************************
+; Entry name  : FILE_X (X = 1 to 5)
+; Description : Full file names of the last 5 files to be edited. This
+;               information is then displayed on the file menu.
+; Values      : any strings
+; Default     : No value
+;****************************************************************************
+;
+FILE_1=
+FILE_2=
+FILE_3=
+FILE_4=
+FILE_5=
+
+;****************************************************************************
+; Section     : OUTPUT_FORMATS
+; Description : Contains a list of NASM output formats
+;****************************************************************************
+;
+
+[OUTPUT_FORMATS]
+;
+;****************************************************************************
+; Entry name  : OPF_X (X = 1 or higher)
+; Description : Comma seperated entries for NASM output formats in the form
+;		<Format Name>,<Format File Extension>,<NASM Command Line Value>
+; Values      : any strings
+; Default     : Contains 7 standard formats
+;****************************************************************************
+;
+OPF_1=COM executable binary file,COM,bin
+OPF_2=SYS device driver,SYS,bin
+OPF_3=DOS 16 bit OMF object file,OBJ,obj
+OPF_4=Microsoft Win32 (i386) object file,OBJ,win32
+OPF_5=COFF (i386) object file,O,coff
+OPF_6=Relocatable Dynamic Object File Format v1.1,RDF,oldrdf
+OPF_7=Relocatable Dynamic Object File Format v2.0,RDF,rdf

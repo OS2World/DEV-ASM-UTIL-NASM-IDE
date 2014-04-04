@@ -1,0 +1,2970 @@
+.topic hcContents=1650
+
+ Ü 80x87 floating point opcode help
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+Welcome to the NASM-IDE 1.7 online help. This section contains details on
+the Intel 80x87 floating point instruction set. This help does not include
+instructions relating to 3DNow! or SSE. Please refer to the NASM
+documentation for information on these instructions.
+
+
+ Ü Contents
+ ßßßßßßßßßßß
+
+ þ {Using the opcode listings:UsingOpcodeHelp}
+
+ þ {Alphabetical opcode listing:AlphaList}
+
+ þ {Opcode listing by minimum processor requirement:ProcList}
+
+
+.topic UsingOpcodeHelp=20000
+
+ Ü Using 80x87 floating point opcode help
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+This help file contains entries for all 80x87 floating point instructions.
+Each entry contains the following sections:
+
+ þ Description
+
+This contains a detailed description of how the instruction works. This
+information is based on the Intel Architecture Software Developer's Manual
+Volume 2, Instruction Set Reference (#243191), available from Intel's web
+site (http://www.intel.com/).
+
+Please note that the notation ST(0)...ST(7) is used in the description to
+indicate the FPU registers. However, when coding in NASM, the FPU registers
+are represented by st0, st1...st7.
+
+ þ Flags affected
+
+Describes any changes to the FPU flags as a result of the instruction
+being executed.
+
+ þ Instruction timings
+
+Contains a table showing the number of clock cycles the instruction takes to
+executed. Timings are shown for the 8087 up to the Pentium processor.
+Instruction pairing information is also included for the Pentium timings.
+This information is taken from a HTML document available from
+http://www.quantasm.com/.
+
+The following symbols are used in the timing tables:
+
+ Operands
+ ßßßßßßßß
+
+ reg   = floating point register, st0, st1 ... st7
+ mem   = memory address
+ mem32 = memory address of 32-bit item
+ mem64 = memory address of 64-bit item
+ mem80 = memory address of 80-bit item
+
+ FPU instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+ FX = pairs with FXCH
+ NP = no pairing
+
+ Timings with a hyphen indicate a range of possible timings
+
+ Timings with a slash (unless otherwise noted) are latency and throughput.
+
+ Latency is the time between instructions dependent on the result.
+
+ Throughput is the pipeline throughput between non conflicting instructions.
+
+ EA = cycles to calculate the Effective Address
+
+
+ FPU instruction sizing
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+All FPU instructions that do not access memory are two bytes in length.
+(Except FWAIT which is one byte).
+
+FPU instructions that access memory are four bytes for 16-bit addressing and
+six bytes for 32-bit addressing.
+
+
+ { Back to contents screen:hcContents}
+
+.topic AlphaList
+
+ Ü 80x87 floating point opcodes (alphabetical)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ {F2XM1}                - Compute 2^x - 1
+ {FABS}                 - Absolute value
+ {FADD/FADDP/FIADD:FADD}     - Add
+ {FBLD}                 - Load binary coded decimal
+ {FBSTP}                - Store BCD integer and pop
+ {FCHS}                 - Change sign
+ {FCLEX/FNCLEX:FCLEX}         - Clear exceptions
+ {FCMOVcc}              - Floating point conditional move (Pentium Pro+)
+ {FCOM/FCOMP/FCOMPP:FCOM}    - Compare real
+ {FCOMI/FCOMIP/:FCOMI}
+ {FUCOMI/FUCOMPI:FCOMI}       - Compare real and set EFLAGS (Pentium Pro+)
+ {FCOS}                 - Cosine (387+)
+ {FDECSTP}              - Decrement floating point stack pointer
+ {FDISI/FNDISI:FDISI}         - Disable interrupts (8087 only)
+ {FDIV/FDIVP/FIDIV:FDIV}     - Divide
+ {FDIVR/FDIVRP/FIDIVR:FDIVR}  - Reverse divide
+ {FENI/FNENI:FENI}           - Enable interrupts (8087 only)
+ {FFREE}                - Free floating point register
+ {FICOM/FICOMP:FICOM}         - Compare integer
+ {FILD}                 - Load integer
+ {FINCSTP}              - Increment floating point stack pointer
+ {FINIT/FNINIT:FINIT}         - Initialise floating point unit
+ {FIST/FISTP:FIST}           - Store integer
+ {FLD}                  - Load real
+ {FLD1/FLDL2T/FLDL2E/:FLD1}
+ {FLDPI/FLDLG2/:FLD1}
+ {FLDLN2/FLDZ:FLD1}          - Load constant
+ {FLDCW}                - Load control word
+ {FLDENV}               - Load FPU environment
+ {FMUL/FMULP/FIMUL:FMUL}     - Multiply
+ {FNOP}                 - No operation
+ {FPATAN}               - Partial arctangent
+ {FPREM}                - Partial remainder
+ {FPREM1}               - Partial remainder IEEE compatible (387+)
+ {FPTAN}                - Partial tangent
+ {FRNDINT}              - Round to integer
+ {FRSTOR}               - Restore FPU state
+ {FSAVE/FNSAVE:FSAVE}         - Store FPU state
+ {FSCALE}               - Scale
+ {FSETPM}               - Set protected mode (287 only)
+ {FSIN}                 - Sine (387+)
+ {FSINCOS}              - Sine and cosine (387+)
+ {FSQRT}                - Square root
+ {FST/FSTP:FST}             - Store real
+ {FSTCW/FNSTCW:FSTCW}         - Store control word
+ {FSTENV/FNSTENV:FSTENV}       - Store FPU environment
+ {FSTSW/FNSTSW:FSTSW}         - Store status word
+ {FSUB/FSUBP/FISUB:FSUB}     - Subtract
+ {FSUBR/FSUBRP/FISUBR:FSUBR}  - Reverse subtract
+ {FTST}                 - Test
+ {FUCOM/FUCOMP/FUCOMPP:FUCOM} - Unordered compare real (387+)
+ {FWAIT}                - Wait
+ {FXAM}                 - Examine
+ {FXCH}                 - Exchange register contents
+ {FXTRACT}              - Extract exponent and significand
+ {FYL2X}                - Compute y * log x (base 2)
+ {FYL2XP1}              - Compute y * log (base 2) (x + 1)
+
+ { Back to contents screen:hcContents}
+
+.topic ProcList
+
+ Ü 80x87 floating point opcodes (by processor)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ þ 8087 and above
+
+ {F2XM1}                - Compute 2^x - 1
+ {FABS}                 - Absolute value
+ {FADD/FADDP/FIADD:FADD}     - Add
+ {FBLD}                 - Load binary coded decimal
+ {FBSTP}                - Store BCD integer and pop
+ {FCHS}                 - Change sign
+ {FCLEX/FNCLEX:FCLEX}         - Clear exceptions
+ {FCOM/FCOMP/FCOMPP:FCOM}    - Compare real
+ {FDECSTP}              - Decrement floating point stack pointer
+ {FDISI/FNDISI:FDISI}         - Disable interrupts (8087 only)
+ {FDIV/FDIVP/FIDIV:FDIV}     - Divide
+ {FDIVR/FDIVRP/FIDIVR:FDIVR}  - Reverse divide
+ {FENI/FNENI:FENI}           - Enable interrupts (8087 only)
+ {FFREE}                - Free floating point register
+ {FICOM/FICOMP:FICOM}         - Compare integer
+ {FILD}                 - Load integer
+ {FINCSTP}              - Increment floating point stack pointer
+ {FINIT/FNINIT:FINIT}         - Initialise floating point unit
+ {FIST/FISTP:FIST}           - Store integer
+ {FLD}                  - Load real
+ {FLD1/FLDL2T/FLDL2E/:FLD1}
+ {FLDPI/FLDLG2/:FLD1}
+ {FLDLN2/FLDZ:FLD1}          - Load constant
+ {FLDCW}                - Load control word
+ {FLDENV}               - Load FPU environment
+ {FMUL/FMULP/FIMUL:FMUL}     - Multiply
+ {FNOP}                 - No operation
+ {FPATAN}               - Partial arctangent
+ {FPREM}                - Partial remainder
+ {FPTAN}                - Partial tangent
+ {FRNDINT}              - Round to integer
+ {FRSTOR}               - Restore FPU state
+ {FSAVE/FNSAVE:FSAVE}         - Store FPU state
+ {FSCALE}               - Scale
+ {FSQRT}                - Square root
+ {FST/FSTP:FST}             - Store real
+ {FSTCW/FNSTCW:FSTCW}         - Store control word
+ {FSTENV/FNSTENV:FSTENV}       - Store FPU environment
+ {FSTSW/FNSTSW:FSTSW}         - Store status word
+ {FSUB/FSUBP/FISUB:FSUB}     - Subtract
+ {FSUBR/FSUBRP/FISUBR:FSUBR}  - Reverse subtract
+ {FTST}                 - Test
+ {FWAIT}                - Wait
+ {FXAM}                 - Examine
+ {FXCH}                 - Exchange register contents
+ {FXTRACT}              - Extract exponent and significand
+ {FYL2X}                - Compute y * log x (base 2)
+ {FYL2XP1}              - Compute y * log (base 2) (x + 1)
+
+ þ 287 and above
+
+ {FSETPM}               - Set protected mode (287 only)
+
+ þ 387 and above
+
+ {FCOS}                 - Cosine (387+)
+ {FPREM1}               - Partial remainder IEEE compatible (387+)
+ {FSIN}                 - Sine (387+)
+ {FSINCOS}              - Sine and cosine (387+)
+ {FUCOM/FUCOMP/FUCOMPP:FUCOM} - Unordered compare real (387+)
+
+ þ Pentium Pro and above
+
+ {FCMOVcc}              - Floating point conditional move (Pentium Pro+)
+ {FCOMI/FCOMIP/:FCOMI}
+ {FUCOMI/FUCOMPI:FCOMI}       - Compare real and set EFLAGS (Pentium Pro+)
+
+ { Back to contents screen:hcContents}
+
+
+.topic F2XM1
+
+ Ü F2XM1 - Compute 2^x - 1
+ ßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates the exponential value of 2 to the power of the source operand
+minus 1. The source operand is located in register ST(0) and the result is
+also stored in ST(0). The value of the source operand must lie in the range
+-1.0 to +1.0. If the source value is outside this range, the result is
+undefined.
+
+The following table shows the results obtained when computing the exponential
+value of various classes of numbers, assuming that neither overflow nor
+underflow occurs.
+
+          ST(0) SOURCE          ST(0) DESTINATION
+          -1.0 to -0            -0.5 to -0
+          -0                    -0
+          +0                    +0
+          +0 to +1.0            +0 to 1.0
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the inexact-result
+                  exception is generated: 0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+   8087         287        387      486     Pentium
+ 310-630      310-630    211-476  140-279   13-57   NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FABS
+
+ Ü FABS - Absolute value
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Clears the sign bit of ST(0) to create the absolute value of the operand.
+The following table shows the results obtained when creating the absolute
+value of various classes of numbers.
+
+         ST(0) SOURCE               ST(0) DESTINATION
+         -Infinity                  +Infinity
+         -F                         +F
+         -0                         +0
+         +0                         +0
+         +F                         +F
+         +Infinity                  +Infinity
+         NaN                        NaN
+
+NOTE: F Means finite-real number.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   otherwise, cleared to 0.
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 10-17        10-17       22        3       1      FX
+
+
+ { Back to contents screen:hcContents}
+
+.topic FADD
+
+ Ü FADD/FADDP/FIADD - Add
+ ßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Adds the destination and source operands and stores the sum in the destination
+location. The destination operand is always an FPU register; the source
+operand can be a register or a memory location. Source operands in memory can
+be in single-real, double-real, word-integer, or short-integer formats.
+
+The no-operand version of the instruction adds the contents of the ST(0)
+register to the ST(1) register. The one-operand version adds the contents of
+a memory location (either a real or an integer value) to the contents of the
+ST(0) register. The two-operand version, adds the contents of the ST(0)
+register to the ST(i) register or vice versa. The value in ST(0) can be
+doubled by coding:
+
+        FADD st0, st0
+
+The FADDP instructions perform the additional operation of popping the FPU
+register stack after storing the result. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. (The no-operand version of the floating-point add instructions
+always results in the register stack being popped. In some assemblers, the
+mnemonic for this instruction is FADD rather than FADDP.)
+
+The FIADD instructions convert an integer source operand to extended-real
+format before performing the addition.
+
+When the sum of two operands with opposite signs is 0, the result is +0,
+except for the round toward -infinity mode, in which case the result is -0.
+When the source operand is an integer 0, it is treated as a +0.
+
+When both operand are infinities of the same sign, the result is infinity of
+the expected sign. If both operands are infinities of opposite signs, an
+invalid-operation exception is generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+ C0, C2, C3       Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087           287        387      486     Pentium
+
+ fadd         70-100         70-100     23-34     8-20    3/1     FX
+ fadd  mem32  90-120+EA      90-120     24-32     8-20    3/1     FX
+ fadd  mem64  95-125+EA      95-125     29-37     8-20    3/1     FX
+ faddp        75-105         75-105     23-31     8-20    3/1     FX
+ fiadd mem16  (102-137)+EA  102-137     71-85    20-35    7/4     NP
+ fiadd mem32  (108-143)+EA  108-143     57-72    19-32    7/4     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FBLD
+
+ Ü FBLD - Load binary coded decimal
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Converts the BCD source operand into extended-real format and pushes the
+value onto the FPU stack. The source operand is loaded without rounding
+errors. The sign of the source operand is preserved, including that of -0.
+
+The packed BCD digits are assumed to be in the range 0 through 9; the
+instruction does not check for invalid digits (AH through FH). Attempting to
+load an invalid encoding produces an undefined result.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1         Set to 1 if stack overflow occurred; otherwise,
+            cleared to 0.
+
+ C0, C2, C3 Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ operand      8087         287        387      486     Pentium
+ mem       (290-310)+EA  290-310    266-275   70-103   48-58   NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FBSTP
+
+ Ü FBSTP - Store BCD integer and pop
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Converts the value in the ST(0) register to an 18-digit packed BCD integer,
+stores the result in the destination operand, and pops the register stack. If
+the source value is a non-integral value, it is rounded to an integer value,
+according to rounding mode specified by the RC field of the FPU control word.
+
+To pop the register stack, the processor marks the ST(0) register as empty
+and increments the stack pointer (TOP) by 1.
+
+The destination operand specifies the address where the first byte destination
+value is to be stored. The BCD value (including its sign bit) requires 10
+bytes of space in memory.
+
+The following table shows the results obtained when storing various classes
+of numbers in packed BCD format.
+
+           ST(0)             DESTINATION
+           -Infinity         *
+           -F < -1           -D
+           -1 < -F < -0      **
+           -0                -0
+           +0                +0
+           +0 < +F < +1      **
+           +F > +1           +D
+           +Infinity         *
+           NaN               *
+
+NOTES: F Means finite-real number.
+       D Means packed-BCD number.
+       * Indicates floating-point invalid-operation exception.
+       ** ñ0 or ñ1, depending on the rounding mode.
+
+If the source value is too large for the destination format and the
+invalid-operation exception is not masked, an invalid-operation exception is
+generated and no value is stored in the destination operand. If the
+invalid-operation exception is masked, the packed BCD indefinite value is
+stored in memory.
+
+If the source value is a quiet NaN, an invalid-operation exception is
+generated. Quiet NaNs do not normally cause this exception to be generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the inexact
+                  exception is generated: 0 = not roundup;
+                  1 = roundup.
+
+C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+    8087         287        387      486     Pentium
+ (520-540)+EA  520-540    512-534  172-176   148-154 NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCHS
+
+ Ü FCHS - Change sign
+ ßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Complements the sign bit of ST(0). This operation changes a positive value
+into a negative value of equal magnitude or vice versa. The following table
+shows the results obtained when changing the sign of various classes of
+numbers.
+
+                ST(0) SOURCE            ST(0) DESTINATION
+                -Infinity               +Infinity
+                -F                      +F
+                -0                      +0
+                +0                      -0
+                +F                      -F
+                +Infinity               -Infinity
+                NaN                     NaN
+
+NOTE: F Means finite-real number.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred; otherwise,
+                  cleared to 0.
+
+C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 10-17        10-17      24-25      6       1      FX
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCLEX
+
+ Ü FCLEX/FNCLEX - Clear exceptions
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Clears the floating-point exception flags (PE, UE, OE, ZE, DE, and IE), the
+exception summary status flag (ES), the stack fault flag (SF), and the busy
+flag (B) in the FPU status word. The FCLEX instruction checks for and handles
+any pending unmasked floating-point exceptions before clearing the exception
+flags; the FNCLEX instruction does not.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNCLEX instruction to be
+interrupted prior to being executed to handle a pending FPU exception. An
+FNCLEX instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The PE, UE, OE, ZE, DE, IE, ES, SF, and B flags in the FPU status word are
+cleared. The C0, C1, C2, and C3 flags are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ fclex         2-8          2-8        11        7       9      NP
+ fnclex        2-8          2-8        11        7       9      NP
+
+ The wait version (FCLEX) may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCMOVcc
+
+ Ü FCMOVcc - Floating point conditional move (Pentium Pro+)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Tests the status flags in the EFLAGS register and moves the source operand
+(second operand) to the destination operand (first operand) if the given test
+condition is true. The conditions for each mnemonic are given in the shown
+below.
+
+ Instruction            Description
+
+ FCMOVB                 Move if below (CF=1)
+ FCMOVE                 Move if equal (ZF=1)
+ FCMOVBE                Move if below or equal (CF=1 or ZF=1)
+ FCMOVU                 Move if unordered (PF=1)
+ FCMOVNB                Move if not below (CF=0)
+ FCMOVNE                Move if not equal (ZF=0)
+ FCMOVNBE               Move if not below or equal (CF=0 and ZF=0)
+ FCMOVNU                Move if not unordered (PF=0)
+
+The source operand is always in the ST(i) register and the destination
+operand is always ST(0).
+
+The FCMOVcc instructions are useful for optimizing small IF constructions.
+They also help eliminate branching overhead for IF operations and the
+possibility of branch mispredictions by the processor.
+
+A processor may not support the FCMOVcc instructions. Software can check if
+the FCMOVcc instructions are supported by checking the processor's feature
+information with the CPUID instruction (see Help³Integer Opcodes for more
+information). If both the CMOV and FPU feature bits are set, the FCMOVcc
+instructions are supported.
+
+The FCMOVcc instructions were introduced to the Intel Architecture in the
+Pentium Pro processor family and is not available in earlier processors.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+Not available.
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCOM
+
+ Ü FCOM/FCOMP/FCOMPP - Compare real
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Compares the contents of register ST(0) and source value and sets condition
+code flags C0, C2, and C3 in the FPU status word according to the results
+(see the table below). The source operand can be a data register or a memory
+location. If no source operand is given, the value in ST(0) is compared with
+the value in ST(1). The sign of zero is ignored, so that -0.0 = +0.0.
+
+    Condition       C3       C2      C0
+    ST(0) > SRC     0        0       0
+    ST(0) < SRC     0        0       1
+    ST(0) = SRC     1        0       0
+    Unordered*      1        1       1
+
+
+NOTE: * Flags not set if unmasked invalid-arithmetic-operand exception is
+        generated.
+
+This instruction checks the class of the numbers being compared (see {FXAM}).
+If either operand is a NaN or is in an unsupported format, an
+invalid-arithmetic-operand exception is raised and, if the exception is
+masked, the condition flags are set to "unordered." If the
+invalid-arithmetic-operand exception is unmasked, the condition code flags
+are not set.
+
+The FCOMP instruction pops the register stack following the comparison
+operation and the FCOMPP instruction pops the register stack twice following
+the comparison operation. To pop the register stack, the processor marks the
+ST(0) register as empty and increments the stack pointer (TOP) by 1.
+
+The FCOM instructions perform the same operation as the {FUCOM} instructions.
+The only difference is how they handle QNaN operands. The FCOM instructions
+raise an invalid-arithmetic- operand exception when either or both of the
+operands is a NaN value or is in an unsupported format. The {FUCOM}
+instructions perform the same operation as the FCOM instructions, except
+that they do not generate an invalid-arithmetic-operand exception for QNaNs.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   otherwise, cleared to 0.
+
+ C0, C2, C3        See table above.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand      8087         287        387      486     Pentium
+ fcom reg     40-50        40-50       24        4      4/1     FX
+ fcom mem32  (60-70)+EA    60-70       26        4      4/1     FX
+ fcom mem64  (65-75)+EA    65-75       31        4      4/1     FX
+ fcomp        42-52        42-52       26        4      4/1     FX
+ fcompp       45-55        45-55       26        5      4/1     FX
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCOMI
+
+ Ü FCOMI/FCOMIP/FUCOMI/FUCOMPI - Compare real and set EFLAGS (Pentium Pro+)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Compares the contents of register ST(0) and ST(i) and sets the status flags
+ZF, PF, and CF in the EFLAGS register according to the results (see the table
+below). The sign of zero is ignored for comparisons, so that -0.0 = +0.0.
+
+   Comparison Results    ZF    PF   CF
+   ST0 > ST(i)           0     0    0
+   ST0 < ST(i)           0     0    1
+   ST0 = ST(i)           1     0    0
+   Unordered*            1     1    1
+
+ NOTE: * Flags not set if unmasked invalid-arithmetic-operand exception is
+         generated.
+
+The FCOMI/FCOMIP instructions perform the same operation as the FUCOMI/FUCOMIP
+instructions. The only difference is how they handle QNaN operands. The
+FCOMI/FCOMIP instructions set the status flags to "unordered" and generate an
+invalid-arithmetic-operand exception when either or both of the operands is a
+NaN value (SNaN or QNaN) or is in an unsupported format.
+
+The FUCOMI/FUCOMIP instructions perform the same operation as the FCOMI/FCOMIP
+instructions, except that they do not generate an invalid-arithmetic-operand
+exception for QNaNs. See {FXAM} for additional information on unordered
+comparisons.
+
+If invalid-operation exception is unmasked, the status flags are not set if
+the invalid-arithmetic-operand exception is generated.
+
+The FCOMIP and FUCOMIP instructions also pop the register stack following the
+comparison operation. To pop the register stack, the processor marks the ST(0)
+register as empty and increments the stack pointer (TOP) by 1.
+
+The FCOMI/FCOMIP/FUCOMI/FUCOMIP instructions were introduced in the Pentium
+Pro processor family and are not available in earlier processors.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   otherwise, cleared to 0.
+
+ C0, C2, C3        Not affected.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+Not available.
+
+
+ { Back to contents screen:hcContents}
+
+.topic FCOS
+
+ Ü FCOS - Cosine (387+)
+ ßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates the cosine of the source operand in register ST(0) and stores the
+result in ST(0). The source operand must be given in radians and must be
+within the range -2^63 to +2^63 . The following table shows the results
+obtained when taking the cosine of various classes of numbers, assuming that
+neither overflow nor underflow occurs.
+
+                 ST(0) SOURCE         ST(0) DESTINATION
+                 -Infinity            *
+                 -F                   -1 to +1
+                 -0                   +1
+                 +0                   +1
+                 +F                   -1 to +1
+                 +Infinity            *
+                 NaN                  NaN
+
+NOTES: F Means finite-real number.
+       * Indicates floating-point invalid-arithmetic-operand exception.
+
+If the source operand is outside the acceptable range, the C2 flag in the FPU
+status word is set, and the value in register ST(0) remains unchanged. The
+instruction does not raise an exception when the source operand is out of
+range. It is up to the program to check the C2 flag for out-of-range
+conditions. Source values outside the range -2^63 to +2^63 can be reduced to
+the range of the instruction by subtracting an appropriate integer multiple
+of 2PI or by using the {FPREM} instruction with a divisor of 2PI.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+                  Undefined if C2 is 1.
+
+ C2               Set to 1 if source operand is outside
+                  the range -2^63 to +2^63 ; otherwise,
+                  cleared to 0.
+
+ C0, C3           Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  -            -       123-772  257-354   18-124  NP
+
+  Additional cycles required if operand > pi / 4 (~3.141/4 = ~.785)
+
+
+ { Back to contents screen:hcContents}
+
+.topic FDECSTP
+
+ Ü FDECSTP - Decrement floating point stack pointer
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Subtracts one from the TOP field of the FPU status word (decrements the
+top-of-stack pointer). If the TOP field contains a 0, it is set to 7. The
+effect of this instruction is to rotate the stack by one position. The
+contents of the FPU data registers and tag register are not affected.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C1 flag is set to 0; otherwise, cleared to 0. The C0, C2, and C3 flags
+are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+ 6-12         6-12       22        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FDISI
+
+ Ü FDISI/FNDISI - Disable interrupts (8087 only)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+This instruction is only supported by the 8087 FPU, all subsequent processors
+perform an {FNOP} instruction.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+Not available.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ fdisi         2-8           2          2        3       1      NP
+ fndisi        2-8           2          2        3       1      NP
+
+ Note: The wait version (FDISI) may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FDIV
+
+ Ü FDIV/FDIVP/FIDIV - Divide
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Divides the destination operand by the source operand and stores the result
+in the destination location. The destination operand (dividend) is always in
+an FPU register; the source operand (divisor) can be a register or a memory
+location. Source operands in memory can be in single-real, double-real,
+word-integer, or short-integer formats.
+
+The no-operand version of the instruction divides the contents of the ST(1)
+register by the contents of the ST(0) register. The one-operand version
+divides the contents of the ST(0) register by the contents of a memory
+location (either a real or an integer value). The two-operand version,
+divides the contents of the ST(0) register by the contents of the ST(i)
+register or vice versa.
+
+The FDIVP instructions perform the additional operation of popping the FPU
+register stack after storing the result. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. The no-operand version of the floating-point divide instructions
+always results in the register stack being popped. In some assemblers, the
+mnemonic for this instruction is FDIV rather than FDIVP.
+
+The FIDIV instructions convert an integer source operand to extended-real
+format before performing the division. When the source operand is an integer
+0, it is treated as a +0.
+
+If an unmasked divide by zero exception is generated, no result is stored;
+if the exception is masked, an infinity of the appropriate sign is stored in
+the destination operand.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception is generated:
+                   0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand         8087         287        387      46     Pentiu/m
+ fdiv reg      193-203      193-203     88-91     73      39      FX
+ fdiv mem32   (215-225)+EA  215-225      89       73      39      FX
+ fdiv mem64   (220-230)+EA  220-230      94       73      39      FX
+ fdivp         197-207      197-207      91       73      39      FX
+ fidiv mem16  (224-238)+EA  224-238    136-140   85-89    42      NP
+ fidiv mem32  (230-243)+EA  230-243    120-127   84-86    42      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FDIVR
+
+ Ü FDIVR/FDIVRP/FIDIVR - Reverse divide
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Divides the source operand by the destination operand and stores the result
+in the destination location. The destination operand (divisor) is always in
+an FPU register; the source operand (dividend) can be a register or a memory
+location. Source operands in memory can be in single-real, double-real,
+word-integer, or short-integer formats.
+
+These instructions perform the reverse operations of the {FDIV}, {FDIVP:FDIV},
+and {FIDIV:FDIV} instructions. They are provided to support more efficient
+coding.
+
+The no-operand version of the instruction divides the contents of the ST(0)
+register by the contents of the ST(1) register. The one-operand version
+divides the contents of a memory loca-tion (either a real or an integer value)
+by the contents of the ST(0) register. The two-operand version, divides the
+contents of the ST(i) register by the contents of the ST(0) register or vice
+versa.
+
+The FDIVRP instructions perform the additional operation of popping the FPU
+register stack after storing the result. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. The no-operand version of the floating-point divide instructions
+always results in the register stack being popped. In some assemblers, the
+mnemonic for this instruction is FDIVR rather than FDIVRP.
+
+The FIDIVR instructions convert an integer source operand to extended-real
+format before performing the division.
+
+If an unmasked divide by zero exception is generated, no result is stored;
+if the exception is masked, an infinity of the appropriate sign is stored in
+the destination operand.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception is generated:
+                   0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand          8087         287        387      486     Pentium
+ fdivr reg      194-204      194-204     88-91     73      39      FX
+ fdivr mem32   (216-226)+EA  216-226      89       73      39      FX
+ fdivr mem64   (221-231)+EA  221-231      94       73      39      FX
+ fdivrp         198-208      198-208      91       73      39      FX
+ fidivr mem16  (225-239)+EA  225-239    135-141   85-89    42      NP
+ fidivr mem32  (231-245)+EA  231-245    121-128   84-86    42      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FENI
+
+ Ü FENI/FNENI - Enable interrupts (8087 only)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+This instruction is only supported by the 8087 FPU, all subsequent processors
+perform an {FNOP} instruction.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+Not available.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ feni          2-8           2          2        3       1      NP
+ fneni         2-8           2          2        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FFREE
+
+ Ü FFREE - Free floating point register
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Sets the tag in the FPU tag register associated with register ST(i) to empty
+(11B). The contents of ST(i) and the FPU stack-top pointer (TOP) are not
+affected.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C0, C1, C2, C3 undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+ 9-16         9-16       18        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FICOM
+
+ Ü FICOM/FICOMP - Compare integer
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Compares the value in ST(0) with an integer source operand and sets the
+condition code flags C0, C2, and C3 in the FPU status word according to the
+results (see table below). The integer value is converted to extended-real
+format before the comparison is made.
+
+ Condition                   C3      C2      C0
+ ST(0) > SRC                 0       0       0
+ ST(0) < SRC                 0       0       1
+ ST(0) = SRC                 1       0       0
+ Unordered                   1       1       1
+
+These instructions perform an "unordered comparison." An unordered comparison
+also checks the class of the numbers being compared (see {FXAM}). If either
+operand is a NaN or is in an undefined format, the condition flags are set to
+"unordered."
+
+The sign of zero is ignored, so that -0.0 = +0.0.
+
+The FICOMP instructions pop the register stack following the comparison. To
+pop the register stack, the processor marks the ST(0) register empty and
+increments the stack pointer (TOP) by 1.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   otherwise, set to 0.
+
+ C0, C2, C3        See table above.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand        8087         287        387      486     Pentium
+ ficom  mem16  (72-86)+EA   72-86      71-75    16-20    8/4     NP
+ ficom  mem32  (78-91)+EA   78-91      56-63    15-17    8/4     NP
+ ficomp mem16  (74-88)+EA   74-88      71-75    16-20    8/4     NP
+ ficomp mem32  (80-93)+EA   80-93      56-63    15-17    8/4     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FILD
+
+ Ü FILD - Load integer
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Converts the signed-integer source operand into extended-real format and
+pushes the value onto the FPU register stack. The source operand can be a
+word, short, or long integer value. It is loaded without rounding errors.
+The sign of the source operand is preserved.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 1 if stack overflow occurred;
+                   cleared to 0 otherwise.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ operand      8087         287        387      486     Pentium
+ mem16      (46-54)+EA    46-54      61-65    13-16    3/1     NP
+ mem32      (52-60)+EA    52-60      45-52     9-12    3/1     NP
+ mem64      (60-68)+EA    60-68      56-67    10-18    3/1     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FINCSTP
+
+ Ü FINCSTP - Increment floating point stack pointer
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Adds one to the TOP field of the FPU status word (increments the top-of-stack
+pointer). If the TOP field contains a 7, it is set to 0. The effect of this
+instruction is to rotate the stack by one position. The contents of the FPU
+data registers and tag register are not affected. This operation is not
+equivalent to popping the stack, because the tag for the previous top-of-stack
+register is not marked empty.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C1 flag is set to 0; otherwise, cleared to 0. The C0, C2, and C3 flags
+are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+ 6-12         6-12       21        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FINIT
+
+ Ü FINIT/FNINIT - Initialise floating point unit
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Sets the FPU control, status, tag, instruction pointer, and data pointer
+registers to their default states. The FPU control word is set to 037FH
+(round to nearest, all exceptions masked, 64-bit precision). The status word
+is cleared (no exception flags set, TOP is set to 0). The data registers in
+the register stack are left unchanged, but they are all tagged as empty (11B).
+Both the instruction and data pointers are cleared.
+
+The FINIT instruction checks for and handles any pending unmasked
+floating-point exceptions before performing the initialization; the FNINIT
+instruction does not.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNINIT instruction to be
+interrupted prior to being executed to handle a pending FPU exception. An
+FNINIT instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+In the 387 maths coprocessor, the FINIT/FNINIT instruction does not clear
+the instruction and data pointers.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C0, C1, C2, C3 cleared to 0.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ finit         2-8          2-8        33       17      16      NP
+ fninit        2-8          2-8        33       17      12      NP
+
+ Note: The wait version (FINIT) may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FIST
+
+ Ü FIST/FISTP - Store integer
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+The FIST instruction converts the value in the ST(0) register to a signed
+integer and stores the result in the destination operand. Values can be stored
+in word- or short-integer format. The destination operand specifies the
+address where the first byte of the destination value is to be stored.
+
+The FISTP instruction performs the same operation as the FIST instruction and
+then pops the register stack. To pop the register stack, the processor marks
+the ST(0) register as empty and increments the stack pointer (TOP) by 1. The
+FISTP instruction can also stores values in long-integer format.
+
+The following table shows the results obtained when storing various classes
+of numbers in integer format.
+
+      ST(0)                  DESTINATION
+      -Infinity              *
+      -F < -1                -I
+      -1 < -F < -0           **
+      -0                     0
+      +0                     0
+      +0 < +F < +1           **
+      +F > +1                +I
+      +Infinity              *
+      NaN                    *
+
+NOTES: F  Means finite-real number.
+       I  Means integer.
+       *  Indicates floating-point invalid-operation (#IA) exception.
+       ** 0 or ñ1, depending on the rounding mode.
+
+If the source value is a non-integral value, it is rounded to an integer value,
+according to the rounding mode specified by the RC field of the FPU control
+word.
+
+If the value being stored is too large for the destination format, is an
+infinity, is a NaN, or is in an unsupported format and if the
+invalid-arithmetic-operand exception is unmasked, an invalid-operation
+exception is generated and no value is stored in the destination operand. If
+the invalid-operation exception is masked, the integer indefinite value is
+stored in the destination operand.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction of if the
+                   inexact exception is generated:
+                   0 = not roundup; 1 = roundup.
+                   Cleared to 0 otherwise.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ fist  mem16  (80-90)+EA   80-90      82-95    29-34     6      NP
+ fist  mem32  (82-92)+EA   82-92      79-93    28-34     6      NP
+ fistp mem16  (82-92)+EA   82-92      82-95    29-34     6      NP
+ fistp mem32  (84-94)+EA   84-94      79-93    28-34     6      NP
+ fistp mem64  (94-105)+EA  94-105     80-97    28-34     6      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FLD
+
+ Ü FLD - Load real
+ ßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Pushes the source operand onto the FPU register stack. If the source operand
+is in single- or double-real format, it is automatically converted to the
+extended-real format before being pushed on the stack.
+
+The FLD instruction can also push the value in a selected FPU register [ST(i)]
+onto the stack. Here, pushing register ST(0) duplicates the stack top.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 1 if stack overflow occurred;
+                   otherwise, cleared to 0.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ operand       8087         287        387      486     Pentium
+ reg          17-22        17-22       14        4       1      FX
+ mem32       (38-56)+EA    38-56       20        3       1      FX
+ mem64       (40-60)+EA    40-60       25        3       1      FX
+ mem80       (53-65)+EA    53-65       44        6       3      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FLD1
+
+ Ü FLD1/FLDL2T/FLDL2E/FLDPI/FLDLG2/FLDLN2/FLDZ - Load constant
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Push one of seven commonly used constants (in extended-real format) onto the
+FPU register stack. The constants that can be loaded with these instructions
+are shown below:
+
+ Instruction            Description
+ FLD1                   Push +1.0 onto the FPU register stack.
+ FLDL2T                 Push log (base 2) 10 onto the FPU register stack.
+ FLDL2E                 Push log (base 2) e onto the FPU register stack.
+ FLDPI                  Push pi onto the FPU register stack.
+ FLDLG2                 Push log (base 10) 2 onto the FPU register stack.
+ FLDLN2                 Push log (base e) 2 onto the FPU register stack.
+ FLDZ                   Push +0.0 onto the FPU register stack.
+
+For each constant, an internal 66-bit constant is rounded (as specified by
+the RC field in the FPU control word) to external-real format. The
+inexact-result exception is not generated as a result of the rounding.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 1 if stack overflow occurred;
+                   otherwise, cleared to 0.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ fldz         11-17        11-17       20        4       2      NP
+ fld1         15-21        15-21       24        4       2      NP
+ fldl2e       15-21        15-21       40        8      5/3     NP
+ fldl2t       16-22        16-22       40        8      5/3     NP
+ fldlg2       18-24        18-24       41        8      5/3     NP
+ fldln2       17-23        17-23       41        8      5/3     NP
+ fldpi        16-22        16-22       40        8      5/3     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FLDCW
+
+ Ü FLDCW - Load control word
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Loads the 16-bit source operand into the FPU control word. The source operand
+is a memory location. This instruction is typically used to establish or
+change the FPU's mode of operation.
+
+If one or more exception flags are set in the FPU status word prior to loading
+a new FPU control word and the new control word unmasks one or more of those
+exceptions, a floating-point exception will be generated upon execution of
+the next floating-point instruction (except for the no-wait floating-point
+instructions). To avoid raising exceptions when changing FPU operating modes,
+clear any pending exceptions (using the {FCLEX} or {FNCLEX:FCLEX} instruction)
+before loading the new control word.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C0, C1, C2, C3 undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ operand     8087         287        387      486     Pentium
+ mem16      (7-14)+EA     7-14       19        4       7      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FLDENV
+
+ Ü FLDENV - Load FPU environment
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Loads the complete FPU operating environment from memory into the FPU registers.
+The source operand specifies the first byte of the operating-environment data
+in memory. This data is typically written to the specified memory location by
+a {FSTENV} or {FNSTENV:FSTENV} instruction.
+
+The FPU operating environment consists of the FPU control word, status word,
+tag word, instruction pointer, data pointer, and last opcode.
+
+The FLDENV instruction should be executed in the same operating mode as the
+corresponding {FSTENV/FNSTENV:FSTENV} instruction.
+
+If one or more unmasked exception flags are set in the new FPU status word, a
+floating-point exception will be generated upon execution of the next
+floating-point instruction (except for the no-wait floating-point instructions).
+
+To avoid generating exceptions when loading a new environment, clear all the
+exception flags in the FPU status word that is being loaded.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, C3 flags are loaded.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ operand   8087         287        387      486     Pentium
+ mem     (35-45)+EA    35-45       71      44/34    37/32-33 NP
+
+ NOTE: cycles for real mode/protected mode
+
+
+ { Back to contents screen:hcContents}
+
+.topic FMUL
+
+ Ü FMUL/FMULP/FIMUL - Multiply
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Multiplies the destination and source operands and stores the product in the
+destination location. The destination operand is always an FPU data register;
+the source operand can be an FPU data register or a memory location. Source
+operands in memory can be in single-real, double-real, word-integer, or
+short-integer formats.
+
+The no-operand version of the instruction multiplies the contents of the
+ST(1) register by the contents of the ST(0) register and stores the product
+in the ST(1) register. The one-operand version multiplies the contents of the
+ST(0) register by the contents of a memory location (either a real or an
+integer value) and stores the product in the ST(0) register. The two-operand
+version, multiplies the contents of the ST(0) register by the contents of the
+ST(i) register, or vice versa, with the result being stored in the register
+specified with the first operand (the destination operand).
+
+The FMULP instructions perform the additional operation of popping the FPU
+register stack after storing the product. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. The no-operand version of the floating-point multiply instructions
+always results in the register stack being popped. In some assemblers, the
+mnemonic for this instruction is FMUL rather than FMULP.
+
+The FIMUL instructions convert an integer source operand to extended-real
+format before performing the multiplication.
+
+The sign of the result is always the exclusive-OR of the source signs, even
+if one or more of the values being multiplied is 0 or infinity. When the
+source operand is an integer 0, it is treated as a +0.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception fault is
+                   generated: 0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand         8087         287        387      486     Pentium
+ fmul reg s      90-105       90-105    29-52     16      3/1     FX
+ fmul reg       130-145      130-145    46-57     16      3/1     FX
+ fmul mem32    (110-125)+EA  110-125    27-35     11      3/1     FX
+ fmul mem64    (154-168)+EA  154-168    32-57     14      3/1     FX
+ fmulp reg s     94-108       94-108    29-52     16      3/1     FX
+ fmulp reg      134-148      134-148    29-57     16      3/1     FX
+ fimul mem16   (124-138)+EA  124-138    76-87    23-27    7/4     NP
+ fimul mem32   (130-144)+EA  130-144    61-82    22-24    7/4     NP
+
+ Note: s = register with 40 trailing zeros in fraction
+
+
+ { Back to contents screen:hcContents}
+
+.topic FNOP
+
+ Ü FNOP - No operation
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Performs no FPU operation. This instruction takes up space in the instruction
+stream but does not affect the FPU or machine context, except the EIP register.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C0, C1, C2, C3 undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 10-16        10-16       12        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FPATAN
+
+ Ü FPATAN - Partial arctangent
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Computes the arctangent of the source operand in register ST(1) divided by
+the source operand in register ST(0), stores the result in ST(1), and pops
+the FPU register stack. The result in register ST(0) has the same sign as the
+source operand ST(1) and a magnitude less than +pi
+
+The FPATAN instruction returns the angle between the X axis and the line from
+the origin to the point (X,Y), where Y (the ordinate) is ST(1) and X (the
+abscissa) is ST(0). The angle depends on the sign of X and Y independently,
+not just on the sign of the ratio Y/X. This is because a point (-X,Y) is in
+the second quadrant, resulting in an angle between pi/2 and pi, while a point
+(X,-Y) is in the fourth quadrant, resulting in an angle between 0 and -pi/2.
+A point (-X,-Y) is in the third quadrant, giving an angle between -pi/2 and
+-pi.
+
+There is no restriction on the range of source operands that FPATAN can
+accept.
+
+The source operands for this instruction are restricted for the 80287 math
+coprocessor to the following range:
+
+ 0 <= |ST(1)| < |ST(0)| < +Infinity
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+ C0, C2, C3       Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 250-800      250-800    314-487  218-303   17-173
+
+
+ { Back to contents screen:hcContents}
+
+.topic FPREM
+
+ Ü FPREM - Partial remainder
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Computes the remainder obtained from dividing the value in the ST(0) register
+(the dividend) by the value in the ST(1) register (the divisor or modulus),
+and stores the result in ST(0). The remainder represents the following value:
+
+ Remainder = ST(0) - (Q * ST(1))
+
+Here, Q is an integer value that is obtained by truncating the real-number
+quotient of [ST(0) / ST(1)] toward zero. The sign of the remainder is the
+same as the sign of the dividend. The magnitude of the remainder is less than
+that of the modulus, unless a partial remainder was computed (as described
+below).
+
+This instruction produces an exact result; the precision (inexact) exception
+does not occur and the rounding control has no effect.
+
+When the result is 0, its sign is the same as that of the dividend. When the
+modulus is infinity, the result is equal to the value in ST(0).
+
+The FPREM instruction does not compute the remainder specified in IEEE Std
+754. The IEEE specified remainder can be computed with the {FPREM1} instruction.
+The FPREM instruction is provided for compatibility with the Intel 8087 and
+Intel287 math coprocessors.
+
+The FPREM instruction gets its name "partial remainder" because of the way it
+computes the remainder. This instructions arrives at a remainder through
+iterative subtraction. It can, however, reduce the exponent of ST(0) by no
+more than 63 in one execution of the instruction. If the instruction succeeds
+in producing a remainder that is less than the modulus, the operation is
+complete and the C2 flag in the FPU status word is cleared. Otherwise, C2 is
+set, and the result in ST(0) is called the partial remainder. The exponent of
+the partial remainder will be less than the exponent of the original dividend
+by at least 32. Software can re-execute the instruction (using the partial
+remainder in ST(0) as the dividend) until C2 is cleared. (Note that while
+executing such a remainder-computation loop, a higher-priority interrupting
+routine that needs the FPU can force a context switch in-between the
+instructions in the loop.)
+
+An important use of the FPREM instruction is to reduce the arguments of
+periodic functions. When reduction is complete, the instruction stores the
+three least-significant bits of the quotient in the C3, C1, and C0 flags of
+the FPU status word. This information is important in argument reduction for
+the tangent function (using a modulus of pi/4), because it locates the
+original angle in the correct one of eight sectors of the unit circle.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C0    Set to bit 2 (Q2) of the quotient.
+
+ C1    Set to 0 if stack underflow occurred;
+       otherwise, set to least significant bit
+       of quotient (Q0).
+
+ C2    Set to 0 if reduction complete; set to
+       1 if incomplete.
+
+ C3    Set to bit 1 (Q1) of the quotient.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 15-190       15-190     74-155   70-138   16-64   NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FPREM1
+
+ Ü FPREM1 - Partial remainder IEEE compatible (387+)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Computes the IEEE remainder obtained from dividing the value in the ST(0)
+register (the dividend) by the value in the ST(1) register (the divisor or
+modulus), and stores the result in ST(0). The remainder represents the
+following value:
+
+ Remainder = ST(0) - (Q * ST(1))
+
+Here, Q is an integer value that is obtained by rounding the real-number
+quotient of [ST(0) / ST(1)] toward the nearest integer value. The magnitude
+of the remainder is less than half the magnitude of the modulus, unless a
+partial remainder was computed (as described below).
+
+This instruction produces an exact result; the precision (inexact) exception
+does not occur and the rounding control has no effect.
+
+When the result is 0, its sign is the same as that of the dividend. When the
+modulus is infinity, the result is equal to the value in ST(0).
+
+The FPREM1 instruction computes the remainder specified in IEEE Std 754. This
+instruction operates differently from the {FPREM} instruction in the way that
+it rounds the quotient of ST(0) divided by ST(1) to an integer.
+
+Like the {FPREM} instruction, the FPREM1 computes the remainder through
+iterative subtraction, but can reduce the exponent of ST(0) by no more than
+63 in one execution of the instruction. If the instruction succeeds in
+producing a remainder that is less than one half the modulus, the operation
+is complete and the C2 flag in the FPU status word is cleared. Otherwise, C2
+is set, and the result in ST(0) is called the partial remainder. The exponent
+of the partial remainder will be less than the exponent of the original
+dividend by at least 32. Software can re-execute the instruction (using the
+partial remainder in ST(0) as the dividend) until C2 is cleared. (Note that
+while executing such a remainder-computation loop, a higher-priority
+interrupting routine that needs the FPU can force a context switch in-between
+the instructions in the loop.)
+
+An important use of the FPREM1 instruction is to reduce the arguments of
+periodic functions. When reduction is complete, the instruction stores the
+three least-significant bits of the quotient in the C3, C1, and C0 flags of
+the FPU status word. This information is important in argument reduction for
+the tangent function (using a modulus of pi/4), because it locates the
+original angle in the correct one of eight sectors of the unit circle.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C0    Set to bit 2 (Q2) of the quotient.
+
+ C1    Set to 0 if stack underflow occurred;
+       otherwise, set to least significant
+       bit of quotient (Q0).
+
+ C2    Set to 0 if reduction complete; set
+       to 1 if incomplete.
+
+ C3    Set to bit 1 (Q1) of the quotient.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  -            -        95-185   72-167   20-70   NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FPTAN
+
+ Ü FPTAN - Partial tangent
+ ßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Computes the tangent of the source operand in register ST(0), stores the
+result in ST(0), and pushes a 1.0 onto the FPU register stack. The source
+operand must be given in radians and must be less than ñ2^63 . The following
+table shows the unmasked results obtained when computing the partial tangent
+of various classes of numbers, assuming that underflow does not occur.
+
+           ST(0) SOURCE                 ST(0) DESTINATION
+           -Infinity                    *
+           -F                           -F to +F
+           -0                           -0
+           +0                           +0
+           +F                           -F to +F
+           +Infinity                    *
+           NaN                          NaN
+
+NOTES: F Means finite-real number.
+       * Indicates floating-point invalid-arithmetic-operand exception.
+
+
+If the source operand is outside the acceptable range, the C2 flag in the FPU
+status word is set, and the value in register ST(0) remains unchanged. The
+instruction does not raise an exception when the source operand is out of
+range. It is up to the program to check the C2 flag for out-of-range
+conditions. Source values outside the range -2^63 to +2^63 can be reduced to
+the range of the instruction by subtracting an appropriate integer multiple
+of 2pi or by using the {FPREM} instruction with a divisor of 2pi.
+
+The value 1.0 is pushed onto the register stack after the tangent has been
+computed to maintain compatibility with the Intel 8087 and Intel287 math
+coprocessors. This operation also simplifies the calculation of other
+trigonometric functions. For instance, the cotangent (which is the reciprocal
+of the tangent) can be computed by executing a {FDIVR} instruction after the
+FPTAN instruction.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred;
+                  set to 1 if stack overflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+ C2               Set to 1 if source operand is outside
+                  the range -2^63 to +2^63 ; otherwise,
+                  cleared to 0.
+
+ C0, C3           Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 30-540       30-540    191-497  200-273   17-173  NP
+
+ Note: additional cycles required if operand > pi/4 (~3.141/4 = ~.785)
+
+
+ { Back to contents screen:hcContents}
+
+.topic FRNDINT
+
+ Ü FRNDINT - Round to integer
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Rounds the source value in the ST(0) register to the nearest integral value,
+depending on the current rounding mode (setting of the RC field of the FPU
+control word), and stores the result in ST(0).
+
+If the source value is infinity, the value is not changed. If the source
+value is not an integral value, the floating-point inexact-result exception
+is generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception is generated:
+                   0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+ 16-50        16-50      66-80    21-30    9-20    NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FRSTOR
+
+ Ü FRSTOR - Restore FPU state
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Loads the FPU state (operating environment and register stack) from the
+memory area specified with the source operand. This state data is typically
+written to the specified memory location by a previous {FSAVE/FNSAVE:FSAVE}
+instruction.
+
+The FPU operating environment consists of the FPU control word, status word,
+tag word, instruction pointer, data pointer, and last opcode.
+
+The FRSTOR instruction should be executed in the same operating mode as the
+corresponding {FSAVE/FNSAVE:FSAVE} instruction.
+
+If one or more unmasked exception bits are set in the new FPU status word, a
+floating-point exception will be generated. To avoid raising exceptions when
+loading a new operating environment, clear all the exception flags in the FPU
+status word that is being loaded.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, C3 flags are loaded.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ frstor  mem  (197-207)+EA 197-207     308    131/120   75-95/70 NP
+ frstorw mem    -            -         308    131/120   75-95/70 NP
+ frstord mem    -            -         308    131/120   75-95/70 NP
+
+ Note: cycles for real mode/protected mode
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSAVE
+
+ Ü FSAVE/FNSAVE - Store FPU state
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Stores the current FPU state (operating environment and register stack) at
+the specified destination in memory, and then re-initializes the FPU. The
+FSAVE instruction checks for and handles pending unmasked floating-point
+exceptions before storing the FPU state; the FNSAVE instruction does not.
+
+The FPU operating environment consists of the FPU control word, status word,
+tag word, instruction pointer, data pointer, and last opcode. The contents of
+the FPU register stack are stored in the 80 bytes immediately follow the
+operating environment image.
+
+The saved image reflects the state of the FPU after all floating-point
+instructions preceding the FSAVE/FNSAVE instruction in the instruction stream
+have been executed.
+
+After the FPU state has been saved, the FPU is reset to the same default
+values it is set to with the {FINIT/FNINIT:FINIT} instructions.
+
+The FSAVE/FNSAVE instructions are typically used when the operating system
+needs to perform a context switch, an exception handler needs to use the FPU,
+or an application program needs to pass a "clean" FPU to a procedure.
+
+For Intel math coprocessors and FPUs prior to the Intel Pentium processor, an
+{FWAIT} instruction should be executed before attempting to read from the
+memory image stored with a prior FSAVE/FNSAVE instruction. This {FWAIT}
+instruction helps insure that the storage operation has been completed.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNSAVE instruction to be
+interrupted prior to being executed to handle a pending FPU exception. An
+FNSAVE instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, and C3 flags are saved and then cleared.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ fsave      (197-207)+EA  197-207    375-376  154/143  127-151/124 NP
+ fsavew         -            -       375-376  154/143  127-151/124 NP
+ fsaved         -            -       375-376  154/143  127-151/124 NP
+ fnsave     (197-207)+EA  197-207    375-376  154/143  127-151/124 NP
+ fnsavew        -            -       375-376  154/143  127-151/124 NP
+ fnsaved        -            -       375-376  154/143  127-151/124 NP
+
+ Note: Cycles for real mode/protected mode
+       The wait version may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSCALE
+
+ Ü FSCALE - Scale
+ ßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Multiplies the destination operand by 2 to the power of the source operand
+and stores the result in the destination operand. The destination operand is
+a real value that is located in register ST(0). The source operand is the
+nearest integer value that is smaller than the value in the ST(1) register
+(that is, the value in register ST(1) is truncated toward 0 to its nearest
+integer value to form the source operand). This instruction provides rapid
+multiplication or division by integral powers of 2 because it is implemented
+by simply adding an integer value (the source operand) to the exponent of the
+value in register ST(0).
+
+In most cases, only the exponent is changed and the mantissa (significand)
+remains unchanged. However, when the value being scaled in ST(0) is a
+denormal value, the mantissa is also changed and the result may turn out to
+be a normalized number. Similarly, if overflow or underflow results from a
+scale operation, the resulting mantissa will differ from the source's
+mantissa.
+
+The FSCALE instruction can also be used to reverse the action of the {FXTRACT}
+instruction, as shown in the following example:
+
+ FXTRACT
+ FSCALE
+ FSTP st1
+
+In this example, the FXTRACT instruction extracts the significand and
+exponent from the value in ST(0) and stores them in ST(0) and ST(1)
+respectively. The FSCALE then scales the significand in ST(0) by the exponent
+in ST(1), recreating the original value before the FXTRACT operation was
+performed. The FSTP ST(1) instruction overwrites the exponent (extracted by
+the FXTRACT instruction) with the recreated value, which returns the stack
+to its original state with only one register [ST(0)] occupied.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 32-38        32-38      67-86    30-32    20-31   NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSETPM
+
+ Ü FSETPM - Set protected mode (287 only)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+This opcode is only supported by the 287 FPU, all subsequent processors
+perform no operation ({FNOP}).
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+Not available.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  -           2-8        12        3       1      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSIN
+
+ Ü FSIN - Sine (387+)
+ ßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates the sine of the source operand in register ST(0) and stores the
+result in ST(0). The source operand must be given in radians and must be
+within the range -2^63 to +2^63 . The following table shows the results
+obtained when taking the sine of various classes of numbers, assuming that
+underflow does not occur.
+
+          SOURCE (ST(0))        DESTINATION (ST(0))
+          -Infinity             *
+          -F                    -1 to +1
+          -0                    -0
+          +0                    +0
+          +F                    -1 to +1
+          +Infinity             *
+          NaN                   NaN
+
+NOTES: F Means finite-real number.
+       * Indicates floating-point invalid-arithmetic-operand
+         exception.
+
+
+If the source operand is outside the acceptable range, the C2 flag in the FPU
+status word is set, and the value in register ST(0) remains unchanged. The
+instruction does not raise an exception when the source operand is out of
+range. It is up to the program to check the C2 flag for out-of-range
+conditions. Source values outside the range -2^63 to +2^63 can be reduced to
+the range of the instruction by subtracting an appropriate integer multiple
+of 2pi or by using the {FPREM} instruction with a divisor of 2pi.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+C2                Set to 1 if source operand is outside
+                  the range -2^63 to +2^63 ; otherwise,
+                  cleared to 0.
+
+C0, C3            Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  -            -       122-771  257-354   16-126  NP
+
+ Note : Additional cycles required if operand > pi/4 (~3.141/4 = ~.785)
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSINCOS
+
+ Ü FSINCOS - Sine and cosine (387+)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Computes both the sine and the cosine of the source operand in register ST(0),
+stores the sine in ST(0), and pushes the cosine onto the top of the FPU
+register stack. (This instruction is faster than executing the {FSIN} and
+{FCOS} instructions in succession.)
+
+The source operand must be given in radians and must be within the range
+-2^63 to +2^63 . The following table shows the results obtained when taking
+the sine and cosine of various classes of numbers, assuming that underflow
+does not occur.
+
+     SOURCE                     DESTINATION
+      ST(0)         ST(1) Cosine           ST(0) Sine
+
+     -Infinity      *                      *
+     -F             -1 to +1               -1 to +1
+     -0             +1                     -0
+     +0             +1                     +0
+     +F             -1 to +1               -1 to +1
+     +Infinity      *                      *
+     NaN            NaN                    NaN
+
+ NOTES: F Means finite-real number.
+        * Indicates floating-point invalid-arithmetic-operand
+          exception.
+
+
+If the source operand is outside the acceptable range, the C2 flag in the FPU
+status word is set, and the value in register ST(0) remains unchanged. The
+instruction does not raise an exception when the source operand is out of
+range. It is up to the program to check the C2 flag for out-of-range conditions.
+Source values outside the range -2^63 to +2^63 can be reduced to the range of
+the instruction by subtracting an appropriate integer multiple of 2pi or by
+using the {FPREM} instruction with a divisor of 2pi.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred;
+                  set to 1 of stack overflow occurs.
+
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+C2                Set to 1 if source operand is outside
+                  the range -2^63 to +2^63 ; otherwise,
+                  cleared to 0.
+
+C0, C3            Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  -            -       194-809  292-365   17-137  NP
+
+Note: Additional cycles required if operand > pi/4 (~3.141/4 = ~.785)
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSQRT
+
+ Ü FSQRT - Square root
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates the square root of the source value in the ST(0) register and
+stores the result in ST(0).
+
+The following table shows the results obtained when taking the square root
+of various classes of numbers, assuming that neither overflow nor underflow
+occurs.
+
+       SOURCE (ST(0))           DESTINATION (ST(0))
+       -Infinity                *
+       -F                       *
+       -0                       -0
+       +0                       +0
+       +F                       +F
+       +Infinity                +Infinity
+       NaN                      NaN
+
+ NOTES: F Means finite-real number.
+        * Indicates floating-point invalid-arithmetic-operand
+          exception.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if
+                   inexact-result exception is generated:
+                   0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+   8087         287        387      486     Pentium
+ 180-186      180-186    122-129   83-87    70      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FST
+
+ Ü FST/FSTP - Store real
+ ßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+The FST instruction copies the value in the ST(0) register to the destination
+operand, which can be a memory location or another register in the FPU
+register stack. When storing the value in memory, the value is converted to
+single- or double-real format.
+
+The FSTP instruction performs the same operation as the FST instruction and
+then pops the register stack. To pop the register stack, the processor marks
+the ST(0) register as empty and increments the stack pointer (TOP) by 1. The
+FSTP instruction can also store values in memory in extended-real format.
+
+If the destination operand is a memory location, the operand specifies the
+address where the first byte of the destination value is to be stored. If the
+destination operand is a register, the operand specifies a register in the
+register stack relative to the top of the stack.
+
+If the destination size is single- or double-real, the significand of the
+value being stored is rounded to the width of the destination (according to
+rounding mode specified by the RC field of the FPU control word), and the
+exponent is converted to the width and bias of the destination format. If the
+value being stored is too large for the destination format, a numeric
+overflow exception is generated and, if the exception is unmasked, no value
+is stored in the destination operand. If the value being stored is a denormal
+value, the denormal exception is not generated. This condition is simply
+signaled as a numeric underflow exception condition.
+
+If the value being stored is ñ0, ñinfinity, or a NaN, the least-significant
+bits of the significand and the exponent are truncated to fit the destination
+format. This operation preserves the value's identity as a 0, infinity, or NaN.
+
+If the destination operand is a non-empty register, the invalid-operation
+exception is not generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+C1                Set to 0 if stack underflow occurred.
+                  Indicates rounding direction of if the
+                  floating-point inexact exception is
+                  generated: 0 = not roundup; 1 = roundup.
+
+C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ fst  reg     15-22        15-22       11        3       1      NP
+ fst  mem32  (84-90)+EA    84-90       44        7       2      NP
+ fst  mem64  (96-104)+EA   96-104      45        8       2      NP
+ fstp reg     17-24        17-24       12        3       1      NP
+ fstp mem32  (86-92)+EA    86-92       44        7       2      NP
+ fstp mem64  (98-106)+EA   98-106      45        8       2      NP
+ fstp mem80  (52-58)+EA    52-58       53        6       3      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSTCW
+
+ Ü FSTCW/FNSTCW - Store control word
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Stores the current value of the FPU control word at the specified destination
+in memory. The FSTCW instruction checks for and handles pending unmasked
+floating-point exceptions before storing the control word; the FNSTCW
+instruction does not.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNSTCW instruction to be
+interrupted prior to being executed to handle a pending FPU exception.
+An FNSTCW instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, and C3 flags are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ fstcw  mem   12-18        12-18       15        3       2      NP
+ fnstcw mem   12-18        12-18       15        3       2      NP
+
+ Note: The wait version (FSTCW) may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSTENV
+
+ Ü FSTENV/FNSTENV - Store FPU environment
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Saves the current FPU operating environment at the memory location specified
+with the destination operand, and then masks all floating-point exceptions.
+The FPU operating environment consists of the FPU control word, status word,
+tag word, instruction pointer, data pointer, and last opcode.
+
+The FSTENV instruction checks for and handles any pending unmasked
+floating-point exceptions before storing the FPU environment; the FNSTENV
+instruction does not. The saved image reflects the state of the FPU after all
+floating-point instructions preceding the FSTENV/FNSTENV instruction in the
+instruction stream have been executed.
+
+These instructions are often used by exception handlers because they provide
+access to the FPU instruction and data pointers. The environment is typically
+saved in the stack. Masking all exceptions after saving the environment
+prevents floating-point exceptions from interrupting the exception handler.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNSTENV instruction to be
+interrupted prior to being executed to handle a pending FPU exception. An
+FNSTENV instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, and C3 are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ fstenv   mem  (40-50)+EA    40-50     103-104   67/56    48-50   NP
+ fstenvw  mem                          103-104   67/56    48-50   NP
+ fstenvd  mem                          103-104   67/56    48-50   NP
+ fnstenv  mem  (40-50)+EA    40-50     103-104   67/56    48-50   NP
+ fnstenvw mem                          103-104   67/56    48-50   NP
+ fnstenvd mem                          103-104   67/56    48-50   NP
+
+ Note: Cycles for real mode/protected mode
+       The wait version may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSTSW
+
+ Ü FSTSW/FNSTSW - Store status word
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Stores the current value of the FPU status word in the destination location.
+The destination operand can be either a two-byte memory location or the AX
+register. The FSTSW instruction checks for and handles pending unmasked
+floating-point exceptions before storing the status word; the FNSTSW
+instruction does not.
+
+The FNSTSW AX form of the instruction is used primarily in conditional
+branching (for instance, after an FPU comparison instruction or an {FPREM},
+{FPREM1}, or {FXAM} instruction), where the direction of the branch depends
+on the state of the FPU condition code flags. This instruction can also be
+used to invoke exception handlers (by examining the exception flags) in
+environments that do not use interrupts. When the FNSTSW AX instruction is
+executed, the AX register is updated before the processor executes any
+further instructions. The status stored in the AX register is thus guaranteed
+to be from the completion of the prior FPU instruction.
+
+When operating a Pentium or 486 processor in MS-DOS compatibility mode, it is
+possible (under unusual circumstances) for an FNSTSW instruction to be
+interrupted prior to being executed to handle a pending FPU exception. An
+FNSTSW instruction cannot be interrupted in this way on a Pentium Pro
+processor.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, and C3 are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087         287        387      486     Pentium
+ fstsw  mem   12-18        12-18       15        3       2      NP
+ fstsw  ax      -          10-16       13        3       2      NP
+ fnstsw mem   12-18        12-18       15        3       2      NP
+ fnstsw ax      -          10-16       13        3       2      NP
+
+ Note: The wait version may take additional cycles
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSUB
+
+ Ü FSUB/FSUBP/FISUB - Subtract
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Subtracts the source operand from the destination operand and stores the
+difference in the destination location. The destination operand is always an
+FPU data register; the source operand can be a register or a memory location.
+Source operands in memory can be in single-real, double-real, word-integer,
+or short-integer formats.
+
+The no-operand version of the instruction subtracts the contents of the ST(0)
+register from the ST(1) register and stores the result in ST(1). The
+one-operand version subtracts the contents of a memory location (either a
+real or an integer value) from the contents of the ST(0) register and stores
+the result in ST(0). The two-operand version, subtracts the contents of the
+ST(0) register from the ST(i) register or vice versa.
+
+The FSUBP instructions perform the additional operation of popping the FPU
+register stack following the subtraction. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. The no-operand version of the floating-point subtract instructions
+always results in the register stack being popped. In some assemblers, the
+mnemonic for this instruction is FSUB rather than FSUBP.
+
+The FISUB instructions convert an integer source operand to extended-real
+format before performing the subtraction.
+
+When the difference between two operands of like sign is 0, the result is +0,
+except for the round toward -infinity mode, in which case the result is -0.
+This instruction also guarantees that +0 - (-0) = +0, and that -0 - (+0) = -0.
+When the source operand is an integer 0, it is treated as a +0.
+
+When one operand is infinity, the result is infinity of the expected sign. If
+both operands are infinity of the same sign, an invalid-operation exception
+is generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception fault is
+                   generated: 0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087          287        387      486     Pentium
+
+ fsub  reg     70-100       70-100     26-37     8-20    3/1     FX
+ fsub  mem32  (90-120)+EA   90-120     24-32     8-20    3/1     FX
+ fsub  mem64  (95-125)+EA   95-125     28-36     8-20    3/1     FX
+ fsubp reg     75-105       75-105     26-34     8-20    3/1     FX
+ fisub mem16 (102-137)+EA  102-137     71-85    20-35    7/4     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FSUBR
+
+ Ü FSUBR/FSUBRP/FISUBR - Reverse subtract
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Subtracts the destination operand from the source operand and stores the
+difference in the destination location. The destination operand is always an
+FPU register; the source operand can be a register or a memory location.
+Source operands in memory can be in single-real, double-real, word-integer,
+or short-integer formats.
+
+These instructions perform the reverse operations of the {FSUB}, {FSUBP:FSUB},
+and {FISUB:FSUB} instructions. They are provided to support more efficient
+coding.
+
+The no-operand version of the instruction subtracts the contents of the ST(1)
+register from the ST(0) register and stores the result in ST(1). The
+one-operand version subtracts the contents of the ST(0) register from the
+contents of a memory location (either a real or an integer value) and stores
+the result in ST(0). The two-operand version, subtracts the contents of the
+ST(i) register from the ST(0) register or vice versa.
+
+The FSUBRP instructions perform the additional operation of popping the FPU
+register stack following the subtraction. To pop the register stack, the
+processor marks the ST(0) register as empty and increments the stack pointer
+(TOP) by 1. The no-operand version of the floating-point reverse subtract
+instructions always results in the register stack being popped. In some
+assemblers, the mnemonic for this instruction is FSUBR rather than FSUBRP.
+
+The FISUBR instructions convert an integer source operand to extended-real
+format before performing the subtraction.
+
+When the difference between two operands of like sign is 0, the result is +0,
+except for the round toward -infinity mode, in which case the result is -0.
+This instruction also guarantees that +0 - (-0) = +0, and that -0 - (+0) = -0.
+When the source operand is an integer 0, it is treated as a +0. When one
+operand is infinity, the result is infinity of the expected sign. If both
+operands are infinity of the same sign, an invalid-operation exception is
+generated.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception fault is
+                   generated: 0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations/
+ operand       8087          287        387      486     Pentium
+
+ fsubr  reg    70-100       70-100     26-37     8-20    3/1     FX
+ fsubr  mem32 (90-120)+EA   90-120     24-32     8-20    3/1     FX
+ fsubr  mem64 (95-125)+EA   95-125     28-36     8-20    3/1     FX
+ fsubrp reg    75-105       75-105     26-34     8-20    3/1     FX
+ fisubr mem32 (108-143)+EA  108-143     57-82    19-32    7/4     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FTST
+
+ Ü FTST - Test
+ ßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Compares the value in the ST(0) register with 0.0 and sets the condition code
+flags C0, C2, and C3 in the FPU status word according to the results (see
+table below).
+
+This instruction performs an "unordered comparison." An unordered comparison
+also checks the class of the numbers being compared (see {FXAM}). If the value
+in register ST(0) is a NaN or is in an undefined format, the condition flags
+are set to "unordered" and the invalid operation exception is generated.
+
+The sign of zero is ignored, so that -0.0 = +0.0.
+
+    Condition           C3       C2      C0
+    ST(0) > 0.0         0        0       0
+    ST(0) < 0.0         0        0       1
+    ST(0) = 0.0         1        0       0
+    Unordered           1        1       1
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   otherwise, cleared to 0.
+
+ C0, C2, C3        See above table.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 38-48        38-48       28        4      4/1     FX
+
+
+ { Back to contents screen:hcContents}
+
+.topic FUCOM
+
+ Ü FUCOM/FUCOMP/FUCOMPP - Unordered compare real (387+)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Performs an unordered comparison of the contents of register ST(0) and ST(i)
+and sets condition code flags C0, C2, and C3 in the FPU status word according
+to the results (see the table below). If no operand is specified, the contents
+of registers ST(0) and ST(1) are compared. The sign of zero is ignored, so
+that -0.0 = +0.0.
+
+     Comparison Results         C3      C2      C0
+     ST0 > ST(i)                0       0       0
+     ST0 < ST(i)                0       0       1
+     ST0 = ST(i)                1       0       0
+     Unordered                  1       1       1
+
+ NOTE: * Flags not set if unmasked invalid-arithmetic-operand
+         exception is generated.
+
+
+An unordered comparison checks the class of the numbers being compared (see
+{FXAM}). The FUCOM instructions perform the same operations as the {FCOM}
+instructions. The only difference is that the FUCOM instructions raise the
+invalid-arithmetic- operand exception only when either or both operands are
+an SNaN or are in an unsupported format; QNaNs cause the condition code flags
+to be set to unordered, but do not cause an exception to be generated. The
+FCOM instructions raise an invalid-operation exception when either or both of
+the operands are a NaN value of any kind or are in an unsupported format.
+
+As with the {FCOM} instructions, if the operation results in an
+invalid-arithmetic-operand exception being raised, the condition code flags
+are set only if the exception is masked.
+
+The FUCOMP instruction pops the register stack following the comparison
+operation and the FUCOMPP instruction pops the register stack twice following
+the comparison operation. To pop the register stack, the processor marks the
+ST(0) register as empty and increments the stack pointer (TOP) by 1.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+
+ C0, C2, C3        See table above.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ variations    8087         287        387      486     Pentium
+ fucom          -            -         24        4      4/1     FX
+ fucomp         -            -         26        4      4/1     FX
+ fucompp        -            -         26        5      4/1     FX
+
+
+ { Back to contents screen:hcContents}
+
+.topic FWAIT
+
+ Ü FWAIT - Wait
+ ßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Causes the processor to check for and handle pending, unmasked, floating-point
+exceptions before proceeding. (FWAIT is an alternate mnemonic for the WAIT
+instruction).
+
+This instruction is useful for synchronizing exceptions in critical sections
+of code. Coding a WAIT instruction after a floating-point instruction insures
+that any unmasked floating-point exceptions the instruction may raise are
+handled before the processor can modify the instruction's results.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+The C0, C1, C2, and C3 flags are undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+ 8087         287        387      486     Pentium
+  4            3          6       1-3     1-3     NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FXAM
+
+ Ü FXAM - Examine
+ ßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Examines the contents of the ST(0) register and sets the condition code flags
+C0, C2, and C3 in the FPU status word to indicate the class of value or
+number in the register (see the table below).
+
+ Class                  C3       C2      C0
+ Unsupported            0        0       0
+ NaN                    0        0       1
+ Normal finite number   0        1       0
+ Infinity               0        1       1
+ Zero                   1        0       0
+ Empty                  1        0       1
+ Denormal number        1        1       0
+
+The C1 flag is set to the sign of the value in ST(0), regardless of whether
+the register is empty or full.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Sign of value in ST(0).
+ C0, C2, C3       See table above.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 12-23        12-23      30-38      8      21      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FXCH
+
+ Ü FXCH - Exchange register contents
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Exchanges the contents of registers ST(0) and ST(i). If no source operand is
+specified, the contents of ST(0) and ST(1) are exchanged.
+
+This instruction provides a simple means of moving values in the FPU register
+stack to the top of the stack [ST(0)], so that they can be operated on by
+those floating-point instructions that can only operate on values in ST(0).
+For example, the following instruction sequence takes the square root of the
+third register from the top of the register stack:
+
+ FXCH st3
+ FSQRT
+ FXCH st3
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred;
+                  otherwise, cleared to 0.
+
+ C0, C2, C3       Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 10-15        10-15       18        4      0-1     *
+
+ Note: * FCXH is pairable in the V pipe with all FX pairable instructions
+
+
+ { Back to contents screen:hcContents}
+
+.topic FXTRACT
+
+ Ü FXTRACT - Extract exponent and significand
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Separates the source value in the ST(0) register into its exponent and
+significand, stores the exponent in ST(0), and pushes the significand onto
+the register stack. Following this operation, the new top-of-stack register
+ST(0) contains the value of the original significand expressed as a real
+number. The sign and significand of this value are the same as those found in
+the source operand, and the exponent is 3FFFH (biased value for a true
+exponent of zero). The ST(1) register contains the value of the original
+operand's true (unbiased) exponent expressed as a real number. (The operation
+performed by this instruction is a superset of the IEEE-recommended logb(x)
+function.)
+
+This instruction and the {F2XM1} instruction are useful for performing power
+and range scaling operations. The FXTRACT instruction is also useful for
+converting numbers in extended-real format to decimal representations (e.g.
+for printing or displaying).
+
+If the floating-point zero-divide exception is masked and the source operand
+is zero, an exponent value of -infinity is stored in register ST(1) and 0
+with the sign of the source operand is stored in register ST(0).
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred;
+                   set to 1 if stack overflow occurred.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+  8087         287        387      486     Pentium
+ 27-55        27-55      70-76    16-20    13      NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FYL2X
+
+ Ü FYL2X - Compute y * log x (base 2)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates (ST(1) * log (base 2) (ST(0))), stores the result in resister ST(1),
+and pops the FPU register stack. The source operand in ST(0) must be a
+non-zero positive number.
+
+If the divide-by-zero exception is masked and register ST(0) contains ñ0, the
+instruction returns infinity with a sign that is the opposite of the sign of
+the source operand in register ST(1).
+
+The FYL2X instruction is designed with a built-in multiplication to optimize
+the calculation of logarithms with an arbitrary positive base (b):
+
+log x = (log (base 2) b) -1 * log (base 2) x
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1               Set to 0 if stack underflow occurred.
+                  Indicates rounding direction if the
+                  inexact-result exception is generated:
+                  0 = not roundup; 1 = roundup.
+
+ C0, C2, C3       Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+    8087         287        387      486     Pentium
+  900-1100     900-1100   120-538  196-329   22-111  NP
+
+
+ { Back to contents screen:hcContents}
+
+.topic FYL2XP1
+
+ Ü FYL2XP1 - Compute y * log (base 2) (x + 1)
+ ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+
+ Ü Description
+ ßßßßßßßßßßßßßß
+
+Calculates the log epsilon (ST(1) * log (base 2) (ST(0) + 1.0)), stores the
+result in register ST(1), and pops the FPU register stack. The source operand
+in ST(0) must be in the range:
+
+ - (1 - SQRT(2) / 2) to (1 - SQRT(2) / 2)
+
+The source operand in ST(1) can range from -infinity to +infinity. If the
+ST(0) operand is outside of its acceptable range, the result is undefined and
+software should not rely on an exception being generated. Under some
+circumstances exceptions may be generated when ST(0) is out of range, but
+this behavior is implementation specific and not guaranteed.
+
+This instruction provides optimal accuracy for values of epsilon [the value
+in register ST(0)] that are close to 0. When the epsilon value (e) is small,
+more significant digits can be retained by using the FYL2XP1 instruction than
+by using (e + 1) as an argument to the {FYL2X} instruction. The (e + 1)
+expression is commonly found in compound interest and annuity calculations.
+The result can be simply converted into a value in another logarithm base by
+including a scale factor in the ST(1) source operand.
+
+
+ Ü Flags affected
+ ßßßßßßßßßßßßßßßßß
+
+ C1                Set to 0 if stack underflow occurred.
+                   Indicates rounding direction if the
+                   inexact-result exception is generated:
+                   0 = not roundup; 1 = roundup.
+
+ C0, C2, C3        Undefined.
+
+
+ Ü Instruction timings
+ ßßßßßßßßßßßßßßßßßßßßßß
+
+   8087         287        387      486     Pentium
+ 700-1000     700-1000   257-547  171-326   22-103  NP
+
+
+ { Back to contents screen:hcContents}
